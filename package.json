@@ -2,6 +2,7 @@
   "name": "corona",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@deck.gl/aggregation-layers": "^8.0.11",
     "@deck.gl/core": "^8.0.11",
