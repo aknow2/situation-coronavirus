@@ -1,7 +1,7 @@
 const dayOf24012020 = {
       day: "2020-01-24",
       addtionalInfo: {
-        deaths: 25,
+        deaths_china: 25,
         countries: 7,
       },
       areas: [
@@ -108,7 +108,7 @@ const dayOf24012020 = {
 const dayOf25012020 = {
       day: "2020-01-25",
       addtionalInfo: {
-        deaths: 41,
+        deaths_china: 41,
         countries: 10,
       },
       areas: [
@@ -159,7 +159,7 @@ const dayOf25012020 = {
 const dayOf26012020 = {
       day: "2020-01-26",
       addtionalInfo: {
-        deaths: 56,
+        deaths_china: 56,
         countries: 11,
       },
       areas: [
@@ -213,9 +213,9 @@ const dayOf26012020 = {
 const dayOf27012020 = {
       day: "2020-01-27",
       addtionalInfo: {
-        deaths: 80,
-        suspected: 5794,
-        severe: 461,       
+        deaths_china: 80,
+        suspected_china: 5794,
+        severe_china: 461,       
         countries: 12,
       },
       areas: [
@@ -284,9 +284,9 @@ const dayOf27012020 = {
 const dayOf28012020 = {
       day: "2020-01-28",
       addtionalInfo: {
-        deaths: 106,
-        suspected: 6973,
-        severe: 976,
+        deaths_china: 106,
+        suspected_china: 6973,
+        severe_china: 976,
         countries: 15,
       },
       areas: [
@@ -367,7 +367,97 @@ const dayOf28012020 = {
         },
       ]
     };
-
+const dayOf29012020 = {
+      day: "2020-01-29",
+      addtionalInfo: {
+        deaths_china: 132,
+        suspected_china: 9239,
+        severe_china: 1239,
+        countries: 16,
+      },
+      areas: [
+        {
+          // china
+          placeId: 21,
+          numOfInfected: 5997,
+        },
+        {
+          // jp
+          placeId: 5,
+          numOfInfected: 7,
+        },
+        {
+          // korea
+          placeId: 6,
+          numOfInfected: 4,
+        },
+        {
+          // vietnum
+          placeId: 22,
+          numOfInfected: 2,
+        },
+        {
+          // singapore
+          placeId: 23,
+          numOfInfected: 7,
+        },
+        {
+          // australia
+          placeId: 24,
+          numOfInfected: 7,
+        },
+        {
+          // Malaysia
+          placeId: 27,
+          numOfInfected: 4,
+        },
+        {
+          // Thailand
+          placeId: 7,
+          numOfInfected: 14,
+        },
+        {
+          // Nepal
+          placeId: 25,
+          numOfInfected: 1,
+        },
+        {
+          // Srilanka
+          placeId: 30,
+          numOfInfected: 1,
+        },
+        {
+          // Cambodia
+          placeId: 32,
+          numOfInfected: 1,
+        },
+        {
+          // usa
+          placeId: 20,
+          numOfInfected: 5,
+        },
+        {
+          // candada
+          placeId: 28,
+          numOfInfected: 3,
+        },
+        {
+          // france
+          placeId: 26,
+          numOfInfected: 4,
+        },
+        {
+          // Germany
+          placeId: 31,
+          numOfInfected: 4,
+        },
+        {
+          // UAE
+          placeId: 33,
+          numOfInfected: 4,
+        },
+      ]
+    };
 const situationData  = {
   places: [
       {
@@ -530,12 +620,17 @@ const situationData  = {
         place: 'Cambodia',
         location: [12.812605, 104.847286]
       },
+      {
+        id: 33,
+        place: 'United Arab Emirates',
+        location: [23.898799, 54.289701]
+      },
   ],
   situations: [
     {
       day: "2020-01-20",
       addtionalInfo: {
-        deaths: 6,
+        deaths_china: 6,
         countries: 4,
       },
       areas: [
@@ -572,7 +667,7 @@ const situationData  = {
     {
       day: "2020-01-21",
       addtionalInfo: {
-        deaths: 6,
+        deaths_china: 6,
         countries: 4,
       },
       areas: [
@@ -649,7 +744,7 @@ const situationData  = {
     {
       day: "2020-01-23",
       addtionalInfo: {
-        deaths: 17,
+        deaths_china: 17,
         countries: 5,
       },
       areas: [
@@ -744,6 +839,7 @@ const situationData  = {
     dayOf26012020,
     dayOf27012020,
     dayOf28012020,
+    dayOf29012020,
   ]
 };
 
