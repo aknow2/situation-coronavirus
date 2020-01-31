@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import SummaryCard from "../component/SummaryCard";
+import ExpandController from "../component/ExpandController";
 import { TextLayer, ScatterplotLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
@@ -16,6 +17,8 @@ const initialViewState = {
   pitch: 0,
   bearing: 0
 };
+
+const expandSammaryHeight = 72;
 
 function Map() {
   const [state, setState ] = useState({hoveredObject: undefined, pointerX: 0, pointerY: 0});
@@ -44,11 +47,14 @@ function Map() {
       })
     }
   }
+
+
   return (<SituationContext.Consumer>
-      {({situations, day, onChangeDate, nextDate, prevDate, dateList}) => {
+      {({ situations, day, onChangeDate, nextDate, prevDate, dateList, displaySize }) => {
           if (situations.length  === 0) {
             return <div />
           }
+          const mapHeight = displaySize === 'mobile' ? window.innerHeight - expandSammaryHeight : undefined
           const situation = situations.find(s => s.day === day)
           const data = situation.areas;
           const addtionalInfo = situation.addtionalInfo;
@@ -66,12 +72,11 @@ function Map() {
               filled: true,
               radiusScale: 2,
               radiusMinPixels: 5,
-              radiusMaxPixels: 50,
+              radiusMaxPixels: 70,
               lineWidthMinPixels: 1,
               getRadius: d => {
                 const result = d.numOfInfected
                 const count = Math.sqrt(result * 3) * result;
-                console.log(count)
                 return count
               },
               getFillColor: () => [255, 0, 0],
@@ -92,26 +97,42 @@ function Map() {
             })
           ];
         return <div>
-         <SummaryCard
-            data={data}
-            day={day}
-            nextDate={nextDate}
-            prevDate={prevDate}
-            onChangeDate={onChangeDate}
-            dateList={dateList}
-            addtionalInfo={addtionalInfo}
-          />
-          <DeckGL
-            initialViewState={initialViewState}
-            layers={layers}>
-              <MapView id="map" width="100%" controller={true}>
-                <StaticMap
-                  mapStyle={"mapbox://styles/mapbox/dark-v8"} 
-                  mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
-                />
-              </MapView>
-          {renderTooltip()}
-          </DeckGL> 
+          {
+            displaySize === 'desktop' &&
+            <SummaryCard
+              data={data}
+              day={day}
+              nextDate={nextDate}
+              prevDate={prevDate}
+              onChangeDate={onChangeDate}
+              dateList={dateList}
+              addtionalInfo={addtionalInfo}
+            />
+          }
+          {
+            displaySize === 'mobile' &&
+            <ExpandController
+              data={data}
+              day={day}
+              nextDate={nextDate}
+              prevDate={prevDate}
+              onChangeDate={onChangeDate}
+              dateList={dateList}
+              addtionalInfo={addtionalInfo}
+            />
+          }
+            <DeckGL
+              height={mapHeight}
+              initialViewState={initialViewState}
+              layers={layers}>
+                <MapView id="map" width="100%" controller={true}>
+                  <StaticMap
+                    mapStyle={"mapbox://styles/mapbox/dark-v8"} 
+                    mapboxApiAccessToken={MAPBOX_ACCESS_TOKEN}
+                  />
+                </MapView>
+            {renderTooltip()}
+            </DeckGL> 
           </div>
       }}
     </SituationContext.Consumer>

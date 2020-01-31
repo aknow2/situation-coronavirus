@@ -3,10 +3,26 @@ import SituationData from './situation';
 
 export const SituationContext = React.createContext()
 
+const DisplaySize = {
+  desktop: 'desktop',
+  mobile: 'mobile'
+}
+
+const getDisplaySize = () => {
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const maxWidth = 800;
+  const maxHeight = 700;
+  if (w < maxWidth || h < maxHeight) {
+    return DisplaySize.mobile;
+  } else {
+    return DisplaySize.desktop;
+  }
+}
 
 export default class Provider extends React.Component {
 
-  state = { situations: [], day: '', dateList: []};
+  state = { situations: [], day: '', dateList: [], displaySize: DisplaySize.desktop };
   componentDidMount() {
     const _situations = SituationData.situations
     const _places = SituationData.places;
@@ -24,11 +40,19 @@ export default class Provider extends React.Component {
         areas
       }
     })
+    const displaySize = getDisplaySize();
     this.setState({
       situations,
+      displaySize,
       dateList: situations.map((s, i) => ({ value: i, day: s.day })),
-      day: _situations[0].day
+      day: _situations[_situations.length - 1].day,
     })
+    window.addEventListener('resize', () => {
+      const size = getDisplaySize();
+      this.setState({
+        displaySize: size,
+      });
+    });
   }
 
 

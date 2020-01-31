@@ -9,7 +9,7 @@ function SummaryCard (props){
   const totalConfirmed = data.reduce((p, c) => p + c.numOfInfected, 0);
   const addtionalInfoList = Object.keys(addtionalInfo).map(key => { 
     return (
-      <ListItem>
+      <ListItem key={key}>
         <ListItemText primary={translate(key)} />
         <ListItemSecondaryAction>
           <Typography>
@@ -27,7 +27,7 @@ function SummaryCard (props){
       width: 250,
       position: "absolute",
       top: 200,
-      right: 32,
+      right: 16,
       zIndex: 999,
     }}
   >
