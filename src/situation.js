@@ -734,17 +734,17 @@ const situationData  = {
       {
         id: 34,
         place: 'Philippines',
-        location: []
+        location: [11.944197, 123.000300]
       },
       {
         id: 35,
         place: 'India',
-        location: []
+        location: [22.395979, 79.371853]
       },
       {
         id: 36,
         place: 'Finland',
-        location: []
+        location: [62.821823, 25.641002]
       },
   ],
   situations: [
