@@ -1,960 +1,244 @@
-const dayOf24012020 = {
-      day: "2020-01-24",
-      addtionalInfo: {
-        deaths_china: 25,
-        countries: 7,
-      },
-      areas: [
-        {
-          // Hubei
-          placeId: 1,
-          numOfInfected: 375,
-        },
-        {
-          // Guangdong
-          placeId: 2,
-          numOfInfected: 32,
-        },
-        {
-          placeId: 3,
-          numOfInfected: 10,
-        },
-        {
-          placeId: 4,
-          numOfInfected: 9,
-        },
-        {
-          placeId: 5,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 6,
-          numOfInfected: 2,
-        },
-        {
-          // vietnum
-          placeId: 22,
-          numOfInfected: 2,
-        },
-        {
-          // singapore
-          placeId: 23,
-          numOfInfected: 1,
-        },
-        {
-          // thailand
-          placeId: 7,
-          numOfInfected: 4,
-        },
-        {
-          // Chongqing
-          placeId: 8,
-          numOfInfected: 5,
-        },
-        {
-          placeId: 9,
-          numOfInfected: 5,
-        },
-        {
-          placeId: 10,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 11,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 12,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 13,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 14,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 15,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 16,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 17,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 18,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 19,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 20,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 29,
-          numOfInfected: 384,
-        }
-      ]
-    }
-const dayOf25012020 = {
-      day: "2020-01-25",
-      addtionalInfo: {
-        deaths_china: 41,
-        countries: 10,
-      },
-      areas: [
-        {
-          placeId: 21,
-          numOfInfected: 1297,
-        },
-        {
-          placeId: 5,
-          numOfInfected: 3,
-        },
-        {
-          placeId: 6,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 22,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 23,
-          numOfInfected: 3,
-        },
-        {
-          placeId: 7,
-          numOfInfected: 4,
-        },
-        {
-          placeId: 20,
-          numOfInfected: 2,
-        },
+import dayOf20012020 from "./data/dayOf20012020";
+import dayOf21012020 from "./data/dayOf21012020";
+import dayOf23012020 from "./data/dayOf23012020";
+import dayOf24012020 from "./data/dayOf24012020";
+import dayOf25012020 from "./data/dayOf25012020";
+import dayOf26012020 from "./data/dayOf26012020";
+import dayOf27012020 from "./data/dayOf27012020";
+import dayOf28012020 from "./data/dayOf28012020";
+import dayOf29012020 from "./data/dayOf29012020";
+import dayOf30012020 from "./data/dayOf30012020";
+import dayOf31012020 from "./data/dayOf31012020";
 
-        {
-          placeId: 24,
-          numOfInfected: 3,
-        },
-        {
-          placeId: 25,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 26,
-          numOfInfected: 3,
-        },
-      ]
-    };
-
-const dayOf26012020 = {
-      day: "2020-01-26",
-      addtionalInfo: {
-        deaths_china: 56,
-        countries: 11,
-      },
-      areas: [
-        {
-          placeId: 21,
-          numOfInfected: 1985,
-        },
-        {
-          placeId: 5,
-          numOfInfected: 3,
-        },
-        {
-          placeId: 6,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 7,
-          numOfInfected: 5,
-        },
-        {
-          placeId: 20,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 22,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 23,
-          numOfInfected: 4,
-        },
-        {
-          placeId: 24,
-          numOfInfected: 4,
-        },
-        {
-          placeId: 25,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 26,
-          numOfInfected: 3,
-        },
-        {
-          placeId: 27,
-          numOfInfected: 3,
-        },
-      ]
-    };
-
-const dayOf27012020 = {
-      day: "2020-01-27",
-      addtionalInfo: {
-        deaths_china: 80,
-        suspected_china: 5794,
-        severe_china: 461,       
-        countries: 12,
-      },
-      areas: [
-        {
-          // china
-          placeId: 21,
-          numOfInfected: 2761,
-        },
-        {
-          // jp
-          placeId: 5,
-          numOfInfected: 4,
-        },
-        {
-          // korea
-          placeId: 6,
-          numOfInfected: 4,
-        },
-        {
-          // vietnum
-          placeId: 22,
-          numOfInfected: 2,
-        },
-        {
-          // singapore
-          placeId: 23,
-          numOfInfected: 4,
-        },
-        {
-          // australia
-          placeId: 24,
-          numOfInfected: 4,
-        },
-        {
-          // Malaysia
-          placeId: 27,
-          numOfInfected: 4,
-        },
-        {
-          // Thailand
-          placeId: 7,
-          numOfInfected: 5,
-        },
-        {
-          // Nepal
-          placeId: 25,
-          numOfInfected: 1,
-        },
-        {
-          // usa
-          placeId: 20,
-          numOfInfected: 5,
-        },
-        {
-          // candada
-          placeId: 28,
-          numOfInfected: 1,
-        },
-        {
-          // france
-          placeId: 26,
-          numOfInfected: 3,
-        },
-      ]
-    };
-const dayOf28012020 = {
-      day: "2020-01-28",
-      addtionalInfo: {
-        deaths_china: 106,
-        suspected_china: 6973,
-        severe_china: 976,
-        countries: 15,
-      },
-      areas: [
-        {
-          // china
-          placeId: 21,
-          numOfInfected: 4537,
-        },
-        {
-          // jp
-          placeId: 5,
-          numOfInfected: 6,
-        },
-        {
-          // korea
-          placeId: 6,
-          numOfInfected: 4,
-        },
-        {
-          // vietnum
-          placeId: 22,
-          numOfInfected: 2,
-        },
-        {
-          // singapore
-          placeId: 23,
-          numOfInfected: 7,
-        },
-        {
-          // australia
-          placeId: 24,
-          numOfInfected: 5,
-        },
-        {
-          // Malaysia
-          placeId: 27,
-          numOfInfected: 4,
-        },
-        {
-          // Thailand
-          placeId: 7,
-          numOfInfected: 14,
-        },
-        {
-          // Nepal
-          placeId: 25,
-          numOfInfected: 1,
-        },
-        {
-          // Srilanka
-          placeId: 30,
-          numOfInfected: 1,
-        },
-        {
-          // Cambodia
-          placeId: 32,
-          numOfInfected: 1,
-        },
-        {
-          // usa
-          placeId: 20,
-          numOfInfected: 5,
-        },
-        {
-          // candada
-          placeId: 28,
-          numOfInfected: 2,
-        },
-        {
-          // france
-          placeId: 26,
-          numOfInfected: 3,
-        },
-        {
-          // Germany
-          placeId: 31,
-          numOfInfected: 1,
-        },
-      ]
-    };
-const dayOf29012020 = {
-      day: "2020-01-29",
-      addtionalInfo: {
-        deaths_china: 132,
-        suspected_china: 9239,
-        severe_china: 1239,
-        countries: 16,
-      },
-      areas: [
-        {
-          // china
-          placeId: 21,
-          numOfInfected: 5997,
-        },
-        {
-          // jp
-          placeId: 5,
-          numOfInfected: 7,
-        },
-        {
-          // korea
-          placeId: 6,
-          numOfInfected: 4,
-        },
-        {
-          // vietnum
-          placeId: 22,
-          numOfInfected: 2,
-        },
-        {
-          // singapore
-          placeId: 23,
-          numOfInfected: 7,
-        },
-        {
-          // australia
-          placeId: 24,
-          numOfInfected: 7,
-        },
-        {
-          // Malaysia
-          placeId: 27,
-          numOfInfected: 4,
-        },
-        {
-          // Thailand
-          placeId: 7,
-          numOfInfected: 14,
-        },
-        {
-          // Nepal
-          placeId: 25,
-          numOfInfected: 1,
-        },
-        {
-          // Srilanka
-          placeId: 30,
-          numOfInfected: 1,
-        },
-        {
-          // Cambodia
-          placeId: 32,
-          numOfInfected: 1,
-        },
-        {
-          // usa
-          placeId: 20,
-          numOfInfected: 5,
-        },
-        {
-          // candada
-          placeId: 28,
-          numOfInfected: 3,
-        },
-        {
-          // france
-          placeId: 26,
-          numOfInfected: 4,
-        },
-        {
-          // Germany
-          placeId: 31,
-          numOfInfected: 4,
-        },
-        {
-          // UAE
-          placeId: 33,
-          numOfInfected: 4,
-        },
-      ]
-    };
-const dayOf30012020 = {
-      day: "2020-01-30",
-      addtionalInfo: {
-        deaths_china: 170,
-        suspected_china: 12167,
-        severe_china: 1370,
-        countries: 19,
-      },
-      areas: [
-        {
-          // china
-          placeId: 21,
-          numOfInfected: 7736,
-        },
-        {
-          // jp
-          placeId: 5,
-          numOfInfected: 11,
-        },
-        {
-          // korea
-          placeId: 6,
-          numOfInfected: 4,
-        },
-        {
-          // vietnum
-          placeId: 22,
-          numOfInfected: 2,
-        },
-        {
-          // singapore
-          placeId: 23,
-          numOfInfected: 7,
-        },
-        {
-          // australia
-          placeId: 24,
-          numOfInfected: 10,
-        },
-        {
-          // Malaysia
-          placeId: 27,
-          numOfInfected: 7,
-        },
-        {
-          // Cambodia
-          placeId: 32,
-          numOfInfected: 1,
-        },
-        {
-          // Philippines
-          placeId: 34,
-          numOfInfected: 1,
-        },
-        {
-          // Thailand
-          placeId: 7,
-          numOfInfected: 14,
-        },
-        {
-          // Nepal
-          placeId: 25,
-          numOfInfected: 1,
-        },
-        {
-          // Srilanka
-          placeId: 30,
-          numOfInfected: 1,
-        },
-        {
-          // India
-          placeId: 35,
-          numOfInfected: 1,
-        },
-        {
-          // usa
-          placeId: 20,
-          numOfInfected: 5,
-        },
-        {
-          // candada
-          placeId: 28,
-          numOfInfected: 3,
-        },
-        {
-          // france
-          placeId: 26,
-          numOfInfected: 5,
-        },
-        {
-          // finland
-          placeId: 36,
-          numOfInfected: 1,
-        },
-        {
-          // Germany
-          placeId: 31,
-          numOfInfected: 4,
-        },
-        {
-          // UAE
-          placeId: 33,
-          numOfInfected: 4,
-        },
-      ]
-    };
 const situationData  = {
   places: [
       {
         id: 1,
-        place: "China – Hubei Province",
+        name: "China – Hubei Province",
+        country: 'china',
         location: [30.642759, 114.314896],
       },
       {
         id:2,
-        place: "China – Guangdong",
+        name: "China – Guangdong",
+        country: 'china',
         location: [23.161937, 113.265126],
       },
       {
         id:3,
-        place: "China – Beijing Municipality",
+        name: "China – Beijing Municipality",
+        country: 'china',
         location: [39.899670, 116.410834],
       },
       {
         id:4,
-        place: "China – Shanghai Municipality",
+        name: "China – Shanghai Municipality",
+        country: 'china',
         location: [31.060666, 121.545394],
       },
       {
         id:5,
-        place: 'japan',
+        name: 'japan',
+        country: 'japan',
         location: [35.679658, 139.770392],
       },
       {
         id:6,
-        place: 'Republic of Korea ',
+        name: 'Republic of Korea ',
+        country: 'korea',
         location: [37.545423, 126.994158]
       },
       {
         id:7,
-        place: 'Thailand',
+        name: 'Thailand',
+        country: 'thailand',
         location: [13.769713, 100.534521]
       }, 
       {
         id: 8,
-        place: 'China - Chongqing Municipality',
+        name: 'China - Chongqing Municipality',
+        country: 'china',
         location: [29.543867, 106.628166]
       },
       {
         id: 9,
-        place: 'China - Zhejiang Province',
+        name: 'China - Zhejiang Province',
+        country: 'china',
         location: [29.498214, 119.950164]
       },
       {
         id: 10,
-        place: 'China - Jiangxi Province',
+        name: 'China - Jiangxi Province',
+        country: 'china',
         location: [27.720665, 115.334603]
       },
       {
         id: 11,
-        place: 'China - Sichuan Province ',
+        name: 'China - Sichuan Province ',
+        country: 'china',
         location: [30.577055, 103.687341]
       },
       {
         id: 12,
-        place: 'China - Tianjin Municipality',
+        name: 'China - Tianjin Municipality',
+        country: 'china',
         location: [39.326825, 117.358683]
       },
       {
         id: 13,
-        place: 'China - Henan Province',
+        name: 'China - Henan Province',
+        country: 'china',
         location: [34.018220, 113.735292]
       },
       {
         id: 14,
-        place: 'China - Hunan Province',
+        name: 'China - Hunan Province',
+        country: 'china',
         location: [28.228362, 112.787731]
       },
       {
         id: 15,
-        place: 'China - Shandong Province',
+        name: 'China - Shandong Province',
+        country: 'china',
         location: [36.589681, 118.733284]
       },
       {
         id: 16,
-        place: 'China - Yunnan Province',
+        name: 'China - Yunnan Province',
+        country: 'china',
         location: [24.886906, 102.608089]
       },
       {
         id: 17,
-        place: 'Taiwan, China',
+        name: 'Taiwan, China',
+        country: 'china',
         location: [23.701278, 120.972302]
       },
       {
         id: 18,
-        place: 'China - Hong Kong',
+        name: 'China - Hong Kong',
+        country: 'china',
         location: [22.330435, 114.148980]
       },
       {
         id: 19,
-        place: 'China - Macau',
+        name: 'China - Macau',
+        country: 'china',
         location: [22.193462, 113.547836]
       },
       {
         id: 20,
-        place: 'USA',
+        name: 'USA',
+        country: 'usa',
         location: [38.936851, -101.878757]
       },
       {
         id: 21,
-        place: 'China',
+        name: 'China',
+        country: 'china',
         location: [35.276518, 103.594722]
       },
       {
         id: 22,
-        place: 'Viet Nam',
+        name: 'Viet Nam',
+        country: 'vietnam',
         location: [21.143903, 105.790069]
       },
       {
         id: 23,
-        place: 'Singapore',
+        name: 'Singapore',
+        country: 'singapore',
         location: [1.316004, 103.922393]
       },
       {
         id: 24,
-        place: 'Australia',
+        name: 'Australia',
+        country: 'australia',
         location: [-26.198094, 134.155892]
       },
       {
         id: 25,
-        place: 'Nepal',
+        name: 'Nepal',
+        country: 'nepal',
         location: [27.944116, 84.452023]
       },
       {
         id: 26,
-        place: 'France',
+        name: 'France',
+        country: 'france',
         location: [48.941955, 2.527384]
       },
       {
         id: 27,
-        place: 'Malaysia',
+        name: 'Malaysia',
+        country: 'malaysia',
         location: [3.250872, 101.982163]
       },
       {
         id: 28,
-        place: 'Canada',
+        name: 'Canada',
+        country: 'canada',
         location: [58.657384, -110.102586]
       },
       {
         id: 29,
-        place: 'China - Unspecified',
+        name: 'China - Unspecified',
+        country: 'china',
         location: [30.525324, 123.516329]
       },
       {
         id: 30,
-        place: 'Sri Lanka',
+        name: 'Sri Lanka',
+        country: 'srilanka',
         location: [7.500214, 80.691841]
       },
       {
         id: 31,
-        place: 'Germany',
+        name: 'Germany',
+        country: 'germany',
         location: [50.959573, 10.248274]
       },
       {
         id: 32,
-        place: 'Cambodia',
+        name: 'Cambodia',
+        country: 'cambodia',
         location: [12.812605, 104.847286]
       },
       {
         id: 33,
-        place: 'United Arab Emirates',
+        name: 'United Arab Emirates',
+        country: 'uae',
         location: [23.898799, 54.289701]
       },
       {
         id: 34,
-        place: 'Philippines',
+        name: 'Philippines',
+        country: 'philippines',
         location: [11.944197, 123.000300]
       },
       {
         id: 35,
-        place: 'India',
+        name: 'India',
+        country: 'india',
         location: [22.395979, 79.371853]
       },
       {
         id: 36,
-        place: 'Finland',
+        name: 'Finland',
+        country: 'finland',
         location: [62.821823, 25.641002]
+      },
+      {
+        id: 37,
+        name: 'Italy',
+        country: 'italy',
+        location: [43.209820, 12.316652]
       },
   ],
   situations: [
-    {
-      day: "2020-01-20",
-      addtionalInfo: {
-        deaths_china: 6,
-        countries: 4,
-      },
-      areas: [
-        {
-          placeId: 1,
-          numOfInfected: 258,
-        },
-        {
-          placeId: 2,
-          numOfInfected: 14,
-        },
-        {
-          placeId: 3,
-          numOfInfected: 5,
-        },
-        {
-          placeId: 4,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 5,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 6,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 7,
-          numOfInfected: 2,
-        }
-      ]
-    },
-    {
-      day: "2020-01-21",
-      addtionalInfo: {
-        deaths_china: 6,
-        countries: 4,
-      },
-      areas: [
-        {
-          placeId: 1,
-          numOfInfected: 270,
-        },
-        {
-          placeId: 2,
-          numOfInfected: 17,
-        },
-        {
-          placeId: 3,
-          numOfInfected: 5,
-        },
-        {
-          placeId: 4,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 5,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 6,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 7,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 8,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 9,
-          numOfInfected: 5,
-        },
-        {
-          placeId: 10,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 11,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 12,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 13,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 14,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 15,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 16,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 17,
-          numOfInfected: 1,
-        },
-      ]
-    },
-    {
-      day: "2020-01-23",
-      addtionalInfo: {
-        deaths_china: 17,
-        countries: 5,
-      },
-      areas: [
-        {
-          placeId: 1,
-          numOfInfected: 375,
-        },
-        {
-          placeId: 2,
-          numOfInfected: 26,
-        },
-        {
-          placeId: 3,
-          numOfInfected: 10,
-        },
-        {
-          placeId: 4,
-          numOfInfected: 9,
-        },
-        {
-          placeId: 5,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 6,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 7,
-          numOfInfected: 4,
-        },
-        {
-          placeId: 8,
-          numOfInfected: 5,
-        },
-        {
-          placeId: 9,
-          numOfInfected: 5,
-        },
-        {
-          placeId: 10,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 11,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 12,
-          numOfInfected: 2,
-        },
-        {
-          placeId: 13,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 14,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 15,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 16,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 17,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 18,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 19,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 20,
-          numOfInfected: 1,
-        },
-        {
-          placeId: 29,
-          numOfInfected: 131,
-        }
-      ]
-    },
+    dayOf20012020,
+    dayOf21012020,
+    dayOf23012020,
     dayOf24012020,
     dayOf25012020,
     dayOf26012020,
@@ -962,6 +246,7 @@ const situationData  = {
     dayOf28012020,
     dayOf29012020,
     dayOf30012020,
+    dayOf31012020,
   ]
 };
 

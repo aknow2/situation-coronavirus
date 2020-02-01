@@ -20,8 +20,8 @@ function AppToolbar (props){
           </Typography>
         </Toolbar>
           <Tabs value={tabIndex} onChange={handleChange} aria-label="simple tabs example">
-            <Tab icon={<MapIcon />} label="Map" />
-            <Tab icon={<ChartIcon />} label="Chart" />
+            <Tab icon={<MapIcon fontSize="small" />} label="Map" />
+            <Tab icon={<ChartIcon fontSize="small" />} label="Chart" />
           </Tabs>
         </AppBar>
     }

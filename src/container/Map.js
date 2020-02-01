@@ -26,17 +26,17 @@ function Map() {
     const { hoveredObject, pointerX, pointerY } = state;
     return hoveredObject && (
       <div style={{color: 'white', position: 'absolute', zIndex: 1, pointerEvents: 'none', left: pointerX, top: pointerY}}>
-        { hoveredObject.place }
+        { hoveredObject.name }
       </div>
     );
   }
   const onHover = info => {
     const data = info.object;
     if (data) {
-      const place = data.place
+      const name = data.name
       setState({
         hoveredObject: {
-          place
+          name
         },
         pointerX: info.x,
         pointerY: info.y

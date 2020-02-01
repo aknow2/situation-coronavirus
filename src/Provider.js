@@ -12,7 +12,7 @@ const getDisplaySize = () => {
   const w = window.innerWidth;
   const h = window.innerHeight;
   const maxWidth = 800;
-  const maxHeight = 700;
+  const maxHeight = 550;
   if (w < maxWidth || h < maxHeight) {
     return DisplaySize.mobile;
   } else {

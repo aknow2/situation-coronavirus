@@ -26,7 +26,7 @@ function SummaryCard (props){
     style={{
       width: 250,
       position: "absolute",
-      top: 200,
+      top: 180,
       right: 16,
       zIndex: 999,
     }}
