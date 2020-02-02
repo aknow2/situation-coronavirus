@@ -1,32 +1,21 @@
 import React from 'react';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { Card, CardHeader, List, ListItem, ListItemText, Typography, ListItemSecondaryAction, IconButton, Grid, Slider } from '@material-ui/core';
-import { translate } from '../util';
+import { Card, CardHeader, List, ListItem, Typography, IconButton, Grid, Slider } from '@material-ui/core';
+import { createAdditionalInfoList, createTotalConfirm } from './AdditionalInfoList';
+
 
 function SummaryCard (props){
-  const {data, addtionalInfo, day, nextDate, prevDate, dateList ,onChangeDate} = props;
-  const totalConfirmed = data.reduce((p, c) => p + c.numOfInfected, 0);
-  const addtionalInfoList = Object.keys(addtionalInfo).map(key => { 
-    return (
-      <ListItem key={key}>
-        <ListItemText primary={translate(key)} />
-        <ListItemSecondaryAction>
-          <Typography>
-            {addtionalInfo[key]}
-          </Typography>
-        </ListItemSecondaryAction>
-      </ListItem>
-    );
-  });
+  const {data, oldData, additionalInfo, oldAdditionalInfo, day, nextDate, prevDate, dateList ,onChangeDate} = props;
+  const totalConfirmed = createTotalConfirm(data, oldData);
+  const addtionalInfoList = createAdditionalInfoList(additionalInfo, oldAdditionalInfo);
   const dayList = dateList.map((s, i) => ({ value: i, day: s.day }));
   const selectedIndex = dayList.find(d => d.day === day).value;
-
   return <Card
     style={{
       width: 250,
       position: "absolute",
-      top: 180,
+      top: 165,
       right: 16,
       zIndex: 999,
     }}
@@ -48,7 +37,7 @@ function SummaryCard (props){
               </Typography>
             </Grid>
             <Grid item xs={2}>
-            <IconButton  size="small" onClick={nextDate}>
+            <IconButton size="small" onClick={nextDate}>
               <ArrowRightIcon />
             </IconButton>
             </Grid>
@@ -67,14 +56,9 @@ function SummaryCard (props){
             </Grid>
           </Grid>
         </ListItem>
-        <ListItem>
-          <ListItemText primary="total confirmed" />
-          <ListItemSecondaryAction>
-            <Typography color="error">
-              {totalConfirmed}
-            </Typography>
-          </ListItemSecondaryAction>
-        </ListItem>
+        {
+          totalConfirmed
+        }
         {
           addtionalInfoList
         }

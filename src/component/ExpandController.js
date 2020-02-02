@@ -1,24 +1,13 @@
 import React, { useState } from 'react';
 import ExpandMoreIcon from '@material-ui/icons/ExpandLess';
-import { List, ListItem, ListItemText, Typography, ListItemSecondaryAction, Slider, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
-import { translate } from '../util';
+import { List, Typography, Slider, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import { createAdditionalInfoList, createTotalConfirm } from './AdditionalInfoList';
 
 function ExpandController (props){
   const [state, setState] = useState({ open: false }) 
-  const {data, addtionalInfo, day, dateList ,onChangeDate} = props;
-  const totalConfirmed = data.reduce((p, c) => p + c.numOfInfected, 0);
-  const addtionalInfoList = Object.keys(addtionalInfo).map(key => { 
-    return (
-      <ListItem key={key}>
-        <ListItemText primary={translate(key)} />
-        <ListItemSecondaryAction>
-          <Typography>
-            {addtionalInfo[key]}
-          </Typography>
-        </ListItemSecondaryAction>
-      </ListItem>
-    );
-  });
+  const {data, additionalInfo, day, dateList ,onChangeDate, oldData, oldAdditionalInfo } = props;
+  const totalConfirmed = createTotalConfirm(data, oldData);
+  const addtionalInfoList = createAdditionalInfoList(additionalInfo, oldAdditionalInfo);
   const dayList = dateList.map((s, i) => ({ value: i, day: s.day }));
   const selectedIndex = dayList.find(d => d.day === day).value;
   const date = new Date(day);
@@ -61,14 +50,9 @@ function ExpandController (props){
     <ExpansionPanelDetails>
       <div style={{ width: '100%', maxHeight: 260, overflow: 'scroll' }}>
         <List>
-          <ListItem>
-            <ListItemText primary="total confirmed" />
-            <ListItemSecondaryAction>
-              <Typography color="error">
-                {totalConfirmed}
-              </Typography>
-            </ListItemSecondaryAction>
-          </ListItem>
+          {
+            totalConfirmed
+          }
           {
             addtionalInfoList
           }

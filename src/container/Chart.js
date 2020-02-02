@@ -27,7 +27,7 @@ const createValue = (s, situationKey, selectedCountry) => {
     })();
     return filteredAreas.reduce((p, c) => p + c.numOfInfected, 0)
   }
-  return s.addtionalInfo[situationKey];
+  return s.additionalInfo[situationKey];
 }
 
 const containerDesktopStyle = {display: 'flex', margintTop: 16 }
@@ -54,7 +54,7 @@ function Chart() {
   });
   return (<SituationContext.Consumer>
       {({situations, displaySize}) => {
-        const selectableSituations = Object.keys(situations[situations.length - 1].addtionalInfo)
+        const selectableSituations = Object.keys(situations[situations.length - 1].additionalInfo)
         selectableSituations.unshift(total_confirmed)
         const result = createChartData(situations, state.selectedSituation, state.selectedCountry);
         const titleSize = displaySize === 'mobile' ? 'h6' : 'h2';

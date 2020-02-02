@@ -9,6 +9,7 @@ import dayOf28012020 from "./data/dayOf28012020";
 import dayOf29012020 from "./data/dayOf29012020";
 import dayOf30012020 from "./data/dayOf30012020";
 import dayOf31012020 from "./data/dayOf31012020";
+import dayOf01022020 from "./data/dayOf01022020";
 
 const situationData  = {
   places: [
@@ -234,6 +235,30 @@ const situationData  = {
         country: 'italy',
         location: [43.209820, 12.316652]
       },
+      {
+        id: 38,
+        name: 'Russian Federation',
+        country: 'russian',
+        location: [61.233686, 93.213563]
+      },
+      {
+        id: 39,
+        name: 'Spain',
+        country: 'spain',
+        location: [39.918867, -3.773742]
+      },
+      {
+        id: 40,
+        name: 'Sweden',
+        country: 'sweden',
+        location: [63.278536, 16.045594]
+      },
+      {
+        id: 41,
+        name: 'United Kingdom',
+        country: 'uk',
+        location: [54.731495, -2.675109]
+      },
   ],
   situations: [
     dayOf20012020,
@@ -247,6 +272,7 @@ const situationData  = {
     dayOf29012020,
     dayOf30012020,
     dayOf31012020,
+    dayOf01022020,
   ]
 };
 

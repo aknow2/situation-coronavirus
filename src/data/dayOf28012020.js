@@ -1,7 +1,7 @@
 
 const dayOf28012020 = {
       day: "2020-01-28",
-      addtionalInfo: {
+      additionalInfo: {
         deaths_china: 106,
         suspected_china: 6973,
         severe_china: 976,

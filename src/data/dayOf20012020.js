@@ -1,6 +1,6 @@
 const dayOf20012020 = {
       day: "2020-01-20",
-      addtionalInfo: {
+      additionalInfo: {
         deaths_china: 6,
         countries: 4,
       },

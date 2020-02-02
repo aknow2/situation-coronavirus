@@ -48,16 +48,19 @@ function Map() {
     }
   }
 
-
   return (<SituationContext.Consumer>
       {({ situations, day, onChangeDate, nextDate, prevDate, dateList, displaySize }) => {
           if (situations.length  === 0) {
             return <div />
           }
           const mapHeight = displaySize === 'mobile' ? window.innerHeight - expandSammaryHeight : undefined
-          const situation = situations.find(s => s.day === day)
+          const situationIndex = situations.findIndex(s => s.day === day)
+          const situation = situations[situationIndex];
           const data = situation.areas;
-          const addtionalInfo = situation.addtionalInfo;
+          const additionalInfo = situation.additionalInfo;
+          const oldSituation = situations[situationIndex - 1];
+          const oldData = !!oldSituation? oldSituation.areas : undefined;
+          const oldAdditionalInfo = !!oldSituation?oldSituation.additionalInfo : undefined;
           const getPosition =  d => {
             const result = d.location
             return [result[1], result[0], 0];
@@ -101,12 +104,14 @@ function Map() {
             displaySize === 'desktop' &&
             <SummaryCard
               data={data}
+              oldData={oldData}
               day={day}
               nextDate={nextDate}
               prevDate={prevDate}
               onChangeDate={onChangeDate}
               dateList={dateList}
-              addtionalInfo={addtionalInfo}
+              additionalInfo={additionalInfo}
+              oldAdditionalInfo={oldAdditionalInfo}
             />
           }
           {
@@ -114,11 +119,13 @@ function Map() {
             <ExpandController
               data={data}
               day={day}
+              oldData={oldData}
               nextDate={nextDate}
               prevDate={prevDate}
               onChangeDate={onChangeDate}
               dateList={dateList}
-              addtionalInfo={addtionalInfo}
+              additionalInfo={additionalInfo}
+              oldAdditionalInfo={oldAdditionalInfo}
             />
           }
             <DeckGL
