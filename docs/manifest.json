@@ -1,0 +1,9 @@
+{
+  "short_name": "Coronavirus",
+  "name": "SITUATION of Coronavirus(2019-nCoV)",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
