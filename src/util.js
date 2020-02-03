@@ -1,7 +1,11 @@
 export const translate = (org) => {
-  const prefix = '_china'
-  if(org.includes(prefix)) {
-    return org.replace(prefix, ' (China)')
+  const prefix_china = '_china'
+  const prefix_outsidechina = '_outside'
+  if(org.includes(prefix_china)) {
+    return org.replace(prefix_china, ' (China)')
+  }
+  if(org.includes(prefix_outsidechina)) {
+    return org.replace(prefix_outsidechina, ' (Outside China)')
   }
   if(org.includes('_')) {
     return org.replace('_', ' ')

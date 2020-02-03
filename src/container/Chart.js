@@ -7,7 +7,7 @@ import { translate } from '../util';
 const selectableCountryMap = {
   all: 'All',
   china: 'China',
-  others: 'Othres',
+  outsideChina: 'Outside China',
 };
 const total_confirmed = 'total_confirmed'
 
@@ -18,7 +18,7 @@ const createValue = (s, situationKey, selectedCountry) => {
       switch(selectedCountry) {
         case selectableCountryMap.china:
           return areas.filter(a => a.country === 'china');
-        case selectableCountryMap.others:
+        case selectableCountryMap.outsideChina:
           return areas.filter(a => a.country !== 'china')
         case selectableCountryMap.all:
         default:

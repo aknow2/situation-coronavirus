@@ -11,7 +11,22 @@ const dayOf29012020 = {
         {
           // china
           placeId: 21,
-          numOfInfected: 5997,
+          numOfInfected: 5974,
+        },
+        {
+          //  Macau
+          placeId: 19,
+          numOfInfected: 7,
+        },
+       {
+          //  Hong Kong
+          placeId: 18,
+          numOfInfected: 8,
+        },
+        {
+          // Taiwan
+          placeId: 17,
+          numOfInfected: 8,
         },
         {
           // jp

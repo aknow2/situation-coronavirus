@@ -8,8 +8,8 @@ const calcTotalConfirmed = (data) => {
 
 export const createAdditionalInfoList = (additionalInfo, oldAdditionalInfo) => {
   return Object.keys(additionalInfo).map(key => { 
-    const oldValue = !!oldAdditionalInfo ? oldAdditionalInfo[key] : undefined;
-    const value = additionalInfo[key]
+    const oldValue = !!oldAdditionalInfo ? oldAdditionalInfo[key] : additionalInfo[key];
+    const delta = additionalInfo[key] - oldValue
     return (
       <ListItem key={key}>
         <ListItemText primary={translate(key)} />
@@ -22,9 +22,9 @@ export const createAdditionalInfoList = (additionalInfo, oldAdditionalInfo) => {
             </div>
             <div>
             {
-              !!oldValue &&
+              !!delta &&
               <Typography variant="body2" color="textSecondary">
-                { `new ${value - oldValue}` }
+                { `new ${delta}` }
               </Typography>
             }
             </div>

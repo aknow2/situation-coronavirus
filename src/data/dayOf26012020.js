@@ -7,7 +7,22 @@ const dayOf26012020 = {
       areas: [
         {
           placeId: 21,
-          numOfInfected: 1985,
+          numOfInfected: 1975,
+        },
+        {
+          //  Macau
+          placeId: 19,
+          numOfInfected: 2,
+        },
+       {
+          //  Hong Kong
+          placeId: 18,
+          numOfInfected: 5,
+        },
+        {
+          // Taiwan
+          placeId: 17,
+          numOfInfected: 3,
         },
         {
           placeId: 5,

@@ -10,7 +10,23 @@ const dayOf27012020 = {
         {
           // china
           placeId: 21,
-          numOfInfected: 2761,
+          numOfInfected: 2744,
+          deaths: 80,
+        },
+        {
+          //  Macau
+          placeId: 19,
+          numOfInfected: 5,
+        },
+       {
+          //  Hong Kong
+          placeId: 18,
+          numOfInfected: 8,
+        },
+        {
+          // Taiwan
+          placeId: 17,
+          numOfInfected: 4,
         },
         {
           // jp

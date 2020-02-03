@@ -10,6 +10,7 @@ import dayOf29012020 from "./data/dayOf29012020";
 import dayOf30012020 from "./data/dayOf30012020";
 import dayOf31012020 from "./data/dayOf31012020";
 import dayOf01022020 from "./data/dayOf01022020";
+import dayOf02022020 from "./data/dayOf02022020";
 
 const situationData  = {
   places: [
@@ -111,7 +112,7 @@ const situationData  = {
       },
       {
         id: 17,
-        name: 'Taiwan, China',
+        name: 'Taiwan',
         country: 'china',
         location: [23.701278, 120.972302]
       },
@@ -273,6 +274,7 @@ const situationData  = {
     dayOf30012020,
     dayOf31012020,
     dayOf01022020,
+    dayOf02022020,
   ]
 };
 
