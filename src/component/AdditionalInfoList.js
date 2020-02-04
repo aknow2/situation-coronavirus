@@ -44,7 +44,7 @@ export const createTotalConfirm = (data, oldData) => {
     return undefined;
   })();
   return (<ListItem>
-          <ListItemText primary="total confirmed" />
+          <ListItemText primary="Total confirmed" secondary="Global" />
           <ListItemSecondaryAction>
             <div>
               <Typography color="error" align="right">

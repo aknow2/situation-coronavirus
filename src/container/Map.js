@@ -6,7 +6,7 @@ import { TextLayer, ScatterplotLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
 import { StaticMap } from 'react-map-gl';
-import { Typography } from '@material-ui/core';
+import { Typography, Paper } from '@material-ui/core';
 
 
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
@@ -18,6 +18,32 @@ const initialViewState = {
   pitch: 0,
   bearing: 0
 };
+
+const colorLutList = [
+  {
+    max: 9,
+    color: [255, 213, 79]
+  },
+  {
+    min: 10,
+    max: 19,
+    color: [255, 152, 0],
+  },
+  {
+    min: 20,
+    max: 49,
+    color: [255, 87, 34],
+  },
+  {
+    min: 50,
+    max: 99,
+    color: [229, 57, 53],
+  },
+  {
+    min: 100,
+    color: [213, 0, 0],
+  },
+];
 
 const expandSammaryHeight = 72;
 
@@ -80,7 +106,7 @@ function Map() {
               opacity: 0.8,
               filled: true,
               radiusScale: 2,
-              radiusMinPixels: 5,
+              radiusMinPixels: 12,
               radiusMaxPixels: 70,
               lineWidthMinPixels: 1,
               getRadius: d => {
@@ -88,7 +114,20 @@ function Map() {
                 const count = Math.sqrt(result * 3) * result;
                 return count
               },
-              getFillColor: () => [255, 0, 0],
+              getFillColor: (d) => {
+                const count = d.numOfInfected
+                const lut = colorLutList.find(lut => {
+                  if (lut.min && lut.max) {
+                    return count >= lut.min && count <= lut.max;
+                  } else if (lut.max) {
+                    return count <= lut.max
+                  } else if (lut.min)  {
+                    return  count >= lut.min
+                  } 
+                  return false;
+                })
+                return lut.color;
+              },
               getLineColor: d => [0, 0, 0],
               onHover,
             }),
@@ -105,12 +144,44 @@ function Map() {
               onHover,
             })
           ];
+          const sSize = displaySize === 'mobile' ? 10: 40;
         return <div>
-          <div style={{position: 'absolute', top: 150, left: 16, color: 'white',  zIndex: 999}}>
-            <Typography variant="h4">
-              Total Confirmed
-            </Typography>
-          </div>
+          <Paper color="" square style={{ position: 'absolute', top: 128, width: '100%',  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
+            <div style={{display: 'flex', alignItems: "center"}}>
+              <Typography variant={displaySize === 'mobile' ? 'body2': 'h4'} color="inherit" style={{marginRight: 10,}}>
+                Total Confirmed
+              </Typography>
+              {
+                colorLutList.map(lut => {
+                  const colorStr = `rgb(${lut.color[0]},${lut.color[1]},${lut.color[2]})`
+                  return (
+
+                    <div key={lut.color} style={{display: 'flex', alignItems: "center" , marginRight: 5}}>
+                    <div style={{ width: sSize, height:sSize, borderRadius: '50%', backgroundColor: colorStr}} /> 
+                    {
+                      lut.max && !lut.min &&
+                      <div>
+                         &lt; {lut.max}
+                      </div>
+                    }
+                    {
+                      lut.max && lut.min &&
+                      <div>
+                        {lut.min} - {lut.max}
+                      </div>
+                    }
+                    {
+                      !lut.max && lut.min &&
+                      <div>
+                         {lut.min} +
+                      </div>
+                    }
+                    </div>
+                  );
+                })
+              }
+            </div>
+          </Paper>>
           {
             displaySize === 'desktop' &&
             <SummaryCard

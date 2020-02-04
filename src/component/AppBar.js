@@ -21,16 +21,25 @@ function AppToolbar (props){
             <Typography variant={titleSize}>
               SITUATION of Coronavirus (2019-nCoV)
             </Typography>
-            <Link color="inherit" href={whoLink} variant="body2" underline="always">
-              Souce is WHO situation report 
-            </Link>
+            <div>
+
+            </div>
           </div>
         </Toolbar>
-          <Tabs value={tabIndex} onChange={handleChange} aria-label="simple tabs example">
+        <Toolbar>
+          <Tabs value={tabIndex} onChange={handleChange} style={{flexGrow: 1}}>
             <Tab icon={<MapIcon fontSize="small" />} label="Map" />
             <Tab icon={<ChartIcon fontSize="small" />} label="Chart" />
           </Tabs>
-      
+          <div>
+          <Link color="inherit" href={whoLink} variant="body2" underline="always">
+            Souce is WHO situation report 
+          </Link>
+          <Typography variant="body2">
+            last updated: 2020/02/03
+          </Typography>
+          </div>
+        </Toolbar>
         </AppBar>
     }
   }
