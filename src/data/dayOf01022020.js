@@ -80,7 +80,7 @@ const dayOf01022020 = {
         },
         {
           // Thailand
-          placeId: 19,
+          placeId: 7,
           numOfInfected: 19,
           deaths: 0,
         },

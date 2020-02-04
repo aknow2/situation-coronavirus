@@ -6,6 +6,12 @@ const dayOf21012020 = {
       },
       areas: [
         {
+          // china
+          placeId: 21,
+          numOfInfected: null,
+          deaths: 6,
+        },
+        {
           placeId: 1,
           numOfInfected: 270,
         },

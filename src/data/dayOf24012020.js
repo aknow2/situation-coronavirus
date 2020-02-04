@@ -6,6 +6,11 @@ const dayOf24012020 = {
       },
       areas: [
         {
+          placeId: 21,
+          numOfInfected: null,
+          deaths: 41,
+        },
+        {
           // Hubei
           placeId: 1,
           numOfInfected: 375,

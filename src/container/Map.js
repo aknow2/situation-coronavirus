@@ -20,10 +20,14 @@ const initialViewState = {
 
 const expandSammaryHeight = 72;
 
+const filterValidValue = (areas, key) => {
+  return areas.filter(area => !!area[key]);
+}
+
 function Map() {
-  const [state, setState ] = useState({hoveredObject: undefined, pointerX: 0, pointerY: 0});
+  const [hoveredState, setHoveredState ] = useState({hoveredObject: undefined, pointerX: 0, pointerY: 0});
   const renderTooltip = () => {
-    const { hoveredObject, pointerX, pointerY } = state;
+    const { hoveredObject, pointerX, pointerY } = hoveredState;
     return hoveredObject && (
       <div style={{color: 'white', position: 'absolute', zIndex: 1, pointerEvents: 'none', left: pointerX, top: pointerY}}>
         { hoveredObject.name }
@@ -34,7 +38,7 @@ function Map() {
     const data = info.object;
     if (data) {
       const name = data.name
-      setState({
+      setHoveredState({
         hoveredObject: {
           name
         },
@@ -42,24 +46,25 @@ function Map() {
         pointerY: info.y
       })
     } else {
-      setState({
+      setHoveredState({
         hoveredObject: undefined,
       })
     }
-  }
+  };
 
   return (<SituationContext.Consumer>
       {({ situations, day, onChangeDate, nextDate, prevDate, dateList, displaySize }) => {
           if (situations.length  === 0) {
             return <div />
           }
+          const key = 'numOfInfected';
           const mapHeight = displaySize === 'mobile' ? window.innerHeight - expandSammaryHeight : undefined
           const situationIndex = situations.findIndex(s => s.day === day)
           const situation = situations[situationIndex];
-          const data = situation.areas;
+          const data = filterValidValue(situation.areas, key);
           const additionalInfo = situation.additionalInfo;
           const oldSituation = situations[situationIndex - 1];
-          const oldData = !!oldSituation? oldSituation.areas : undefined;
+          const oldData = !!oldSituation? filterValidValue(oldSituation.areas, key) : undefined;
           const oldAdditionalInfo = !!oldSituation?oldSituation.additionalInfo : undefined;
           const getPosition =  d => {
             const result = d.location
