@@ -6,6 +6,7 @@ import { TextLayer, ScatterplotLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
 import { StaticMap } from 'react-map-gl';
+import { Typography } from '@material-ui/core';
 
 
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
@@ -105,6 +106,11 @@ function Map() {
             })
           ];
         return <div>
+          <div style={{position: 'absolute', top: 150, left: 16, color: 'white',  zIndex: 999}}>
+            <Typography variant="h4">
+              Total Confirmed
+            </Typography>
+          </div>
           {
             displaySize === 'desktop' &&
             <SummaryCard

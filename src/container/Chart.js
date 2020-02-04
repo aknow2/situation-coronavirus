@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
-import { LineChart, CartesianGrid, XAxis, YAxis, Line, Tooltip } from 'recharts';
+import { LineChart, CartesianGrid, XAxis, YAxis, Line, Tooltip, Text } from 'recharts';
 import {  Typography, Container, Select, MenuItem, InputLabel } from '@material-ui/core';
 import { translate } from '../util';
 
@@ -101,9 +101,19 @@ function Chart() {
               <div style={containerStyle}>
                 <LineChart width={chartWidth} height={chartHeight} data={result.data}>
                   <CartesianGrid stroke="#ccc" />
-                  <XAxis dataKey="xAxis" />
-                  <YAxis />
-                  <YAxis yAxisId="right" orientation="right" />
+                  <XAxis dataKey="xAxis" label={{ value: "Date", position: "insideBottom", offset:-5 }} />
+                  <YAxis label={
+                      <Text
+                          x={0}
+                          y={0}
+                          dx={12}
+                          dy={chartHeight/2}
+                          offset={0}
+                          angle={-90}
+                      >
+                        Cases
+                      </Text>
+                    } />
                   <Tooltip formatter={value => ([value, result.title])} />
                   <Line type="monotone" dataKey="value" stroke="#8884d8" />
                 </LineChart>
