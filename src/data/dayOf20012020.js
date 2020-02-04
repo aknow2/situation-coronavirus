@@ -8,30 +8,37 @@ const dayOf20012020 = {
         {
           placeId: 1,
           numOfInfected: 258,
+          death: 6,
         },
         {
           placeId: 2,
           numOfInfected: 14,
+          deaths: 0,
         },
         {
           placeId: 3,
           numOfInfected: 5,
+          deaths: 0,
         },
         {
           placeId: 4,
           numOfInfected: 1,
+          deaths: 0,
         },
         {
           placeId: 5,
           numOfInfected: 1,
+          deaths: 0,
         },
         {
           placeId: 6,
           numOfInfected: 1,
+          deaths: 0,
         },
         {
           placeId: 7,
           numOfInfected: 2,
+          deaths: 0,
         }
       ]
     };
