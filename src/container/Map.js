@@ -144,11 +144,13 @@ function Map() {
               onHover,
             })
           ];
-          const sSize = displaySize === 'mobile' ? 10: 40;
+          const isMobile = displaySize === 'mobile';
+          const sSize = isMobile ? 10: 25;
+          const sTop = isMobile ? 90: 110;
         return <div>
-          <Paper color="" square style={{ position: 'absolute', top: 128, width: '100%',  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
+          <Paper color="" square style={{ position: 'absolute', top: sTop, width: '100%', boxSizing: "border-box",  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
             <div style={{display: 'flex', alignItems: "center"}}>
-              <Typography variant={displaySize === 'mobile' ? 'body2': 'h4'} color="inherit" style={{marginRight: 10,}}>
+              <Typography variant={displaySize === 'mobile' ? 'body2': 'h6'} color="inherit" style={{marginRight: 10,}}>
                 Total Confirmed
               </Typography>
               {

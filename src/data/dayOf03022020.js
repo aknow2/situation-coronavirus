@@ -14,7 +14,7 @@ const dayOf03022020 = {
       travelHistoryChina: null,
       outsideOfChina: null,
       investigation: null,
-      deaths: 304,
+      deaths: 360,
     },
    {
       //  Macau

@@ -17,27 +17,24 @@ function AppToolbar (props){
       const titleSize = displaySize === 'desktop' ? 'h4' : 'body1';
       return <AppBar position="fixed">
         <Toolbar>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
             <Typography variant={titleSize}>
               SITUATION of Coronavirus (2019-nCoV)
             </Typography>
-            <div>
-
+            <div style={{ width: '100%', display: 'flex', alignItems: "center", justifyContent: 'space-between' }}>
+              <Tabs value={tabIndex} onChange={handleChange} >
+                <Tab icon={<MapIcon fontSize="small" />} label="Map" />
+                <Tab icon={<ChartIcon fontSize="small" />} label="Chart" />
+              </Tabs>
+              <div style={{height: 40}}>
+                <Link color="inherit" href={whoLink} variant="body2" underline="always">
+                  Souce is WHO situation report 
+                </Link>
+                <Typography variant="body2">
+                  last updated: 2020/02/04
+                </Typography>
+              </div>
             </div>
-          </div>
-        </Toolbar>
-        <Toolbar>
-          <Tabs value={tabIndex} onChange={handleChange} style={{flexGrow: 1}}>
-            <Tab icon={<MapIcon fontSize="small" />} label="Map" />
-            <Tab icon={<ChartIcon fontSize="small" />} label="Chart" />
-          </Tabs>
-          <div>
-          <Link color="inherit" href={whoLink} variant="body2" underline="always">
-            Souce is WHO situation report 
-          </Link>
-          <Typography variant="body2">
-            last updated: 2020/02/03
-          </Typography>
           </div>
         </Toolbar>
         </AppBar>

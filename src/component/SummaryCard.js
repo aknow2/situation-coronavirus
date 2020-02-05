@@ -1,7 +1,7 @@
 import React from 'react';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import { Card, CardHeader, List, ListItem, Typography, IconButton, Grid, Slider } from '@material-ui/core';
+import { Card, List, ListItem, Typography, IconButton, Grid, Slider, ListSubheader } from '@material-ui/core';
 import { createAdditionalInfoList, createTotalConfirm } from './AdditionalInfoList';
 
 
@@ -15,15 +15,19 @@ function SummaryCard (props){
     style={{
       width: 250,
       position: "absolute",
-      top: 185,
+      top: 165,
       right: 16,
       zIndex: 999,
     }}
   >
-    <CardHeader 
-      title="Summary"
-    />
-    <List component="nav" aria-label="secondary mailbox folders">
+    <List
+      component="nav"
+      subheader={
+        <ListSubheader>
+          Summary
+        </ListSubheader>
+      }
+      aria-label="secondary mailbox folders">
         <ListItem>
           <Grid container spacing={0}>
             <Grid item xs={2}>
