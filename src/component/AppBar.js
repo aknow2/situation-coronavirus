@@ -26,9 +26,9 @@ function AppToolbar (props){
                 <Tab icon={<MapIcon fontSize="small" />} label="Map" />
                 <Tab icon={<ChartIcon fontSize="small" />} label="Chart" />
               </Tabs>
-              <div style={{height: 40}}>
+              <div>
                 <Link color="inherit" href={whoLink} variant="body2" underline="always">
-                  Souce is WHO situation report 
+                  	Source is WHO situation report 
                 </Link>
                 <Typography variant="body2">
                   last updated: 2020/02/04

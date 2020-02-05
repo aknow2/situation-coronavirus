@@ -88,12 +88,12 @@ function Chart() {
         const selectableSituations = Object.keys(situations[situations.length - 1].additionalInfo)
         selectableSituations.unshift(total_confirmed)
         const result = createChartData(situations, state.selectedSituation, state.selectedCountry, state.selectedAxis);
-        const titleSize = displaySize === 'mobile' ? 'h6' : 'h2';
+        const titleSize = displaySize === 'mobile' ? 'h6' : 'h3';
         const chartWidth = window.innerWidth * (displaySize === 'desktop' ? 0.55 : 0.95);
         const chartHeight = window.innerHeight * (displaySize === 'desktop' ? 0.6 : 0.4);
 
         const containerStyle = displaySize === 'desktop' ? containerDesktopStyle : containerMobileStyle;
-        return <div style={{width: '100%', position: 'absolute', top: 170, }}>
+        return <div style={{width: '100%', position: 'absolute', top: 130, }}>
             <Container>
               <Typography variant={titleSize}>
                 {result.title}
