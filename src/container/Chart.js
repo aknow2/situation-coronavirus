@@ -6,7 +6,7 @@ import { translate } from '../util';
 
 const selectableAxisMap = {
   total: 'Total',
-  new: 'Increase from previous day',
+  new: 'New cases',
 };
 
 const selectableCountryMap = {
