@@ -95,15 +95,16 @@ function Chart() {
         const containerStyle = displaySize === 'desktop' ? containerDesktopStyle : containerMobileStyle;
         return <div style={{width: '100%', position: 'absolute', top: 130, }}>
             <Container>
-              <Typography variant={titleSize}>
+              <Typography variant={titleSize} color="textSecondary">
                 {result.title}
               </Typography>
               <div style={containerStyle}>
                 <LineChart width={chartWidth} height={chartHeight} data={result.data}>
                   <CartesianGrid stroke="#ccc" />
-                  <XAxis dataKey="xAxis" label={{ value: "Date", position: "insideBottom", offset:-5 }} />
+                  <XAxis dataKey="xAxis" label={{ fill: 'grey', value: "Date", position: "insideBottom", offset:-5 }} />
                   <YAxis label={
                       <Text
+                          fill={"grey"}
                           x={0}
                           y={0}
                           dx={12}

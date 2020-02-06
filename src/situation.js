@@ -13,6 +13,7 @@ import dayOf01022020 from "./data/dayOf01022020";
 import dayOf02022020 from "./data/dayOf02022020";
 import dayOf03022020 from "./data/dayOf03022020";
 import dayOf04022020 from "./data/dayOf04022020";
+import dayOf05022020 from "./data/dayOf05022020";
 
 
 const situationData  = {
@@ -263,6 +264,12 @@ const situationData  = {
         country: 'uk',
         location: [54.731495, -2.675109]
       },
+      {
+        id: 42,
+        name: 'Belgium',
+        country: 'belgium',
+        location: [50.723128, 4.640964]
+      },
   ],
   situations: [
     dayOf20012020,
@@ -280,6 +287,7 @@ const situationData  = {
     dayOf02022020,
     dayOf03022020,
     dayOf04022020,
+    dayOf05022020,
   ]
 };
 
