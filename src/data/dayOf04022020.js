@@ -1,9 +1,7 @@
 const dayOf04022020 = {
   day: "2020-02-04",
   additionalInfo: {
-    deaths_china: 425,
     severe_china: 2788,
-    deaths_outside: 1,
     countries: 24,
   },
   areas: [

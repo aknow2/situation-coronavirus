@@ -1,7 +1,6 @@
 const dayOf20012020 = {
       day: "2020-01-20",
       additionalInfo: {
-        deaths_china: 6,
         countries: 4,
       },
       areas: [
@@ -14,7 +13,7 @@ const dayOf20012020 = {
         {
           placeId: 1,
           numOfInfected: 258,
-          death: 0,
+          deaths: 0,
         },
         {
           placeId: 2,

@@ -4,7 +4,6 @@ const createTranslator = () =>  {
   const translateKeys = Object.keys(translateMap);
   const key = translateKeys.find((t) => {
     const result = locale.includes(t);
-    debugger;
     return  result
   });
   const defaultMap = translateMap.en;
@@ -16,9 +15,12 @@ const createTranslator = () =>  {
 const en = {
   aggregation: 'Aggregation',
   total_confirmed: 'Total confirmed',
+  suspected_china: 'Suspected (China)',
+  deaths: 'Deaths',
   area: 'area',
   total: 'total',
   situation: 'Situation',
+  numOfInfected: 'Confirmed',
   confirmed: 'Confirmed',
   all_country: 'all',
   china: 'China',
@@ -40,13 +42,16 @@ const ja = {
   situation: '対象',
   total_confirmed: '感染者の総数',
   global: '全ての国',
+  numOfInfected: '感染者',
   confirmed: '感染者',
   new: '前日から増加数',
   all_country: '全ての国',
-  china: '中国本土',
-  deaths_china: '死亡者 (中国本土)',
-  severe_china: '治癒 (中国本土)',
+  china: '中国',
+  deaths: '死者',
+  deaths_china: '死者 (中国)',
+  severe_china: '治癒 (中国)',
   deaths_outside: '死者 (中国外)',
+  suspected_china: '疑しい (中国)',
   countries: '国数',
   outside_china: '中国外',
   cases: '事例数',
@@ -60,3 +65,25 @@ const translateMap = {
 }
 
 export const translate = createTranslator();
+
+export const reduce = (areas, key) => {
+  return areas.filter(f => !!f[key]).reduce((p, c) => p + c[key], 0)
+}
+
+export const selectableCountryMap = {
+  all_country: 'all_country',
+  china: 'china',
+  outside_china: 'outside_china',
+};
+
+export const filterAreas = (areas, selectedCountry) => {
+  switch(selectedCountry) {
+    case selectableCountryMap.china:
+      return areas.filter(a => a.country === 'china');
+    case selectableCountryMap.outside_china:
+      return areas.filter(a => a.country !== 'china')
+    case selectableCountryMap.all_country:
+    default:
+      return areas;
+  }
+};

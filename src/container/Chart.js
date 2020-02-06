@@ -2,41 +2,22 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import { LineChart, CartesianGrid, XAxis, YAxis, Line, Tooltip, Text } from 'recharts';
 import {  Typography, Container, Select, MenuItem, InputLabel } from '@material-ui/core';
-import { translate } from '../util';
+import { translate, reduce, filterAreas, selectableCountryMap } from '../util';
 
 const selectableAxisMap = {
   total: 'total',
   new: 'new',
 };
 
-const selectableCountryMap = {
-  all_country: 'all_country',
-  china: 'china',
-  outside_china: 'outside_china',
-};
-
-const total_confirmed = 'confirmed'
-
-const filterAreas = (areas, selectedCountry) => {
-  switch(selectedCountry) {
-    case selectableCountryMap.china:
-      return areas.filter(a => a.country === 'china');
-    case selectableCountryMap.outside_china:
-      return areas.filter(a => a.country !== 'china')
-    case selectableCountryMap.all_country:
-    default:
-      return areas;
-  }
-};
-
-const reduceInfected = (areas) => {
-  return areas.reduce((p, c) => p + c.numOfInfected, 0)
+const selectableSituationMap = {
+ total_confirmed: 'numOfInfected',
+ deaths: 'deaths'
 }
 
 const createValue = (s, situationKey, selectedCountry) => {
-  if (situationKey === total_confirmed) {
+  if (orgSelectableSituation.includes(situationKey)) {
     const filteredAreas = filterAreas(s.areas, selectedCountry);
-    return reduceInfected(filteredAreas);
+    return reduce(filteredAreas, situationKey);
   }
   return s.additionalInfo[situationKey];
 }
@@ -45,10 +26,10 @@ const createDeltaValue = (situation, oldSituation, situationKey, selectedCountry
   if (!(!!oldSituation)) {
     return undefined;
   }
-  if (situationKey === total_confirmed) {
+  if (orgSelectableSituation.includes(situationKey)) {
     const filteredAreas = filterAreas(situation.areas, selectedCountry);
     const oldFilteredAreas = filterAreas(oldSituation.areas, selectedCountry);
-    return reduceInfected(filteredAreas) - reduceInfected(oldFilteredAreas) 
+    return reduce(filteredAreas, situationKey) - reduce(oldFilteredAreas, situationKey) 
   }
   return situation.additionalInfo[situationKey] - oldSituation.additionalInfo[situationKey];
 }
@@ -77,16 +58,17 @@ const createChartData = (situations, key, selectedCountry, axis) => {
 
 const selectableCountries = Object.values(selectableCountryMap);
 const selectableAxis = Object.values(selectableAxisMap);
+const orgSelectableSituation = Object.values(selectableSituationMap);
 function Chart() {
   const [ state, setState ] = useState({
-    selectedSituation: total_confirmed,
+    selectedSituation: selectableSituationMap.total_confirmed,
     selectedCountry: selectableCountries[0],
     selectedAxis: selectableAxis[0],
   });
   return (<SituationContext.Consumer>
       {({situations, displaySize}) => {
-        const selectableSituations = Object.keys(situations[situations.length - 1].additionalInfo)
-        selectableSituations.unshift(total_confirmed)
+        const selectableSituations = orgSelectableSituation.concat(Object.keys(situations[situations.length - 1].additionalInfo))
+        debugger;
         const result = createChartData(situations, state.selectedSituation, state.selectedCountry, state.selectedAxis);
         const titleSize = displaySize === 'mobile' ? 'h6' : 'h3';
         const chartWidth = window.innerWidth * (displaySize === 'desktop' ? 0.55 : 0.95);
@@ -148,6 +130,7 @@ function Chart() {
                         labelId="select-label"
                         value={state.selectedSituation}
                         onChange={(ev) => {
+                          debugger;
                           setState({
                             ...state,
                             selectedSituation: ev.target.value
@@ -170,7 +153,7 @@ function Chart() {
                       <Select
                           labelId="country-label"
                           value={state.selectedCountry}
-                          disabled={state.selectedSituation !== total_confirmed}
+                          disabled={!orgSelectableSituation.includes(state.selectedSituation)}
                           onChange={(ev) => {
                             setState({
                               ...state,

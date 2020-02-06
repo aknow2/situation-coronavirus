@@ -11,7 +11,7 @@ const dayOf31012020 = {
           // china
           placeId: 21,
           numOfInfected: 9692,
-          deaths: 1527,
+          deaths: 213,
         },
         {
           //  Macau

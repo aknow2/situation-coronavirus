@@ -2,13 +2,15 @@ import React from 'react';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { Card, List, ListItem, Typography, IconButton, Grid, Slider, ListSubheader } from '@material-ui/core';
-import { createAdditionalInfoList, createTotalConfirm } from './AdditionalInfoList';
-import { translate } from '../util';
+import { createAdditionalInfoList, createItem, situationMap } from './AdditionalInfoList';
+import { translate, selectableCountryMap } from '../util';
 
 
 function SummaryCard (props){
   const {data, oldData, additionalInfo, oldAdditionalInfo, day, nextDate, prevDate, dateList ,onChangeDate} = props;
-  const totalConfirmed = createTotalConfirm(data, oldData);
+  const totalConfirmed = createItem(data, oldData, situationMap.total_confirmed, selectableCountryMap.all_country);
+  const totalDeaths = createItem(data, oldData, situationMap.deaths, selectableCountryMap.china);
+  const totalOutsideDeaths = createItem(data, oldData, situationMap.deaths, selectableCountryMap.outside_china);
   const addtionalInfoList = createAdditionalInfoList(additionalInfo, oldAdditionalInfo);
   const dayList = dateList.map((s, i) => ({ value: i, day: s.day }));
   const selectedIndex = dayList.find(d => d.day === day).value;
@@ -63,6 +65,12 @@ function SummaryCard (props){
         </ListItem>
         {
           totalConfirmed
+        }
+        {
+          totalDeaths
+        }
+        {
+          totalOutsideDeaths
         }
         {
           addtionalInfoList

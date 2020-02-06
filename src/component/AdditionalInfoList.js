@@ -1,10 +1,6 @@
 import React from 'react';
 import { ListItem, ListItemText, Typography, ListItemSecondaryAction, } from '@material-ui/core';
-import { translate } from '../util';
-
-const calcTotalConfirmed = (data) => {
-  return data.reduce((p, c) => p + c.numOfInfected, 0);
-};
+import { translate, reduce, filterAreas } from '../util';
 
 export const createAdditionalInfoList = (additionalInfo, oldAdditionalInfo) => {
   return Object.keys(additionalInfo).map(key => { 
@@ -35,25 +31,37 @@ export const createAdditionalInfoList = (additionalInfo, oldAdditionalInfo) => {
   });
 };
 
-export const createTotalConfirm = (data, oldData) => {
-  const totalConfirmed = calcTotalConfirmed(data)
-  const newConfirmed = (() => {
+export const situationMap = {
+ total_confirmed: 'numOfInfected',
+ deaths: 'deaths'
+}
+export const itemFilterMap = {
+  global: 'global',
+  china: 'china',
+  outsideChina: 'outside_china'
+}
+export const createItem = (data, oldData, key, filterKey) => {
+  const filteredData = filterAreas(data, filterKey);
+  const calcDelta = (base) => {
     if (oldData) {
-      return totalConfirmed - calcTotalConfirmed(oldData);
+      const filteredOldData = filterAreas(oldData, filterKey);
+      return base - reduce(filteredOldData, key);
     }
     return undefined;
-  })();
+  } 
+  const result = reduce(filteredData, key);
+  const newResult = calcDelta(result);
   return (<ListItem>
-          <ListItemText primary={translate('total_confirmed')} secondary={translate('global')} />
+          <ListItemText primary={translate(key)} secondary={translate(filterKey)} />
           <ListItemSecondaryAction>
             <div>
               <Typography color="error" align="right">
-                {totalConfirmed}
+                {result}
               </Typography>
             </div>
             <div>
               <Typography variant="body2" color="textSecondary">
-                {newConfirmed ? `${translate('new')} ${newConfirmed}`: undefined}
+                {newResult ? `${translate('new')} ${newResult}`: undefined}
               </Typography>
             </div>
           </ListItemSecondaryAction>
