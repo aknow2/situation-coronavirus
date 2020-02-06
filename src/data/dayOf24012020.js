@@ -7,7 +7,7 @@ const dayOf24012020 = {
         {
           placeId: 21,
           numOfInfected: null,
-          deaths: 41,
+          deaths: 25,
         },
         {
           // Hubei

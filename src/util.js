@@ -33,6 +33,9 @@ const en = {
   date: 'Date',
   summary: 'summary',
   global: 'Global',
+  travelHistoryChina: 'Confirmed cases with travel history to China ',
+  transmissionOutsideOfChina: 'Confirmed possible or confirmed transmission outside of China',
+  underInvestigation: 'Confirmed cases with site of transmission under investigation'
 }
 
 const ja = {
@@ -57,6 +60,9 @@ const ja = {
   cases: '事例数',
   date: '日付',
   summary: '概要',
+  travelHistoryChina: '感染者(中国への渡航履歴がある者)',
+  transmissionOutsideOfChina: '感染者(中国への渡航履歴が無い者)',
+  underInvestigation: '感染者(監視下にいた者)',
 }
 
 const translateMap = {
@@ -67,6 +73,9 @@ const translateMap = {
 export const translate = createTranslator();
 
 export const reduce = (areas, key) => {
+  if (areas.every(v => v[key] === undefined || v[key] === null)) {
+    return undefined;
+  }
   return areas.filter(f => !!f[key]).reduce((p, c) => p + c[key], 0)
 }
 
@@ -75,6 +84,14 @@ export const selectableCountryMap = {
   china: 'china',
   outside_china: 'outside_china',
 };
+
+export const selectableSituationMap = {
+ total_confirmed: 'numOfInfected',
+ travelHistoryChina: 'travelHistoryChina',
+ transmissionOutsideOfChina: 'transmissionOutsideOfChina',
+ underInvestigation: 'underInvestigation',
+ deaths: 'deaths',
+}
 
 export const filterAreas = (areas, selectedCountry) => {
   switch(selectedCountry) {

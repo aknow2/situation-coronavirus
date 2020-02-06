@@ -7,7 +7,7 @@ import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
 import { StaticMap } from 'react-map-gl';
 import { Typography, Paper } from '@material-ui/core';
-import { translate } from '../util';
+import { translate, selectableSituationMap } from '../util';
 
 
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
@@ -54,6 +54,7 @@ const filterValidValue = (areas, key) => {
 
 function Map() {
   const [hoveredState, setHoveredState ] = useState({hoveredObject: undefined, pointerX: 0, pointerY: 0});
+  const [selectedSituation, onSelectSituation] = useState(selectableSituationMap.total_confirmed);
   const renderTooltip = () => {
     const { hoveredObject, pointerX, pointerY } = hoveredState;
     return hoveredObject && (
@@ -85,23 +86,23 @@ function Map() {
           if (situations.length  === 0) {
             return <div />
           }
-          const key = 'numOfInfected';
           const mapHeight = displaySize === 'mobile' ? window.innerHeight - expandSammaryHeight : undefined
           const situationIndex = situations.findIndex(s => s.day === day)
           const situation = situations[situationIndex];
-          const data = filterValidValue(situation.areas, key);
+          const data = situation.areas;
           const additionalInfo = situation.additionalInfo;
           const oldSituation = situations[situationIndex - 1];
-          const oldData = !!oldSituation? filterValidValue(oldSituation.areas, key) : undefined;
+          const oldData = !!oldSituation? oldSituation.areas : undefined;
           const oldAdditionalInfo = !!oldSituation?oldSituation.additionalInfo : undefined;
           const getPosition =  d => {
             const result = d.location
             return [result[1], result[0], 0];
           } 
+          const plotData = filterValidValue(data, selectedSituation);
           const layers = [
             new ScatterplotLayer({
               id: 'scatterplot-layer', 
-              data,
+              data: plotData,
               getPosition,
               pickable: true,
               opacity: 0.8,
@@ -111,12 +112,12 @@ function Map() {
               radiusMaxPixels: 70,
               lineWidthMinPixels: 1,
               getRadius: d => {
-                const result = d.numOfInfected
+                const result = d[selectedSituation]
                 const count = Math.sqrt(result * 3) * result;
                 return count
               },
               getFillColor: (d) => {
-                const count = d.numOfInfected
+                const count = d[selectedSituation]
                 const lut = colorLutList.find(lut => {
                   if (lut.min && lut.max) {
                     return count >= lut.min && count <= lut.max;
@@ -134,10 +135,10 @@ function Map() {
             }),
             new TextLayer({
               id: 'text-layer',
-              data,
+              data: plotData,
               getPosition,
               pickable: true,
-              getText: d => d.numOfInfected.toString(),
+              getText: d => d[selectedSituation].toString(),
               getSize: 32,
               getColor: [255,255,255],
               getTextAnchor: 'middle',
@@ -152,7 +153,7 @@ function Map() {
           <Paper color="" square style={{ position: 'absolute', top: sTop, width: '100%', boxSizing: "border-box",  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
             <div style={{display: 'flex', alignItems: "center"}}>
               <Typography variant={displaySize === 'mobile' ? 'body2': 'h6'} color="inherit" style={{marginRight: 10,}}>
-                {translate('total_confirmed')}
+                {translate(selectedSituation).length > 7 ?  translate(selectedSituation).substring(0, 8)+'...' : translate(selectedSituation)}
               </Typography>
               {
                 colorLutList.map(lut => {
@@ -197,6 +198,8 @@ function Map() {
               dateList={dateList}
               additionalInfo={additionalInfo}
               oldAdditionalInfo={oldAdditionalInfo}
+              selectedSituation={selectedSituation}
+              onSelectSituation={onSelectSituation}
             />
           }
           {
@@ -213,6 +216,7 @@ function Map() {
               oldAdditionalInfo={oldAdditionalInfo}
             />
           }
+       
             <DeckGL
               height={mapHeight}
               initialViewState={initialViewState}
@@ -225,6 +229,18 @@ function Map() {
                 </MapView>
             {renderTooltip()}
             </DeckGL> 
+            {
+              plotData.length === 0 &&
+              <div style={{
+                zIndex: 1,
+                width: '100%', top: window.innerHeight/2,
+                color: 'white', position: 'absolute',
+                display: 'flex', justifyContent: 'center'}}>
+                <Typography variant="h2">
+                  No Data
+                </Typography>
+              </div>
+            }
           </div>
       }}
     </SituationContext.Consumer>

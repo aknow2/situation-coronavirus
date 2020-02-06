@@ -2,17 +2,14 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import { LineChart, CartesianGrid, XAxis, YAxis, Line, Tooltip, Text } from 'recharts';
 import {  Typography, Container, Select, MenuItem, InputLabel } from '@material-ui/core';
-import { translate, reduce, filterAreas, selectableCountryMap } from '../util';
+import { translate, reduce, filterAreas, selectableCountryMap, selectableSituationMap } from '../util';
 
 const selectableAxisMap = {
   total: 'total',
   new: 'new',
 };
 
-const selectableSituationMap = {
- total_confirmed: 'numOfInfected',
- deaths: 'deaths'
-}
+
 
 const createValue = (s, situationKey, selectedCountry) => {
   if (orgSelectableSituation.includes(situationKey)) {
@@ -123,8 +120,7 @@ function Chart() {
                         }
                       </Select>
                   </div>
-                <div style={{ display: 'flex' }}>
-                  <div style={{ marginRight: 32 }}>
+                  <div style={{ marginBottom: 32 }}>
                     <InputLabel id="select-label">{translate('situation')}</InputLabel>
                     <Select
                         labelId="select-label"
@@ -148,7 +144,7 @@ function Chart() {
                         }
                       </Select>
                   </div>
-                  <div>
+                  <div style={{ marginBottom: 32 }}>
                       <InputLabel id="country-label">{translate('area')}</InputLabel>
                       <Select
                           labelId="country-label"
@@ -172,9 +168,9 @@ function Chart() {
                           }
                       </Select>
                     </div>
+
                 </div>
                 </div>
-              </div>
             </Container>
           </div>
       }}

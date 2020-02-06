@@ -134,7 +134,7 @@ const situationData  = {
       },
       {
         id: 20,
-        name: 'USA',
+        name: 'United States of America',
         country: 'usa',
         location: [38.936851, -101.878757]
       },
