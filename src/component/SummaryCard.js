@@ -3,6 +3,7 @@ import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import { Card, List, ListItem, Typography, IconButton, Grid, Slider, ListSubheader } from '@material-ui/core';
 import { createAdditionalInfoList, createTotalConfirm } from './AdditionalInfoList';
+import { translate } from '../util';
 
 
 function SummaryCard (props){
@@ -24,7 +25,7 @@ function SummaryCard (props){
       component="nav"
       subheader={
         <ListSubheader>
-          Summary
+          {translate('summary')}
         </ListSubheader>
       }
       aria-label="secondary mailbox folders">

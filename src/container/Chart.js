@@ -5,14 +5,14 @@ import {  Typography, Container, Select, MenuItem, InputLabel } from '@material-
 import { translate } from '../util';
 
 const selectableAxisMap = {
-  total: 'Total',
-  new: 'New cases',
+  total: 'total',
+  new: 'new',
 };
 
 const selectableCountryMap = {
-  all: 'All',
-  china: 'China',
-  outsideChina: 'Outside China',
+  all_country: 'all_country',
+  china: 'china',
+  outside_china: 'outside_china',
 };
 
 const total_confirmed = 'confirmed'
@@ -21,9 +21,9 @@ const filterAreas = (areas, selectedCountry) => {
   switch(selectedCountry) {
     case selectableCountryMap.china:
       return areas.filter(a => a.country === 'china');
-    case selectableCountryMap.outsideChina:
+    case selectableCountryMap.outside_china:
       return areas.filter(a => a.country !== 'china')
-    case selectableCountryMap.all:
+    case selectableCountryMap.all_country:
     default:
       return areas;
   }
@@ -65,8 +65,8 @@ const createChartData = (situations, key, selectedCountry, axis) => {
       : createDeltaValue(s, situations[index-1], key, selectedCountry)
   }))
   const title = axis === selectableAxisMap.total ?
-    `Total ${translate(key)}`
-  : `New ${translate(key)}`
+    `${translate(key)} - ${translate('total')}`
+  : `${translate(key)} - ${translate('new')} `
 
   return {
     title,
@@ -120,7 +120,7 @@ function Chart() {
                 </LineChart>
                 <div>
                   <div style={{marginBottom: 32}}>
-                    <InputLabel >Aggregation</InputLabel>
+                    <InputLabel >{translate('aggregation')}</InputLabel>
                     <Select
                         value={state.selectedAxis}
                         onChange={(ev) => {
@@ -143,7 +143,7 @@ function Chart() {
                   </div>
                 <div style={{ display: 'flex' }}>
                   <div style={{ marginRight: 32 }}>
-                    <InputLabel id="select-label">Situation</InputLabel>
+                    <InputLabel id="select-label">{translate('situation')}</InputLabel>
                     <Select
                         labelId="select-label"
                         value={state.selectedSituation}
@@ -166,7 +166,7 @@ function Chart() {
                       </Select>
                   </div>
                   <div>
-                      <InputLabel id="country-label">Country</InputLabel>
+                      <InputLabel id="country-label">{translate('area')}</InputLabel>
                       <Select
                           labelId="country-label"
                           value={state.selectedCountry}
@@ -182,7 +182,7 @@ function Chart() {
                             selectableCountries.map(c => {
                               return (
                                 <MenuItem key={c} value={c}>
-                                  {c}
+                                  {translate(c)}
                                 </MenuItem>
                               )
                             })

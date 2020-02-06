@@ -7,6 +7,7 @@ import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
 import { StaticMap } from 'react-map-gl';
 import { Typography, Paper } from '@material-ui/core';
+import { translate } from '../util';
 
 
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
@@ -151,7 +152,7 @@ function Map() {
           <Paper color="" square style={{ position: 'absolute', top: sTop, width: '100%', boxSizing: "border-box",  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
             <div style={{display: 'flex', alignItems: "center"}}>
               <Typography variant={displaySize === 'mobile' ? 'body2': 'h6'} color="inherit" style={{marginRight: 10,}}>
-                Total Confirmed
+                {translate('total_confirmed')}
               </Typography>
               {
                 colorLutList.map(lut => {

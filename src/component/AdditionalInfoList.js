@@ -24,7 +24,7 @@ export const createAdditionalInfoList = (additionalInfo, oldAdditionalInfo) => {
             {
               !!delta &&
               <Typography variant="body2" color="textSecondary">
-                { `new ${delta}` }
+                { `${translate('new')} ${delta}` }
               </Typography>
             }
             </div>
@@ -44,7 +44,7 @@ export const createTotalConfirm = (data, oldData) => {
     return undefined;
   })();
   return (<ListItem>
-          <ListItemText primary="Total confirmed" secondary="Global" />
+          <ListItemText primary={translate('total_confirmed')} secondary={translate('global')} />
           <ListItemSecondaryAction>
             <div>
               <Typography color="error" align="right">
@@ -53,7 +53,7 @@ export const createTotalConfirm = (data, oldData) => {
             </div>
             <div>
               <Typography variant="body2" color="textSecondary">
-                {newConfirmed ? `new ${newConfirmed}`: undefined}
+                {newConfirmed ? `${translate('new')} ${newConfirmed}`: undefined}
               </Typography>
             </div>
           </ListItemSecondaryAction>
