@@ -1,5 +1,5 @@
 const dayOf06022020 = {
-  day: "2020-02-05",
+  day: "2020-02-06",
   additionalInfo: {
     severe_china: 3219,
     countries: 25,
@@ -8,11 +8,11 @@ const dayOf06022020 = {
     {
       // china
       placeId: 21,
-      numOfInfected: 24324,
+      numOfInfected: 28018,
       travelHistoryChina: null,
       transmissionOutsideOfChina: null,
       underInvestigation: null,
-      deaths: 490,
+      deaths: 563,
     },
    {
       //  Macau
@@ -26,7 +26,7 @@ const dayOf06022020 = {
    {
       //  Hong Kong
       placeId: 18,
-      numOfInfected: 18,
+      numOfInfected: 21,
       travelHistoryChina: null,
       transmissionOutsideOfChina: null,
       underInvestigation: null,
@@ -42,21 +42,39 @@ const dayOf06022020 = {
       deaths: 0
     },
     {
+      // singapore
+      placeId: 23,
+      numOfInfected: 28,
+      travelHistoryChina: 21,
+      transmissionOutsideOfChina: 7,
+      underInvestigation: 0,
+      deaths: 0,
+    },
+    {
+      // Cases on an international conveyance
+      placeId: 43,
+      numOfInfected: 20,
+      travelHistoryChina: 0,
+      transmissionOutsideOfChina: 0,
+      underInvestigation: 20,
+      deaths: 0,
+    },
+   {
       // jp
       placeId: 5,
-      numOfInfected: 33,
-      travelHistoryChina: 20,
-      transmissionOutsideOfChina: 3,
-      underInvestigation: 10,
+      numOfInfected: 25,
+      travelHistoryChina: 21,
+      transmissionOutsideOfChina: 4,
+      underInvestigation: 0,
       deaths: 0,
     },
     {
       // korea
       placeId: 6,
-      numOfInfected: 18,
-      travelHistoryChina: 8,
-      transmissionOutsideOfChina: 7,
-      underInvestigation: 3,
+      numOfInfected: 23,
+      travelHistoryChina: 10,
+      transmissionOutsideOfChina: 11,
+      underInvestigation: 2,
       deaths: 0,
     },
     {
@@ -69,19 +87,10 @@ const dayOf06022020 = {
       deaths: 0,
     },
     {
-      // singapore
-      placeId: 23,
-      numOfInfected: 24,
-      travelHistoryChina: 20,
-      transmissionOutsideOfChina: 4,
-      underInvestigation: 0,
-      deaths: 0,
-    },
-    {
       // australia
       placeId: 24,
-      numOfInfected: 13,
-      travelHistoryChina: 13,
+      numOfInfected: 14,
+      travelHistoryChina: 14,
       transmissionOutsideOfChina: 0,
       underInvestigation: 0,
       deaths: 0,
@@ -89,8 +98,8 @@ const dayOf06022020 = {
     {
       // Malaysia
       placeId: 27,
-      numOfInfected: 10,
-      travelHistoryChina: 7,
+      numOfInfected: 12,
+      travelHistoryChina: 9,
       transmissionOutsideOfChina: 2,
       underInvestigation: 1,
       deaths: 0,
@@ -152,10 +161,10 @@ const dayOf06022020 = {
     {
       // usa
       placeId: 20,
-      numOfInfected: 11,
-      travelHistoryChina: 8,
+      numOfInfected: 12,
+      travelHistoryChina: 10,
       transmissionOutsideOfChina: 2,
-      underInvestigation: 1,
+      underInvestigation: 0,
       deaths: 0,
     },
     {

@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import ExpandMoreIcon from '@material-ui/icons/ExpandLess';
 import { List, Typography, Slider, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
 import { createAdditionalInfoList, createItem, situationMap } from './AdditionalInfoList';
+import { selectableCountryMap } from '../util';
 
 function ExpandController (props){
   const [state, setState] = useState({ open: false }) 
   const {data, additionalInfo, day, dateList ,onChangeDate, oldData, oldAdditionalInfo } = props;
   const totalConfirmed = createItem(data, oldData, situationMap.total_confirmed);
+  const totalDeathsInChina = createItem(data, oldData, situationMap.deaths, selectableCountryMap.china);
+  const totalOutsideDeaths = createItem(data, oldData, situationMap.deaths, selectableCountryMap.outside_china);
   const addtionalInfoList = createAdditionalInfoList(additionalInfo, oldAdditionalInfo);
   const dayList = dateList.map((s, i) => ({ value: i, day: s.day }));
   const selectedIndex = dayList.find(d => d.day === day).value;
@@ -52,6 +55,12 @@ function ExpandController (props){
         <List>
           {
             totalConfirmed
+          }
+          {
+            totalDeathsInChina
+          }
+          {
+            totalOutsideDeaths
           }
           {
             addtionalInfoList

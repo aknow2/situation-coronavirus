@@ -60,8 +60,8 @@ const ja = {
   cases: '事例数',
   date: '日付',
   summary: '概要',
-  travelHistoryChina: '感染者(中国への渡航履歴がある者)',
-  transmissionOutsideOfChina: '感染者(中国への渡航履歴が無い者)',
+  travelHistoryChina: '感染者(中国への渡航歴がある者)',
+  transmissionOutsideOfChina: '感染者(中国への渡航歴が無い者)',
   underInvestigation: '感染者(監視下にいた者)',
 }
 

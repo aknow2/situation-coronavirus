@@ -160,7 +160,7 @@ function Map() {
                   const colorStr = `rgb(${lut.color[0]},${lut.color[1]},${lut.color[2]})`
                   return (
 
-                    <div key={lut.color} style={{display: 'flex', alignItems: "center" , marginRight: 5}}>
+                    <div key={lut.color} style={{display: 'flex', alignItems: "center" , marginLeft: 5, marginRight: 5}}>
                     <div style={{ width: sSize, height:sSize, borderRadius: '50%', backgroundColor: colorStr}} /> 
                     {
                       lut.max && !lut.min &&

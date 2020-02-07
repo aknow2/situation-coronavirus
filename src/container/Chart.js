@@ -65,7 +65,6 @@ function Chart() {
   return (<SituationContext.Consumer>
       {({situations, displaySize}) => {
         const selectableSituations = orgSelectableSituation.concat(Object.keys(situations[situations.length - 1].additionalInfo))
-        debugger;
         const result = createChartData(situations, state.selectedSituation, state.selectedCountry, state.selectedAxis);
         const titleSize = displaySize === 'mobile' ? 'h6' : 'h3';
         const chartWidth = window.innerWidth * (displaySize === 'desktop' ? 0.55 : 0.95);
@@ -126,7 +125,6 @@ function Chart() {
                         labelId="select-label"
                         value={state.selectedSituation}
                         onChange={(ev) => {
-                          debugger;
                           setState({
                             ...state,
                             selectedSituation: ev.target.value

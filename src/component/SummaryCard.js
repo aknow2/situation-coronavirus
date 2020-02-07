@@ -15,14 +15,14 @@ function SummaryCard (props){
     onChangeDate} = props;
   const [situationMenuEl, toggleSituationMenuEl] = useState(null);
   const totalConfirmed = createItem(data, oldData, situationMap.total_confirmed, selectableCountryMap.all_country);
-  const totalDeaths = createItem(data, oldData, situationMap.deaths, selectableCountryMap.china);
+  const totalDeathsInChina = createItem(data, oldData, situationMap.deaths, selectableCountryMap.china);
   const totalOutsideDeaths = createItem(data, oldData, situationMap.deaths, selectableCountryMap.outside_china);
   const addtionalInfoList = createAdditionalInfoList(additionalInfo, oldAdditionalInfo);
   const dayList = dateList.map((s, i) => ({ value: i, day: s.day }));
   const selectedIndex = dayList.find(d => d.day === day).value;
   return <Card
     style={{
-      width: 270,
+      width: 280,
       position: "absolute",
       top: 165,
       right: 16,
@@ -38,6 +38,31 @@ function SummaryCard (props){
             aria-controls="situation-menu"
             primary={translate('aggregation')}
             secondary={translate(selectedSituation)}/>
+        <Menu
+            id="situation-menu"
+            anchorEl={situationMenuEl}
+            open={!!situationMenuEl}
+            value={selectedSituation}
+            onClose={() => {
+              toggleSituationMenuEl(null);
+            }}
+          >
+            {
+              selectableSituations.map(s => {
+                return (
+                  <MenuItem
+                    key={s}
+                    onClick={() => {
+                      onSelectSituation(s);
+                      toggleSituationMenuEl(null);
+                    }}
+                    value={s}>
+                    {translate(s)}
+                  </MenuItem>
+                )
+              })
+            }
+          </Menu>
           <ListItemSecondaryAction>
             <ArrowDownIcon
               onClick={ ev => {
@@ -45,31 +70,6 @@ function SummaryCard (props){
               }}
             />
           </ListItemSecondaryAction>
-            <Menu
-                id="situation-menu"
-                anchorEl={situationMenuEl}
-                open={!!situationMenuEl}
-                value={selectedSituation}
-                onClose={() => {
-                  toggleSituationMenuEl(null);
-                }}
-              >
-                {
-                  selectableSituations.map(s => {
-                    return (
-                      <MenuItem
-                        key={s}
-                        onClick={() => {
-                          onSelectSituation(s);
-                          toggleSituationMenuEl(null);
-                        }}
-                        value={s}>
-                        {translate(s)}
-                      </MenuItem>
-                    )
-                  })
-                }
-              </Menu>
         </ListItem>
         <ListItem>
           <Grid container spacing={0}>
@@ -108,7 +108,7 @@ function SummaryCard (props){
           totalConfirmed
         }
         {
-          totalDeaths
+          totalDeathsInChina
         }
         {
           totalOutsideDeaths
