@@ -104,6 +104,9 @@ function SummaryCard (props){
           </Grid>
         </ListItem>
         <Divider />
+
+      </List>
+      <List style={{ maxHeight: 200, overflowY: 'scroll' }}>
         {
           totalConfirmed
         }

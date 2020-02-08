@@ -18,9 +18,11 @@ function AppToolbar (props){
       return <AppBar position="fixed">
         <Toolbar>
           <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
-            <Typography variant={titleSize}>
-              SITUATION of Coronavirus (2019-nCoV)
-            </Typography>
+            <div style={{ display: 'flex', justifyContent: "space-between" }}>
+              <Typography variant={titleSize}>
+                SITUATION of Coronavirus (2019-nCoV)
+              </Typography>
+            </div>
             <div style={{ width: '100%', display: 'flex', alignItems: "center", justifyContent: 'space-between' }}>
               <Tabs value={tabIndex} onChange={handleChange} >
                 <Tab icon={<MapIcon fontSize="small" />} label="Map" />
