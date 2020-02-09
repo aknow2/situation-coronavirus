@@ -1,18 +1,18 @@
 const dayOf07022020 = {
-  day: "2020-02-07",
+  day: "2020-02-08",
   additionalInfo: {
-    severe_china: 4821,
+    severe_china: 6101,
     countries: 25,
   },
   areas: [
     {
       // china
       placeId: 21,
-      numOfInfected: 31161,
+      numOfInfected: 34546,
       travelHistoryChina: null,
       transmissionOutsideOfChina: null,
       underInvestigation: null,
-      deaths: 636,
+      deaths: 722,
     },
    {
       //  Macau
@@ -26,7 +26,7 @@ const dayOf07022020 = {
    {
       //  Hong Kong
       placeId: 18,
-      numOfInfected: 24,
+      numOfInfected: 26,
       travelHistoryChina: null,
       transmissionOutsideOfChina: null,
       underInvestigation: null,
@@ -44,19 +44,19 @@ const dayOf07022020 = {
     {
       // singapore
       placeId: 23,
-      numOfInfected: 30,
+      numOfInfected: 33,
       travelHistoryChina: 21,
-      transmissionOutsideOfChina: 9,
+      transmissionOutsideOfChina: 12,
       underInvestigation: 0,
       deaths: 0,
     },
     {
       // Cases on an international conveyance
       placeId: 43,
-      numOfInfected: 61,
+      numOfInfected: 64,
       travelHistoryChina: 0,
       transmissionOutsideOfChina: 0,
-      underInvestigation: 61,
+      underInvestigation: 64,
       deaths: 0,
     },
    {
@@ -80,8 +80,8 @@ const dayOf07022020 = {
     {
       // vietnum
       placeId: 22,
-      numOfInfected: 12,
-      travelHistoryChina: 7,
+      numOfInfected: 13,
+      travelHistoryChina: 8,
       transmissionOutsideOfChina: 5,
       underInvestigation: 0,
       deaths: 0,
@@ -98,10 +98,10 @@ const dayOf07022020 = {
     {
       // Malaysia
       placeId: 27,
-      numOfInfected: 14,
+      numOfInfected: 15,
       travelHistoryChina: 9,
       transmissionOutsideOfChina: 4,
-      underInvestigation: 1,
+      underInvestigation: 2,
       deaths: 0,
     },
     {
@@ -125,10 +125,10 @@ const dayOf07022020 = {
     {
       // Thailand
       placeId: 7,
-      numOfInfected: 25,
-      travelHistoryChina: 21,
-      transmissionOutsideOfChina: 4,
-      underInvestigation: 0,
+      numOfInfected: 32,
+      travelHistoryChina: 22,
+      transmissionOutsideOfChina: 6,
+      underInvestigation: 4,
       deaths: 0,
     },
     {
@@ -197,8 +197,8 @@ const dayOf07022020 = {
     {
       // Germany
       placeId: 31,
-      numOfInfected: 13,
-      travelHistoryChina: 2,
+      numOfInfected: 14,
+      travelHistoryChina: 3,
       transmissionOutsideOfChina: 11,
       underInvestigation: 0,
       deaths: 0,
@@ -260,10 +260,10 @@ const dayOf07022020 = {
     {
       // UAE
       placeId: 33,
-      numOfInfected: 5,
+      numOfInfected: 7,
       travelHistoryChina: 5,
       transmissionOutsideOfChina: 0,
-      underInvestigation: 0,
+      underInvestigation: 2,
       deaths: 0,
     },
   ]
