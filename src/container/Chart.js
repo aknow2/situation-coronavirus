@@ -9,8 +9,6 @@ const selectableAxisMap = {
   new: 'new',
 };
 
-
-
 const createValue = (s, situationKey, selectedCountry) => {
   if (orgSelectableSituation.includes(situationKey)) {
     const filteredAreas = filterAreas(s.areas, selectedCountry);

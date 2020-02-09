@@ -1,0 +1,158 @@
+import React, { useState } from 'react';
+import { Typography, Paper, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, MenuItem } from '@material-ui/core';
+import { SituationContext } from '../Provider';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { translate, reduce, selectableSituationMap } from '../util';
+
+export const colorLutList = [
+  {
+    max: 9,
+    color: [255, 213, 79]
+  },
+  {
+    min: 10,
+    max: 19,
+    color: [255, 152, 0],
+  },
+  {
+    min: 20,
+    max: 49,
+    color: [255, 87, 34],
+  },
+  {
+    min: 50,
+    max: 99,
+    color: [229, 57, 53],
+  },
+  {
+    min: 100,
+    color: [213, 0, 0],
+  },
+];
+
+function Legend({isMobile}) {
+  const sSize = isMobile ? 10: 25;
+  return (
+      <div style={{display: 'flex', alignItems: "center"}}>
+      {
+        colorLutList.map(lut => {
+          const colorStr = `rgb(${lut.color[0]},${lut.color[1]},${lut.color[2]})`
+          return (
+
+            <div key={lut.color} style={{display: 'flex', alignItems: "center" , marginLeft: 5, marginRight: 5}}>
+            <div style={{ width: sSize, height:sSize, borderRadius: '50%', backgroundColor: colorStr}} /> 
+            {
+              lut.max && !lut.min &&
+              <div>
+                  &lt; {lut.max}
+              </div>
+            }
+            {
+              lut.max && lut.min &&
+              <div>
+                {lut.min} - {lut.max}
+              </div>
+            }
+            {
+              !lut.max && lut.min &&
+              <div>
+                  {lut.min} +
+              </div>
+            }
+            </div>
+          );
+        })
+      }
+      </div>
+  );
+}
+
+function DesktopLegend({isMobile, selectedSituation}) {
+  const title = translate(selectedSituation);
+  return (
+  <div style={{display: 'flex', alignItems: "center"}}>
+    <Typography variant={'h6'} color="inherit" style={{marginRight: 10,}}>
+      {title.length > 7 ?  title.substring(0, 8)+'...' : title}
+    </Typography>
+    <Legend 
+      isMobile={isMobile}
+    />
+  </div>);
+}
+const selectableSituationList = Object.values(selectableSituationMap);
+
+function MobileLegend({isMobile, selectedSituation, data, onSelectSituation}) {
+  const [open, toggleExpansion] = useState(false);
+  const title = translate(selectedSituation);
+  const value = reduce(data, selectedSituation)
+  return (
+  <div style={{display: 'flex', alignItems: "center"}}>
+    <ExpansionPanel
+      expanded={open}
+      onChange={() => toggleExpansion(!open)}
+    >
+      <ExpansionPanelSummary
+        expandIcon={<ExpandMoreIcon />}
+      >
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Typography variant={'body2'} color="inherit" style={{marginRight: 10,}}>
+        {title.length > 10 ?  title.substring(0, 10)+'...' : title}
+      </Typography>
+      <Typography>
+        {value}
+      </Typography>
+      </div>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <div>
+        <Legend 
+          isMobile={isMobile}
+        />
+        {
+          selectableSituationList.map((situation) => {
+            return (
+              <MenuItem
+                key={situation}
+                selected={selectedSituation === situation}
+                onClick={() => {
+                  onSelectSituation(situation)
+                  toggleExpansion(!open);
+                }}
+              >
+                {translate(situation)}
+              </MenuItem>
+            );
+          })
+        }
+        </div>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+  </div>);
+}
+
+function MapLegendBar ({ selectedSituation, data, onSelectSituation }){
+  return (<SituationContext.Consumer>
+    {
+      ({displaySize}) => {
+        const isMobile = displaySize === 'mobile';
+        const sTop = isMobile ? 90: 110;
+      return <Paper color="" square style={{ position: 'absolute', top: sTop, width: '100%', boxSizing: "border-box",  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
+            {!isMobile && 
+              <DesktopLegend isMbole={isMobile} selectedSituation={selectedSituation} />
+            }
+            {isMobile &&
+              <MobileLegend
+                isMbole={isMobile}
+                selectedSituation={selectedSituation}
+                data={data}
+                onSelectSituation={onSelectSituation}
+              />
+            }
+          </Paper>
+    }
+  }
+  </SituationContext.Consumer>);
+}
+
+export default MapLegendBar;
+

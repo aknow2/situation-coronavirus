@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import SummaryCard from "../component/SummaryCard";
 import ExpandController from "../component/ExpandController";
+import MapLegendBar, { colorLutList } from "../component/MapLegendBar";
 import { TextLayer, ScatterplotLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
 import { StaticMap } from 'react-map-gl';
-import { Typography, Paper } from '@material-ui/core';
-import { translate, selectableSituationMap } from '../util';
+import { Typography } from '@material-ui/core';
+import { selectableSituationMap } from '../util';
 
 
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
@@ -20,31 +21,6 @@ const initialViewState = {
   bearing: 0
 };
 
-const colorLutList = [
-  {
-    max: 9,
-    color: [255, 213, 79]
-  },
-  {
-    min: 10,
-    max: 19,
-    color: [255, 152, 0],
-  },
-  {
-    min: 20,
-    max: 49,
-    color: [255, 87, 34],
-  },
-  {
-    min: 50,
-    max: 99,
-    color: [229, 57, 53],
-  },
-  {
-    min: 100,
-    color: [213, 0, 0],
-  },
-];
 
 const expandSammaryHeight = 72;
 
@@ -146,46 +122,12 @@ function Map() {
               onHover,
             })
           ];
-          const isMobile = displaySize === 'mobile';
-          const sSize = isMobile ? 10: 25;
-          const sTop = isMobile ? 90: 110;
         return <div>
-          <Paper color="" square style={{ position: 'absolute', top: sTop, width: '100%', boxSizing: "border-box",  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
-            <div style={{display: 'flex', alignItems: "center"}}>
-              <Typography variant={displaySize === 'mobile' ? 'body2': 'h6'} color="inherit" style={{marginRight: 10,}}>
-                {translate(selectedSituation).length > 7 ?  translate(selectedSituation).substring(0, 8)+'...' : translate(selectedSituation)}
-              </Typography>
-              {
-                colorLutList.map(lut => {
-                  const colorStr = `rgb(${lut.color[0]},${lut.color[1]},${lut.color[2]})`
-                  return (
-
-                    <div key={lut.color} style={{display: 'flex', alignItems: "center" , marginLeft: 5, marginRight: 5}}>
-                    <div style={{ width: sSize, height:sSize, borderRadius: '50%', backgroundColor: colorStr}} /> 
-                    {
-                      lut.max && !lut.min &&
-                      <div>
-                         &lt; {lut.max}
-                      </div>
-                    }
-                    {
-                      lut.max && lut.min &&
-                      <div>
-                        {lut.min} - {lut.max}
-                      </div>
-                    }
-                    {
-                      !lut.max && lut.min &&
-                      <div>
-                         {lut.min} +
-                      </div>
-                    }
-                    </div>
-                  );
-                })
-              }
-            </div>
-          </Paper>>
+          <MapLegendBar 
+            selectedSituation={selectedSituation}
+            onSelectSituation={onSelectSituation}
+            data={data}
+          />
           {
             displaySize === 'desktop' &&
             <SummaryCard
