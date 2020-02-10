@@ -33,7 +33,7 @@ function AppToolbar (props){
                   	Source is WHO situation report 
                 </Link>
                 <Typography variant="body2">
-                  last updated: 2020/02/06
+                  last updated: 2020/02/09
                 </Typography>
               </div>
             </div>
@@ -43,7 +43,6 @@ function AppToolbar (props){
     }
   }
   </SituationContext.Consumer>);
-
 }
 
 export default AppToolbar;
