@@ -18,6 +18,7 @@ import dayOf06022020 from "./data/dayOf06022020";
 import dayOf07022020 from "./data/dayOf07022020";
 import dayOf08022020 from "./data/dayOf08022020";
 import dayOf09022020 from "./data/dayOf09022020";
+import dayOf10022020 from "./data/dayOf10022020";
 
 
 const situationData  = {
@@ -276,7 +277,7 @@ const situationData  = {
       },
       {
         id: 43,
-        name: 'Cases on an international conveyance',
+        name: 'International conveyance(Japan)',
         country: 'japan',
         location: [35.407244, 139.717743]
       },
@@ -302,6 +303,7 @@ const situationData  = {
     dayOf07022020,
     dayOf08022020,
     dayOf09022020,
+    dayOf10022020,
   ]
 };
 
