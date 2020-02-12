@@ -20,7 +20,7 @@ function AppToolbar (props){
           <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
             <div style={{ display: 'flex', justifyContent: "space-between" }}>
               <Typography variant={titleSize}>
-                SITUATION of Coronavirus (2019-nCoV)
+                SITUATION of Coronavirus (COVID-19)
               </Typography>
             </div>
             <div style={{ width: '100%', display: 'flex', alignItems: "center", justifyContent: 'space-between' }}>
@@ -33,7 +33,7 @@ function AppToolbar (props){
                   	Source is WHO situation report 
                 </Link>
                 <Typography variant="body2">
-                  last updated: 2020/02/11
+                  last updated: 2020/02/12
                 </Typography>
               </div>
             </div>
