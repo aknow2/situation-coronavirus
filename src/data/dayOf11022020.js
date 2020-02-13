@@ -1,7 +1,7 @@
 const dayOf11022020 = {
   day: "2020-02-11",
   additionalInfo: {
-    severe_china: 6484,
+    severe_china: 7333,
     countries: 25,
   },
   areas: [

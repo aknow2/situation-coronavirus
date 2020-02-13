@@ -106,7 +106,7 @@ function SummaryCard (props){
         <Divider />
 
       </List>
-      <List style={{ maxHeight: 200, overflowY: 'scroll' }}>
+      <List style={{ maxHeight: window.innerHeight/3, overflowY: 'scroll' }}>
         {
           totalConfirmed
         }
