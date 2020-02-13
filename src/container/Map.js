@@ -85,7 +85,7 @@ function Map() {
               filled: true,
               radiusScale: 2,
               radiusMinPixels: 12,
-              radiusMaxPixels: 50,
+              radiusMaxPixels: 30,
               lineWidthMinPixels: 1,
               getRadius: d => {
                 const result = d[selectedSituation]

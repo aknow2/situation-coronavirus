@@ -25,13 +25,13 @@ const places = [
       },
       {
         id:5,
-        name: 'japan',
+        name: 'Japan',
         country: 'japan',
         location: [35.573073, 136.644255],
       },
       {
         id:6,
-        name: 'Republic of Korea ',
+        name: 'Republic of Korea',
         country: 'korea',
         location: [37.545423, 126.994158]
       },
@@ -241,7 +241,7 @@ const places = [
       },
       {
         id: 41,
-        name: 'United Kingdom',
+        name: 'The United Kingdom',
         country: 'uk',
         location: [54.731495, -2.675109]
       },
@@ -253,7 +253,7 @@ const places = [
       },
       {
         id: 43,
-        name: 'International conveyance(Japan)',
+        name: 'International conveyance',
         country: 'japan',
         location: [35.407244, 139.717743]
       },

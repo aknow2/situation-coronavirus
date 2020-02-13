@@ -25,7 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "gen_china_report": "node --experimental-modules ./src/tools.mjs"
+    "gen_china_report": "node --experimental-modules ./src/china_report.mjs",
+    "gen_world_report": "node --experimental-modules ./src/world_report.mjs"
   },
   "eslintConfig": {
     "extends": "react-app"

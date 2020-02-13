@@ -301,7 +301,7 @@ const dayOf11022020 = {
       numOfInfected: 135,
       travelHistoryChina: 0,
       transmissionOutsideOfChina: 0,
-      underInvestigation: 64,
+      underInvestigation: 135,
       deaths: 0,
     },
    {

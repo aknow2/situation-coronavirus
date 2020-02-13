@@ -56,7 +56,7 @@ const dayOf10022020 = {
       numOfInfected: 70,
       travelHistoryChina: 0,
       transmissionOutsideOfChina: 0,
-      underInvestigation: 64,
+      underInvestigation: 70,
       deaths: 0,
     },
    {

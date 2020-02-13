@@ -255,18 +255,18 @@ const dayOf12022020 = {
     {
       // Cases on an international conveyance
       placeId: 43,
-      numOfInfected: 175,
+      numOfInfected: 174,
       travelHistoryChina: 0,
       transmissionOutsideOfChina: 0,
-      underInvestigation: 64,
+      underInvestigation: 174,
       deaths: 0,
     },
    {
       // jp
       placeId: 5,
-      numOfInfected: 28,
+      numOfInfected: 29,
       travelHistoryChina: 24,
-      transmissionOutsideOfChina: 4,
+      transmissionOutsideOfChina: 5,
       underInvestigation: 0,
       deaths: 0,
     },
