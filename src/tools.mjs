@@ -37,4 +37,31 @@ const result = splittedList.reduce((prev, current) => {
 })
 
 
+/*
+ v1
+const result = splittedList.reduce((prev, current) => {
+  if(isNaN(Number(current))) {
+    prev.name += prev.name.length > 0 ?' ' + current: current
+    return prev
+  } else {
+    const place = places.find(p => p.name === prev.name)
+    const area = {
+      placeId: !!place ? place.id : prev.name,
+      numOfInfected: Number(current),
+      travelHistoryChina: null,
+      transmissionOutsideOfChina: null,
+      underInvestigation: null,
+      deaths: null,
+    }
+    prev.list.push(area)
+    prev.name = ''
+    return prev;
+  }
+}, {
+  name: '',
+  list: []
+})
+ */
+
+
 console.log(result.list);
