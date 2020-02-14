@@ -1,32 +1,50 @@
 import places from './places.mjs';
 
-const src = 'Hubei 5917 34874 Guangdong 11346 1241 Zhejiang 5737 1145 Henan 9605 1169 Hunan 6899 968 Anhui 6324 910 Jiangxi 4648 872 Jiangsu 8051 570 Chongqing 3102 518 Shandong 10047 506 Sichuan 8341 451 Heilongjiang 3773 395 Beijing 2154 366 Shanghai 2424 313 Fujian 3941 279 Hebei 7556 265 Shaanxi 3864 229 Guangxi 4926 222 Yunnan 4830 155 Hainan 934 157 Shanxi 3718 126 Guizhou 3600 135 Liaoning 4359 116 Tianjin 1560 112 Gansu 2637 87 Jilin 2704 84 Inner Mongolia 2534 61 Xinjiang 2487 63 Ningxia 688 64 Hong Kong 745 50 Qinghai 603 18 Taiwan 2359 18 Macau 66 10 Xizang 344 1'
-const splittedList = src.split(' ')
-
+const src = 'Hubei 11177 Zhejiang 724 Guangdong 683 Henan 566 Hunan 521 Anhui 408 Jiangxi 391 Chongqing 300 Jiangsu 271 Sichuan 254 Shandong 246 Beijing 212 Shanghai 193 Fujian 179 Shaanxi 128 Guangxi 127 Heilongjiang 118 Hebei 113 Yunnan 109 Liaoning 70 Hainan 70 Shanxi 66 Gansu 51 Tianjin 49 Guizhou 46 Inner Mongolia 33 Jilin 31 Ningxia 31 Xinjiang 24 Hong Kong SAR 15 Qinghai 13 Taiwan 10 Macau SAR 8 Xizang 1'
+const splittedList = src.split(' ').filter(s => s !== '' || s === '')
+/*
 const result = splittedList.reduce((prev, current) => {
-  if(isNaN(Number(current))) {
+  console.log(current);
+  if(isNaN(Number(current))&& current !== '-') {
     prev.name += prev.name.length > 0 ?' ' + current: current
     return prev
-  } else if (prev.area === undefined) {
+  }else if (prev.area === undefined) {
     const place = places.find(p => p.name === prev.name)
     if (!place) {
-      throw new Error();
+      console.log('#### ' + current);
+      throw new Error(prev.name);
     }
     prev.area = {
       placeId: place.id,
+      placeName: place.name,
       numOfInfected: null,
       population: Number(current),
+      clinicallyDiagnosed: null,
       suspect: null,
       deaths: null,
     }
     prev.name = ''
     return prev;
+  }  else if(prev.skip < 5){
+    prev.skip++;
+    return prev;
   } else if (prev.area.numOfInfected === null) {
     prev.area.numOfInfected = Number(current)
+    return prev
+  } else if(prev.area.clinicallyDiagnosed === null) {
+    prev.area.clinicallyDiagnosed = current === '-'?0:Number(current);
+    return prev
+  } else if (prev.skip === 5) {
+    prev.skip++;
+    return prev;
+  } else {
+    prev.area.deaths = Number(current)
     prev.list.push(prev.area)
     prev.area = undefined
+    prev.skip = 0
     return prev
-  } /*else if (prev.area.suspect === null) {
+  }
+  /*else if (prev.area.suspect === null) {
     prev.area.suspect = Number(current)
     return prev
   } else if (prev.area.deaths === null) {
@@ -34,24 +52,29 @@ const result = splittedList.reduce((prev, current) => {
     prev.list.push(prev.area)
     prev.area = undefined
     return prev
-  }*/
+  }*
 }, {
   name: '',
+  skip: 0,
   area: undefined, 
   list: []
 })
+*/
 
 
-/*
- v1
 const result = splittedList.reduce((prev, current) => {
+  console.log(current);
   if(isNaN(Number(current))) {
     prev.name += prev.name.length > 0 ?' ' + current: current
     return prev
   } else {
     const place = places.find(p => p.name === prev.name)
+    if (!place) {
+      throw new Error(prev.name);
+    }
     const area = {
-      placeId: !!place ? place.id : prev.name,
+      placeId: place.id,
+      placeName: place.name,
       numOfInfected: Number(current),
       travelHistoryChina: null,
       transmissionOutsideOfChina: null,
@@ -66,7 +89,6 @@ const result = splittedList.reduce((prev, current) => {
   name: '',
   list: []
 })
- */
 
 
 console.log(result.list);

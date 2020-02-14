@@ -103,13 +103,13 @@ const places = [
       },
       {
         id: 18,
-        name: 'Hong Kong',
+        name: 'Hong Kong SAR',
         country: 'china',
         location: [22.330435, 114.148980]
       },
       {
         id: 19,
-        name: 'Macau',
+        name: 'Macau SAR',
         country: 'china',
         location: [22.193462, 113.547836]
       },

@@ -344,9 +344,9 @@ const dayOf11022020 = {
       // Malaysia
       placeId: 27,
       numOfInfected: 18,
-      travelHistoryChina: 10,
-      transmissionOutsideOfChina: 4,
-      underInvestigation: 4,
+      travelHistoryChina: 15,
+      transmissionOutsideOfChina: 3,
+      underInvestigation: 0,
       deaths: 0,
     },
     {

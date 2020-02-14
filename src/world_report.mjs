@@ -1,6 +1,6 @@
 import places from './places.mjs';
 
-const src = 'Singapore 50 (3) 22 (0) 28 (3) 0 (0) 0 (0) Japan 29†† (0) 24 (0) 5 (0) 0 (0) 0 (0) Republic of Korea 28 (0) 13 (0) 12§§ (0) 3 (0) 0 (0) Malaysia 18 (0) 15 (0) 3 ‡‡ (0) 0 (0) 0 (0) Viet Nam 16 (1) 8 (0) 8 (1) 0 (0) 0 (0) Australia 15 (0) 15 (0) 0 (0) 0 (0) 0 (0) Philippines 3 (0) 3 (0) 0 (0) 0 (0) 1 (0) Cambodia 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) South-East Asia Region Thailand 33 (0) 23 (0) 6 (0) 4 (0) 0 (0) India 3 (0) 3 (0) 0 (0) 0 (0) 0 (0) Nepal 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Sri Lanka 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Region of the Americas United States of America 14 (1) 12 (1) 2 (0) 0 (0) 0 (0) Canada 7 (0) 6 (0) 0 (0) 1 (0) 0 (0) European Region Germany 16 (0) 2 (0) 14 (0) 0 (0) 0 (0) France 11 (0) 5 (0) 6 (0) 0 (0) 0 (0) The United Kingdom 9 (1) 2 (1) 7 *** (0) 0 (0) 0 (0) Italy 3 (0) 3 (0) 0 (0) 0 (0) 0 (0) Russian Federation 2 (0) 2 (0) 0 (0) 0 (0) 0 (0) Spain 2 (0) 0 (0) 2 § (0) 0 (0) 0 (0) Belgium 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Finland 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Sweden 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Eastern Mediterranean Region United Arab Emirates 8 (0) 6 (0) 1 (0) 1 (0) 0 (0) Other International conveyance (Japan) 174** (0) 0 (0) 0 (0) 174 (0) 0 (0)'
+const src = 'Singapore 58 (8) 22 (0) 36 (8) 0 (0) 0 (0) Japan 33 (4) 24 (0) 9 (4) 0 (0) 1 (1) Republic of Korea 28 (0) 13 (0) 12§§ (0) 3 (0) 0 (0) Malaysia 19 (1) 15 (0) 4‡‡ (1)‡‡‡ 0 (0) 0 (0) Viet Nam 16 (0) 8 (0) 8 (0) 0 (0) 0 (0) Australia 15 (0) 15 (0) 0 (0) 0 (0) 0 (0) Philippines 3 (0) 3 (0) 0 (0) 0 (0) 1 (0) Cambodia 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) South-East Asia Region Thailand 33 (0) 23 (0) 6 (0) 4 (0) 0 (0) India 3 (0) 3 (0) 0 (0) 0 (0) 0 (0) Nepal 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Sri Lanka 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Region of the Americas United States of America 15 (1) 13 (1) 2 (0) 0 (0) 0 (0) Canada 7 (0) 6 (0) 0 (0) 1 (0) 0 (0) European Region Germany 16 (0) 2 (0) 14 (0) 0 (0) 0 (0) France 11 (0) 5 (0) 6 (0) 0 (0) 0 (0) The United Kingdom 9 (0) 2 (0) 7*** (0) 0 (0) 0 (0) Italy 3 (0) 3 (0) 0 (0) 0 (0) 0 (0) Russian Federation 2 (0) 2 (0) 0 (0) 0 (0) 0 (0) Spain 2 (0) 0 (0) 2§ (0) 0 (0) 0 (0) Belgium 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Finland 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Sweden 1 (0) 1 (0) 0 (0) 0 (0) 0 (0) Eastern Mediterranean Region United Arab Emirates 8 (0) 6 (0) 1 (0) 1 (0) 0 (0) Other International conveyance (Japan) 218** (44) 0 (0) 0 (0) 218 (44) 0 (0)'
 const formatted = src.replace(/†/g, '')
     .replace(/\*/g, '')
     .replace(/‡/g, '')
@@ -23,6 +23,7 @@ const result = formatted.reduce((prev, current) => {
           }
           prev.area = {
             placeId: place.id,
+            placeName: place.name,
             numOfInfected: Number(current),
             travelHistoryChina: null,
             transmissionOutsideOfChina: null,

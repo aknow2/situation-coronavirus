@@ -93,14 +93,19 @@ export const selectableSituationMap = {
  deaths: 'deaths',
 }
 
-export const filterAreas = (areas, selectedCountry) => {
+export const filterAreas = (areas, selectedCountry, not = false) => {
   switch(selectedCountry) {
     case selectableCountryMap.china:
       return areas.filter(a => a.country === 'china');
     case selectableCountryMap.outside_china:
       return areas.filter(a => a.country !== 'china')
     case selectableCountryMap.all_country:
-    default:
       return areas;
+    default:
+      if (not) {
+        return areas.filter(a => a.country !== selectedCountry);
+      } else {
+        return areas.filter(a => a.country === selectedCountry);
+      }
   }
 };

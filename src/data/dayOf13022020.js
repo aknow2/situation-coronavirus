@@ -303,9 +303,9 @@ const dayOf13022020 = {
   {
     placeId: 34,
     numOfInfected: 3,
-    travelHistoryChina: 3,
+    travelHistoryChina: 2,
     transmissionOutsideOfChina: 0,
-    underInvestigation: 0,
+    underInvestigation: 1,
     deaths: 1
   },
   {

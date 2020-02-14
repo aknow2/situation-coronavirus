@@ -6,26 +6,31 @@ import { translate, reduce, selectableSituationMap } from '../util';
 
 export const colorLutList = [
   {
-    max: 9,
+    max: 10,
     color: [255, 213, 79]
   },
   {
-    min: 10,
-    max: 19,
+    min: 11,
+    max: 100,
     color: [255, 152, 0],
   },
   {
-    min: 20,
-    max: 49,
+    min: 101,
+    max: 299,
+    color: [255, 110, 0],
+  },
+  {
+    min: 300,
+    max: 500,
     color: [255, 87, 34],
   },
   {
-    min: 50,
-    max: 99,
+    min: 501,
+    max: 5000,
     color: [229, 57, 53],
   },
   {
-    min: 100,
+    min: 5000,
     color: [213, 0, 0],
   },
 ];

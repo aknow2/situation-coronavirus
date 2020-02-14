@@ -8,39 +8,318 @@ const dayOf06022020 = {
     {
       // china
       placeId: 21,
-      numOfInfected: 24324,
+      numOfInfected: null,
       travelHistoryChina: null,
       transmissionOutsideOfChina: null,
       underInvestigation: null,
       deaths: 490,
     },
    {
-      //  Macau
-      placeId: 19,
-      numOfInfected: 10,
-      travelHistoryChina: null,
-      transmissionOutsideOfChina: null,
-      underInvestigation: null,
-      deaths: null
-    },
-   {
-      //  Hong Kong
-      placeId: 18,
-      numOfInfected: 18,
-      travelHistoryChina: null,
-      transmissionOutsideOfChina: null,
-      underInvestigation: null,
-      deaths: 1
-    },
-    {
-      // Taiwan
-      placeId: 17,
-      numOfInfected: 11,
-      travelHistoryChina: null,
-      transmissionOutsideOfChina: null,
-      underInvestigation: null,
-      deaths: 0
-    },
+    placeId: 1,
+    placeName: 'Hubei',
+    numOfInfected: 16678,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 9,
+    placeName: 'Zhejiang',
+    numOfInfected: 895,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 2,
+    placeName: 'Guangdong',
+    numOfInfected: 870,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 13,
+    placeName: 'Henan',
+    numOfInfected: 764,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 14,
+    placeName: 'Hunan',
+    numOfInfected: 661,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 44,
+    placeName: 'Anhui',
+    numOfInfected: 530,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 10,
+    placeName: 'Jiangxi',
+    numOfInfected: 548,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 8,
+    placeName: 'Chongqing',
+    numOfInfected: 366,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 45,
+    placeName: 'Jiangsu',
+    numOfInfected: 341,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 11,
+    placeName: 'Sichuan',
+    numOfInfected: 301,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 15,
+    placeName: 'Shandong',
+    numOfInfected: 298,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 3,
+    placeName: 'Beijing',
+    numOfInfected: 253,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 4,
+    placeName: 'Shanghai',
+    numOfInfected: 233,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 47,
+    placeName: 'Fujian',
+    numOfInfected: 205,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 46,
+    placeName: 'Heilongjiang',
+    numOfInfected: 190,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 49,
+    placeName: 'Shaanxi',
+    numOfInfected: 165,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 50,
+    placeName: 'Guangxi',
+    numOfInfected: 150,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 48,
+    placeName: 'Hebei',
+    numOfInfected: 135,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 16,
+    placeName: 'Yunnan',
+    numOfInfected: 122,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 51,
+    placeName: 'Hainan',
+    numOfInfected: 89,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 54,
+    placeName: 'Liaoning',
+    numOfInfected: 81,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 52,
+    placeName: 'Shanxi',
+    numOfInfected: 81,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 12,
+    placeName: 'Tianjin',
+    numOfInfected: 67,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 55,
+    placeName: 'Gansu',
+    numOfInfected: 57,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 53,
+    placeName: 'Guizhou',
+    numOfInfected: 64,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 56,
+    placeName: 'Jilin',
+    numOfInfected: 54,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 57,
+    placeName: 'Inner Mongolia',
+    numOfInfected: 42,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 59,
+    placeName: 'Ningxia',
+    numOfInfected: 34,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 58,
+    placeName: 'Xinjiang',
+    numOfInfected: 32,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 18,
+    placeName: 'Hong Kong SAR',
+    numOfInfected: 18,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 60,
+    placeName: 'Qinghai',
+    numOfInfected: 17,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 17,
+    placeName: 'Taiwan',
+    numOfInfected: 11,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 19,
+    placeName: 'Macao SAR',
+    numOfInfected: 10,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
+  {
+    placeId: 61,
+    placeName: 'Xizang',
+    numOfInfected: 1,
+    travelHistoryChina: null,
+    transmissionOutsideOfChina: null,
+    underInvestigation: null,
+    deaths: null
+  },
     {
       // jp
       placeId: 5,

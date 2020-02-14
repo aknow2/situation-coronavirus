@@ -33,20 +33,21 @@ const containerDesktopStyle = {display: 'flex', margintTop: 16 }
 const containerMobileStyle = {margintTop: 16, marginBottom: 16 }
 
 const createChartData = (situations, key, selectedCountry, axis) => {
+  const valueKeys = ['value']
   const data = situations.map((s, index) => ({
     xAxis: s.day,
     yAxis: '',
-    value: axis === selectableAxisMap.total
+    [valueKeys[0]]: axis === selectableAxisMap.total
       ? createValue(s, key, selectedCountry)
       : createDeltaValue(s, situations[index-1], key, selectedCountry)
   }))
   const title = axis === selectableAxisMap.total ?
-    `${translate(key)} - ${translate('total')}`
-  : `${translate(key)} - ${translate('new')} `
-
+    `${translate(key)} - ${translate(selectedCountry)} - ${translate('total')}`
+    :`${translate(key)} - ${translate(selectedCountry)}- ${translate('new')} `
   return {
     title,
-    data
+    data,
+    valueKeys
   }
 }
 
@@ -54,6 +55,13 @@ const createChartData = (situations, key, selectedCountry, axis) => {
 const selectableCountries = Object.values(selectableCountryMap);
 const selectableAxis = Object.values(selectableAxisMap);
 const orgSelectableSituation = Object.values(selectableSituationMap);
+
+const isOutsideChinaReport = selectedSituation => {
+  return (selectedSituation === selectableSituationMap.travelHistoryChina ||
+    selectedSituation === selectableSituationMap.transmissionOutsideOfChina ||
+    selectedSituation === selectableSituationMap.underInvestigation)
+};
+
 function Chart() {
   const [ state, setState ] = useState({
     selectedSituation: selectableSituationMap.total_confirmed,
@@ -64,7 +72,7 @@ function Chart() {
       {({situations, displaySize}) => {
         const selectableSituations = orgSelectableSituation.concat(Object.keys(situations[situations.length - 1].additionalInfo))
         const result = createChartData(situations, state.selectedSituation, state.selectedCountry, state.selectedAxis);
-        const titleSize = displaySize === 'mobile' ? 'h6' : 'h3';
+        const titleSize = displaySize === 'mobile' ? 'h6' : 'h4';
         const chartWidth = window.innerWidth * (displaySize === 'desktop' ? 0.55 : 0.95);
         const chartHeight = window.innerHeight * (displaySize === 'desktop' ? 0.6 : 0.4);
 
@@ -92,7 +100,11 @@ function Chart() {
                       </Text>
                     } />
                   <Tooltip formatter={value => ([value, result.title])} />
-                  <Line type="monotone" dataKey="value" stroke="#8884d8" />
+                  {
+                    result.valueKeys.map((key) => {
+                      return<Line key type="monotone" dataKey={key} stroke="#8884d8" />
+                    })
+                  }
                 </LineChart>
                 <div>
                   <div style={{marginBottom: 32}}>
@@ -123,10 +135,19 @@ function Chart() {
                         labelId="select-label"
                         value={state.selectedSituation}
                         onChange={(ev) => {
-                          setState({
-                            ...state,
-                            selectedSituation: ev.target.value
-                          });
+                          const selectedSituation = ev.target.value
+                          if(isOutsideChinaReport(selectedSituation)) {
+                            setState({
+                              ...state,
+                              selectedCountry: selectableCountryMap.outside_china,
+                              selectedSituation
+                            })
+                          } else {
+                            setState({
+                              ...state,
+                              selectedSituation
+                            });
+                          }
                         }}
                       >
                         {
@@ -145,7 +166,8 @@ function Chart() {
                       <Select
                           labelId="country-label"
                           value={state.selectedCountry}
-                          disabled={!orgSelectableSituation.includes(state.selectedSituation)}
+                          disabled={!orgSelectableSituation.includes(state.selectedSituation)
+                              || isOutsideChinaReport(state.selectedSituation)}
                           onChange={(ev) => {
                             setState({
                               ...state,
