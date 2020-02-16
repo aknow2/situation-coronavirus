@@ -36,7 +36,7 @@ export const colorLutList = [
 ];
 
 function Legend({isMobile}) {
-  const sSize = isMobile ? 10: 25;
+  const sSize = isMobile ? 5: 25;
   return (
       <div style={{display: 'flex', alignItems: "center"}}>
       {

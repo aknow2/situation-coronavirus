@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListItem, ListItemText, Typography, ListItemSecondaryAction, } from '@material-ui/core';
-import { translate, reduce, filterAreas } from '../util';
+import { translate, reduce, filterAreas, selectableSituationMap } from '../util';
 
 export const createAdditionalInfoList = (additionalInfo, oldAdditionalInfo) => {
   return Object.keys(additionalInfo).map(key => { 
@@ -32,14 +32,10 @@ export const createAdditionalInfoList = (additionalInfo, oldAdditionalInfo) => {
 };
 
 export const situationMap = {
- total_confirmed: 'numOfInfected',
- deaths: 'deaths'
+ total_confirmed: selectableSituationMap.total_confirmed,
+ deaths: selectableSituationMap.deaths
 }
-export const itemFilterMap = {
-  global: 'global',
-  china: 'china',
-  outsideChina: 'outside_china'
-}
+
 export const createItem = (data, oldData, key, filterKey) => {
   const filteredData = filterAreas(data, filterKey);
   const calcDelta = (base) => {
@@ -50,7 +46,7 @@ export const createItem = (data, oldData, key, filterKey) => {
     return undefined;
   } 
   const result = reduce(filteredData, key);
-  const newResult = calcDelta(result);
+  const deltaResult = calcDelta(result);
   return (<ListItem>
           <ListItemText primary={translate(key)} secondary={translate(filterKey)} />
           <ListItemSecondaryAction>
@@ -61,7 +57,7 @@ export const createItem = (data, oldData, key, filterKey) => {
             </div>
             <div>
               <Typography variant="body2" color="textSecondary">
-                {newResult ? `${translate('new')} ${newResult}`: undefined}
+                {deltaResult ? `${translate('new')} ${deltaResult}`: undefined}
               </Typography>
             </div>
           </ListItemSecondaryAction>

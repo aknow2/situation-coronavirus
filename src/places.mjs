@@ -365,6 +365,12 @@ const places = [
         country: 'china',
         location: [30.635347, 86.762834]
       },
+      {
+        id: 62,
+        name: 'Egypt',
+        country: 'egypt',
+        location: [26.756393, 28.598153]
+      },
   ]
 
 export default places;
