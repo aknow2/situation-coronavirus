@@ -109,7 +109,7 @@ const places = [
       },
       {
         id: 19,
-        name: 'Macau SAR',
+        name: 'Macao SAR',
         country: 'china',
         location: [22.193462, 113.547836]
       },

@@ -1,5 +1,5 @@
-const dayOf15022020 = {
-  day: "2020-02-15",
+const dayOf16022020 = {
+  day: "2020-02-16",
   additionalInfo: {
     countries: 26,
   },
@@ -7,16 +7,16 @@ const dayOf15022020 = {
   {
     placeId: 1,
     placeName: 'Hubei',
-    numOfInfected: 37884,
+    numOfInfected: 38839,
     population: 5917,
-    clinicallyDiagnosed: 16522,
+    clinicallyDiagnosed: 17410,
     suspect: null,
-    deaths: 1457
+    deaths: 1596
   },
   {
     placeId: 2,
     placeName: 'Guangdong',
-    numOfInfected: 1294,
+    numOfInfected: 1316,
     population: 11346,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -25,7 +25,7 @@ const dayOf15022020 = {
   {
     placeId: 13,
     placeName: 'Henan',
-    numOfInfected: 1212,
+    numOfInfected: 1231,
     population: 9605,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -34,7 +34,7 @@ const dayOf15022020 = {
   {
     placeId: 9,
     placeName: 'Zhejiang',
-    numOfInfected: 1162,
+    numOfInfected: 1167,
     population: 5737,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -43,16 +43,16 @@ const dayOf15022020 = {
   {
     placeId: 14,
     placeName: 'Hunan',
-    numOfInfected: 1001,
+    numOfInfected: 1004,
     population: 6899,
     clinicallyDiagnosed: 0,
     suspect: null,
-    deaths: 2
+    deaths: 3
   },
   {
     placeId: 44,
     placeName: 'Anhui',
-    numOfInfected: 950,
+    numOfInfected: 962,
     population: 6324,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -61,7 +61,7 @@ const dayOf15022020 = {
   {
     placeId: 10,
     placeName: 'Jiangxi',
-    numOfInfected: 913,
+    numOfInfected: 925,
     population: 4648,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -70,7 +70,7 @@ const dayOf15022020 = {
   {
     placeId: 45,
     placeName: 'Jiangsu',
-    numOfInfected: 604,
+    numOfInfected: 617,
     population: 8051,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -79,7 +79,7 @@ const dayOf15022020 = {
   {
     placeId: 8,
     placeName: 'Chongqing',
-    numOfInfected: 537,
+    numOfInfected: 544,
     population: 3102,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -88,7 +88,7 @@ const dayOf15022020 = {
   {
     placeId: 15,
     placeName: 'Shandong',
-    numOfInfected: 530,
+    numOfInfected: 537,
     population: 10047,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -97,16 +97,16 @@ const dayOf15022020 = {
   {
     placeId: 11,
     placeName: 'Sichuan',
-    numOfInfected: 470,
+    numOfInfected: 481,
     population: 8341,
     clinicallyDiagnosed: 0,
     suspect: null,
-    deaths: 1
+    deaths: 3
   },
   {
     placeId: 46,
     placeName: 'Heilongjiang',
-    numOfInfected: 425,
+    numOfInfected: 445,
     population: 3773,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -115,7 +115,7 @@ const dayOf15022020 = {
   {
     placeId: 3,
     placeName: 'Beijing',
-    numOfInfected: 375,
+    numOfInfected: 380,
     population: 2154,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -124,7 +124,7 @@ const dayOf15022020 = {
   {
     placeId: 4,
     placeName: 'Shanghai',
-    numOfInfected: 326,
+    numOfInfected: 328,
     population: 2424,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -133,7 +133,7 @@ const dayOf15022020 = {
   {
     placeId: 48,
     placeName: 'Hebei',
-    numOfInfected: 291,
+    numOfInfected: 300,
     population: 7556,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -142,7 +142,7 @@ const dayOf15022020 = {
   {
     placeId: 47,
     placeName: 'Fujian',
-    numOfInfected: 285,
+    numOfInfected: 287,
     population: 3941,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -151,7 +151,7 @@ const dayOf15022020 = {
   {
     placeId: 50,
     placeName: 'Guangxi',
-    numOfInfected: 235,
+    numOfInfected: 237,
     population: 4926,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -160,7 +160,7 @@ const dayOf15022020 = {
   {
     placeId: 49,
     placeName: 'Shaanxi',
-    numOfInfected: 232,
+    numOfInfected: 236,
     population: 3864,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -169,7 +169,7 @@ const dayOf15022020 = {
   {
     placeId: 16,
     placeName: 'Yunnan',
-    numOfInfected: 168,
+    numOfInfected: 169,
     population: 4830,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -187,7 +187,7 @@ const dayOf15022020 = {
   {
     placeId: 53,
     placeName: 'Guizhou',
-    numOfInfected: 143,
+    numOfInfected: 144,
     population: 3600,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -196,7 +196,7 @@ const dayOf15022020 = {
   {
     placeId: 52,
     placeName: 'Shanxi',
-    numOfInfected: 127,
+    numOfInfected: 128,
     population: 3718,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -205,7 +205,7 @@ const dayOf15022020 = {
   {
     placeId: 12,
     placeName: 'Tianjin',
-    numOfInfected: 120,
+    numOfInfected: 122,
     population: 1560,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -214,7 +214,7 @@ const dayOf15022020 = {
   {
     placeId: 54,
     placeName: 'Liaoning',
-    numOfInfected: 119,
+    numOfInfected: 120,
     population: 4359,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -232,8 +232,17 @@ const dayOf15022020 = {
   {
     placeId: 56,
     placeName: 'Jilin',
-    numOfInfected: 88,
+    numOfInfected: 89,
     population: 2704,
+    clinicallyDiagnosed: 0,
+    suspect: null,
+    deaths: 1
+  },
+  {
+    placeId: 58,
+    placeName: 'Xinjiang',
+    numOfInfected: 71,
+    population: 2487,
     clinicallyDiagnosed: 0,
     suspect: null,
     deaths: 1
@@ -248,18 +257,9 @@ const dayOf15022020 = {
     deaths: 0
   },
   {
-    placeId: 58,
-    placeName: 'Xinjiang',
-    numOfInfected: 70,
-    population: 2487,
-    clinicallyDiagnosed: 0,
-    suspect: null,
-    deaths: 1
-  },
-  {
     placeId: 57,
     placeName: 'Inner Mongolia',
-    numOfInfected: 68,
+    numOfInfected: 70,
     population: 2534,
     clinicallyDiagnosed: 0,
     suspect: null,
@@ -294,7 +294,7 @@ const dayOf15022020 = {
   },
   {
     placeId: 19,
-    placeName: 'Macau SAR',
+    placeName: 'Macao SAR',
     numOfInfected: 10,
     population: 66,
     clinicallyDiagnosed: 0,
@@ -310,38 +310,38 @@ const dayOf15022020 = {
     suspect: null,
     deaths: 0
   },
-   {
+  {
     placeId: 23,
     placeName: 'Singapore',
-    numOfInfected: 67,
+    numOfInfected: 72,
     travelHistoryChina: 22,
-    transmissionOutsideOfChina: 44,
+    transmissionOutsideOfChina: 49,
     underInvestigation: 1,
     deaths: 0
   },
   {
     placeId: 5,
     placeName: 'Japan',
-    numOfInfected: 41,
-    travelHistoryChina: 25,
-    transmissionOutsideOfChina: 16,
+    numOfInfected: 53,
+    travelHistoryChina: 26,
+    transmissionOutsideOfChina: 27,
     underInvestigation: 0,
     deaths: 1
   },
   {
     placeId: 6,
     placeName: 'Republic of Korea',
-    numOfInfected: 28,
+    numOfInfected: 29,
     travelHistoryChina: 13,
-    transmissionOutsideOfChina: 12,
+    transmissionOutsideOfChina: 13,
     underInvestigation: 3,
     deaths: 0
   },
   {
     placeId: 27,
     placeName: 'Malaysia',
-    numOfInfected: 21,
-    travelHistoryChina: 16,
+    numOfInfected: 22,
+    travelHistoryChina: 17,
     transmissionOutsideOfChina: 4,
     underInvestigation: 1,
     deaths: 0
@@ -448,11 +448,11 @@ const dayOf15022020 = {
   {
     placeId: 26,
     placeName: 'France',
-    numOfInfected: 11,
+    numOfInfected: 12,
     travelHistoryChina: 5,
-    transmissionOutsideOfChina: 6,
+    transmissionOutsideOfChina: 7,
     underInvestigation: 0,
-    deaths: 0
+    deaths: 1
   },
   {
     placeId: 41,
@@ -538,12 +538,12 @@ const dayOf15022020 = {
   {
     placeId: 43,
     placeName: 'International conveyance',
-    numOfInfected: 218,
+    numOfInfected: 355,
     travelHistoryChina: 0,
     transmissionOutsideOfChina: 0,
-    underInvestigation: 218,
+    underInvestigation: 355,
     deaths: 0
   }
   ]
 };
-export default dayOf15022020;
+export default dayOf16022020;
