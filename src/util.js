@@ -35,7 +35,8 @@ const en = {
   global: 'Global',
   travelHistoryChina: 'Confirmed cases with travel history to China ',
   transmissionOutsideOfChina: 'Confirmed possible or confirmed transmission outside of China',
-  underInvestigation: 'Confirmed cases with site of transmission under investigation'
+  underInvestigation: 'Confirmed cases with site of transmission under investigation',
+  outsideReporting: 'Outside reporting country and outside China'
 }
 
 const ja = {

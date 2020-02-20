@@ -253,7 +253,7 @@ const places = [
       },
       {
         id: 43,
-        name: 'International conveyance',
+        name: 'Diamond Princess',
         country: 'japan',
         location: [35.407244, 139.717743]
       },
