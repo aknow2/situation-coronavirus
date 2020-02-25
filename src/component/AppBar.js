@@ -33,7 +33,7 @@ function AppToolbar (props){
                   	Source is WHO situation report 
                 </Link>
                 <Typography variant="body2">
-                  last updated: 2020/02/13
+                  last updated: 2020/02/25
                 </Typography>
               </div>
             </div>

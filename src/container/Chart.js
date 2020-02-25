@@ -51,12 +51,11 @@ const createChartData = (situations, key, selectedCountry, axis) => {
   }
 }
 
-
-const selectableCountries = Object.values(selectableCountryMap);
+const baseSelectableCountries = Object.values(selectableCountryMap);
 const selectableAxis = Object.values(selectableAxisMap);
 const orgSelectableSituation = Object.values(selectableSituationMap);
 
-const isOutsideChinaReport = selectedSituation => {
+export const isOutsideChinaReport = selectedSituation => {
   return (selectedSituation === selectableSituationMap.travelHistoryChina ||
     selectedSituation === selectableSituationMap.transmissionOutsideOfChina ||
     selectedSituation === selectableSituationMap.underInvestigation)
@@ -65,18 +64,23 @@ const isOutsideChinaReport = selectedSituation => {
 function Chart() {
   const [ state, setState ] = useState({
     selectedSituation: selectableSituationMap.total_confirmed,
-    selectedCountry: selectableCountries[0],
+    selectedCountry: baseSelectableCountries[0],
     selectedAxis: selectableAxis[0],
   });
   return (<SituationContext.Consumer>
       {({situations, displaySize}) => {
-        const selectableSituations = orgSelectableSituation.concat(Object.keys(situations[situations.length - 1].additionalInfo))
+        const latestSituation = situations[situations.length - 1];
+        const selectableSituations = orgSelectableSituation.concat(Object.keys(latestSituation.additionalInfo))
         const result = createChartData(situations, state.selectedSituation, state.selectedCountry, state.selectedAxis);
         const titleSize = displaySize === 'mobile' ? 'h6' : 'h4';
         const chartWidth = window.innerWidth * (displaySize === 'desktop' ? 0.55 : 0.95);
         const chartHeight = window.innerHeight * (displaySize === 'desktop' ? 0.6 : 0.4);
 
         const containerStyle = displaySize === 'desktop' ? containerDesktopStyle : containerMobileStyle;
+        const selectableCountries = baseSelectableCountries.concat(latestSituation.areas
+            .filter(a => a.country !== 'china')
+            .map(areas => areas.country))
+            .filter((x, i, me) => me.indexOf(x) === i); 
         return <div style={{width: '100%', position: 'absolute', top: 130, }}>
             <Container>
               <Typography variant={titleSize} color="textSecondary">
@@ -136,18 +140,10 @@ function Chart() {
                         value={state.selectedSituation}
                         onChange={(ev) => {
                           const selectedSituation = ev.target.value
-                          if(isOutsideChinaReport(selectedSituation)) {
-                            setState({
-                              ...state,
-                              selectedCountry: selectableCountryMap.outside_china,
-                              selectedSituation
-                            })
-                          } else {
-                            setState({
-                              ...state,
-                              selectedSituation
-                            });
-                          }
+                          setState({
+                            ...state,
+                            selectedSituation
+                          });
                         }}
                       >
                         {
@@ -166,12 +162,14 @@ function Chart() {
                       <Select
                           labelId="country-label"
                           value={state.selectedCountry}
-                          disabled={!orgSelectableSituation.includes(state.selectedSituation)
-                              || isOutsideChinaReport(state.selectedSituation)}
                           onChange={(ev) => {
+                            let value = ev.target.value;
+                            if(!baseSelectableCountries.includes(value)) {
+                              value = latestSituation.areas.find(a => a.country === value).country;
+                            }
                             setState({
                               ...state,
-                              selectedCountry: ev.target.value
+                              selectedCountry: value
                             })
                           }}
                         >

@@ -38,7 +38,7 @@ export const colorLutList = [
 function Legend({isMobile}) {
   const sSize = isMobile ? 5: 25;
   return (
-      <div style={{display: 'flex', alignItems: "center"}}>
+      <div style={{display: 'flex', alignItems: "center", flexWrap: 'wrap'}}>
       {
         colorLutList.map(lut => {
           const colorStr = `rgb(${lut.color[0]},${lut.color[1]},${lut.color[2]})`
@@ -72,12 +72,16 @@ function Legend({isMobile}) {
   );
 }
 
-function DesktopLegend({isMobile, selectedSituation}) {
+function DesktopLegend({isMobile, selectedSituation, data}) {
   const title = translate(selectedSituation);
+  const value = reduce(data, selectedSituation)
   return (
   <div style={{display: 'flex', alignItems: "center"}}>
     <Typography variant={'h6'} color="inherit" style={{marginRight: 10,}}>
       {title.length > 7 ?  title.substring(0, 8)+'...' : title}
+    </Typography>
+    <Typography variant={'h6'} color="inherit" style={{marginRight: 10,}}>
+      { value }
     </Typography>
     <Legend 
       isMobile={isMobile}
@@ -143,7 +147,7 @@ function MapLegendBar ({ selectedSituation, data, onSelectSituation }){
         const sTop = isMobile ? 90: 110;
       return <Paper color="" square style={{ position: 'absolute', top: sTop, width: '100%', boxSizing: "border-box",  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
             {!isMobile && 
-              <DesktopLegend isMbole={isMobile} selectedSituation={selectedSituation} />
+              <DesktopLegend isMbole={isMobile} selectedSituation={selectedSituation} data={data} />
             }
             {isMobile &&
               <MobileLegend

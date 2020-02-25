@@ -374,20 +374,26 @@ const places = [
       {
         id: 63,
         name: 'Iran',
-        country: 'Iran',
+        country: 'iran',
         location: [32.234106, 54.781108]
       },
        {
         id: 64,
         name: 'Israel',
-        country: 'Israel',
+        country: 'israel',
         location: [32.087470, 34.815624]
       },
       {
         id: 65,
         name: 'Lebanon',
-        country: 'Lebanon',
+        country: 'lebanon',
         location: [34.164434, 35.824639]
+      },
+      {
+        id: 66,
+        name: 'Kuwait',
+        country: 'kuwait',
+        location: [29.567720, 47.573536]
       },
   ]
 
