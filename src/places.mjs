@@ -395,6 +395,30 @@ const places = [
         country: 'kuwait',
         location: [29.567720, 47.573536]
       },
+      {
+        id: 67,
+        name: 'Iraq',
+        country: 'iraq',
+        location: [32.641742, 42.872624]
+      },
+      {
+        id: 68,
+        name: 'Afghanistan',
+        country: 'afghanistan',
+        location: [34.343433, 65.587453]
+      },
+      {
+        id: 69,
+        name: 'Bahrain',
+        country: 'bahrain',
+        location: [25.945618, 50.539992]
+      },
+      {
+        id: 70,
+        name: 'Oman',
+        country: 'oman',
+        location: [20.905044, 56.589109]
+      },
   ]
 
 export default places;
