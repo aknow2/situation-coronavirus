@@ -1,7 +1,7 @@
 const dayOf25022020 = {
   day: "2020-02-25",
   additionalInfo: {
-    countries: 35,
+    countries: 34,
   },
   areas: [
     {

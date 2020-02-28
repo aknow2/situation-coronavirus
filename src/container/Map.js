@@ -3,7 +3,7 @@ import { SituationContext } from "../Provider";
 import SummaryCard from "../component/SummaryCard";
 import ExpandController from "../component/ExpandController";
 import MapLegendBar, { colorLutList } from "../component/MapLegendBar";
-import { TextLayer, ScatterplotLayer } from '@deck.gl/layers';
+import { ColumnLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
 import { StaticMap } from 'react-map-gl';
@@ -17,7 +17,7 @@ const initialViewState = {
   longitude: 136.508297, 
   latitude: 34.730218,
   zoom: 2,
-  pitch: 0,
+  pitch: 45,
   bearing: 0
 };
 
@@ -35,7 +35,8 @@ function Map() {
     const { hoveredObject, pointerX, pointerY } = hoveredState;
     return hoveredObject && (
       <div style={{color: 'white', position: 'absolute', zIndex: 1, pointerEvents: 'none', left: pointerX, top: pointerY}}>
-        { hoveredObject.name }
+        <p>{ hoveredObject.name } </p> 
+        <p>{hoveredObject.value}  </p>
       </div>
     );
   }
@@ -45,7 +46,8 @@ function Map() {
       const name = data.name
       setHoveredState({
         hoveredObject: {
-          name
+          name,
+          value: data[selectedSituation]
         },
         pointerX: info.x,
         pointerY: info.y
@@ -58,7 +60,7 @@ function Map() {
   };
 
   return (<SituationContext.Consumer>
-      {({ situations, day, onChangeDate, nextDate, prevDate, dateList, displaySize }) => {
+      {({ situations, day, onChangeDate, nextDate, prevDate, dateList, displaySize, playing, play, pause }) => {
           if (situations.length  === 0) {
             return <div />
           }
@@ -76,21 +78,17 @@ function Map() {
           } 
           const plotData = filterValidValue(data, selectedSituation);
           const layers = [
-            new ScatterplotLayer({
-              id: 'scatterplot-layer', 
+            new ColumnLayer({
+              id: 'column-layer', 
               data: plotData,
               getPosition,
               pickable: true,
-              opacity: 0.8,
               filled: true,
-              radiusScale: 2,
-              radiusMinPixels: 12,
-              radiusMaxPixels: 30,
-              lineWidthMinPixels: 1,
-              getRadius: d => {
-                const result = d[selectedSituation]
-                const count = Math.sqrt(result * 3) * result;
-                return count
+              radius: 100000,
+              extruded: true,
+              elevationScale: 80,
+              getElevation: d => {
+                return d[selectedSituation]
               },
               getFillColor: (d) => {
                 const count = d[selectedSituation]
@@ -107,18 +105,6 @@ function Map() {
                 return lut.color;
               },
               getLineColor: d => [0, 0, 0],
-              onHover,
-            }),
-            new TextLayer({
-              id: 'text-layer',
-              data: plotData,
-              getPosition,
-              pickable: true,
-              getText: d => d[selectedSituation].toString(),
-              getSize: 32,
-              getColor: [255,255,255],
-              getTextAnchor: 'middle',
-              getAlignmentBaseline: 'center',
               onHover,
             })
           ];
@@ -142,6 +128,9 @@ function Map() {
               oldAdditionalInfo={oldAdditionalInfo}
               selectedSituation={selectedSituation}
               onSelectSituation={onSelectSituation}
+              play={play}
+              pause={pause}
+              playing={playing}
             />
           }
           {
