@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import ArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import ArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import ArrowDownIcon from '@material-ui/icons/ArrowDropDown'
+import PlayIcon from '@material-ui/icons/PlayCircleFilled'
+import PauseIcon from '@material-ui/icons/PauseCircleFilled'
 import {ListItemSecondaryAction, Card, List, ListItem, Typography, IconButton, Grid, Slider, ListItemText,  MenuItem, Menu, Divider } from '@material-ui/core';
 import { createAdditionalInfoList, createItem, situationMap } from './AdditionalInfoList';
 import { translate, selectableCountryMap, selectableSituationMap } from '../util';
@@ -12,6 +14,9 @@ function SummaryCard (props){
     oldAdditionalInfo, day, nextDate, prevDate, dateList,
     selectedSituation,
     onSelectSituation,
+    play,
+    pause,
+    playing,
     onChangeDate} = props;
   const [situationMenuEl, toggleSituationMenuEl] = useState(null);
   const totalConfirmed = createItem(data, oldData, situationMap.total_confirmed, selectableCountryMap.all_country);
@@ -72,21 +77,36 @@ function SummaryCard (props){
           </ListItemSecondaryAction>
         </ListItem>
         <ListItem>
-          <Grid container spacing={0}>
-            <Grid item xs={2}>
-            <IconButton size="small" onClick={prevDate}>
-              <ArrowLeftIcon />
-            </IconButton>
-            </Grid>
-            <Grid item xs={8}>
+          <Grid container spacing={0} alignItems="center">
+          
+            <Grid item xs={5}>
               <Typography style={{textAlign: 'center'}}>
                 {day}
               </Typography>
             </Grid>
             <Grid item xs={2}>
+            <IconButton size="small" onClick={prevDate}>
+              <ArrowLeftIcon />
+            </IconButton>
+            </Grid>
+            <Grid item xs={2}>
             <IconButton size="small" onClick={nextDate}>
               <ArrowRightIcon />
             </IconButton>
+            </Grid>
+            <Grid item xs={1}>
+              {
+                !playing &&
+                <IconButton size="small" onClick={play} >
+                  <PlayIcon />
+                </IconButton>
+              }
+              {
+                playing &&
+                <IconButton size="small" onClick={pause} >
+                  <PauseIcon />
+                </IconButton>
+              }             
             </Grid>
             <Grid item xs={12}>
               <Slider 

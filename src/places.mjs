@@ -395,6 +395,108 @@ const places = [
         country: 'kuwait',
         location: [29.567720, 47.573536]
       },
+      {
+        id: 67,
+        name: 'Iraq',
+        country: 'iraq',
+        location: [32.641742, 42.872624]
+      },
+      {
+        id: 68,
+        name: 'Afghanistan',
+        country: 'afghanistan',
+        location: [34.343433, 65.587453]
+      },
+      {
+        id: 69,
+        name: 'Bahrain',
+        country: 'bahrain',
+        location: [25.945618, 50.539992]
+      },
+      {
+        id: 70,
+        name: 'Oman',
+        country: 'oman',
+        location: [20.905044, 56.589109]
+      },
+      {
+        id: 71,
+        name: 'Austria',
+        country: 'austria',
+        location: [47.778987, 14.428717]
+      },
+      {
+        id: 72,
+        name: 'Croatia',
+        country: 'croatia',
+        location: [44.449083, 17.664095]
+      },
+      {
+        id: 73,
+        name: 'Switzerland',
+        country: 'switzerland',
+        location: [46.987857, 8.119545]
+      },
+      {
+        id: 74,
+        name: 'Algeria',
+        country: 'algeria',
+        location: [29.619162, 2.778654]
+      },
+      {
+        id: 75,
+        name: 'Brazil',
+        country: 'brazil',
+        location: [-7.726328, -56.647254]
+      },
+      {
+        id: 76,
+        name: 'Denmark',
+        country: 'denmark',
+        location: [55.776706, 10.129287]
+      },
+      {
+        id: 77,
+        name: 'Estonia',
+        country: 'estonia',
+        location: [58.917434, 25.332932]
+      },
+      {
+        id: 78,
+        name: 'Georgia',
+        country: 'georgia',
+        location: [42.278731, 43.434231]
+      },
+      {
+        id: 79,
+        name: 'Greece',
+        country: 'greece',
+        location: [39.290321, 22.524309]
+      },
+      {
+        id: 80,
+        name: 'North Macedonia',
+        country: 'north macedonia',
+        location: [41.638029, 21.664368]
+      },
+      {
+        id: 81,
+        name: 'Norway',
+        country: 'norway',
+        location: [62.656854, 9.002589]
+      },
+      {
+        id: 82,
+        name: 'Romania',
+        country: 'romania',
+        location: [46.421935, 25.436763]
+      },
+      {
+        id: 83,
+        name: 'Pakistan',
+        country: 'pakistan',
+        location: [29.328910, 68.505539]
+      },
   ]
 
 export default places;

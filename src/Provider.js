@@ -22,7 +22,7 @@ const getDisplaySize = () => {
 
 export default class Provider extends React.Component {
 
-  state = { situations: [], day: '', dateList: [], displaySize: DisplaySize.desktop };
+  state = { situations: [], day: '', dateList: [], displaySize: DisplaySize.desktop, playing: false };
   componentDidMount() {
     const _situations = SituationData.situations
     const _places = SituationData.places;
@@ -55,6 +55,9 @@ export default class Provider extends React.Component {
     });
   }
 
+  doAnimation = () => {
+ 
+  }
 
   changeDate = day => {
     this.setState({day});
@@ -79,6 +82,24 @@ export default class Provider extends React.Component {
    })
   }
 
+  play = () => {
+    this.setState({ playing: true})
+    let base = Date.now()
+    const animation = () => {
+      const current = Date.now();
+      if (this.state.playing ) {
+        if (current - base > 500) {
+          base = current
+          this.nextDate();
+        }
+        requestAnimationFrame(animation)
+      }
+    }
+    requestAnimationFrame(animation)
+  }
+  pause = () => {
+    this.setState({ playing: false})
+  }
 
   render() {
     return (
@@ -86,7 +107,9 @@ export default class Provider extends React.Component {
         ...this.state,
         onChangeDate: this.changeDate,
         nextDate: this.nextDate,
-        prevDate: this.prevDate
+        prevDate: this.prevDate,
+        play: this.play,
+        pause: this.pause
       }}>
         {this.props.children}
       </SituationContext.Provider>);
