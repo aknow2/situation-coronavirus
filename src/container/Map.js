@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import SummaryCard from "../component/SummaryCard";
 import ExpandController from "../component/ExpandController";
-import MapLegendBar, { colorLutList } from "../component/MapLegendBar";
+import MapLegendBar, { colorLutList, newLutList } from "../component/MapLegendBar";
 import { ColumnLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
 import { StaticMap } from 'react-map-gl';
 import { Typography } from '@material-ui/core';
-import { selectableSituationMap } from '../util';
+import { selectableSituationMap, selectableAxisMap } from '../util';
 
 
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
@@ -21,6 +21,25 @@ const initialViewState = {
   bearing: 0
 };
 
+const deltaData = (current, old, selectedSituation) => {
+  return current.map((c, index) => {
+    const oldValue = (() => {
+      if(!old) {
+        return 0;
+      }
+      const area = old.find(o => o.id === c.id);
+      if (!area) {
+        return 0;
+      }
+      const oldSituation = area[selectedSituation];
+      return oldSituation ? oldSituation : 0;
+    })()
+    return {
+      ...c,
+      [selectedSituation]: c[selectedSituation] - oldValue
+    }
+  })
+}
 
 const expandSammaryHeight = 72;
 
@@ -31,6 +50,7 @@ const filterValidValue = (areas, key) => {
 function Map() {
   const [hoveredState, setHoveredState ] = useState({hoveredObject: undefined, pointerX: 0, pointerY: 0});
   const [selectedSituation, onSelectSituation] = useState(selectableSituationMap.total_confirmed);
+  const [selectedAxis, onSelectAxis] = useState(selectableAxisMap.total);
   const renderTooltip = () => {
     const { hoveredObject, pointerX, pointerY } = hoveredState;
     return hoveredObject && (
@@ -76,7 +96,8 @@ function Map() {
             const result = d.location
             return [result[1], result[0], 0];
           } 
-          const plotData = filterValidValue(data, selectedSituation);
+          const filteredData = filterValidValue(data, selectedSituation)
+          const plotData = selectedAxis === selectableAxisMap.total ? filteredData : deltaData(filteredData, oldData, selectedSituation);
           const layers = [
             new ColumnLayer({
               id: 'column-layer', 
@@ -86,18 +107,19 @@ function Map() {
               filled: true,
               radius: 100000,
               extruded: true,
-              elevationScale: 80,
+              elevationScale: (selectedAxis === selectableAxisMap.total) ? 80 : 200,
               getElevation: d => {
                 return d[selectedSituation]
               },
               getFillColor: (d) => {
                 const count = d[selectedSituation]
-                const lut = colorLutList.find(lut => {
+                const lutList = (selectedAxis === selectableAxisMap.total)?colorLutList:newLutList;
+                const lut = lutList.find(lut => {
                   if (lut.min && lut.max) {
                     return count >= lut.min && count <= lut.max;
-                  } else if (lut.max) {
+                  } else if (lut.max !== undefined) {
                     return count <= lut.max
-                  } else if (lut.min)  {
+                  } else if (lut.min !== undefined)  {
                     return  count >= lut.min
                   } 
                   return false;
@@ -112,6 +134,7 @@ function Map() {
           <MapLegendBar 
             selectedSituation={selectedSituation}
             onSelectSituation={onSelectSituation}
+            selectedAxis={selectedAxis}
             data={data}
           />
           {
@@ -128,6 +151,8 @@ function Map() {
               oldAdditionalInfo={oldAdditionalInfo}
               selectedSituation={selectedSituation}
               onSelectSituation={onSelectSituation}
+              selectedAxis={selectedAxis}
+              onSelectAxis={onSelectAxis}
               play={play}
               pause={pause}
               playing={playing}

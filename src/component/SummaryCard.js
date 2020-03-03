@@ -6,19 +6,23 @@ import PlayIcon from '@material-ui/icons/PlayCircleFilled'
 import PauseIcon from '@material-ui/icons/PauseCircleFilled'
 import {ListItemSecondaryAction, Card, List, ListItem, Typography, IconButton, Grid, Slider, ListItemText,  MenuItem, Menu, Divider } from '@material-ui/core';
 import { createAdditionalInfoList, createItem, situationMap } from './AdditionalInfoList';
-import { translate, selectableCountryMap, selectableSituationMap } from '../util';
+import { translate, selectableCountryMap, selectableSituationMap, selectableAxisMap } from '../util';
 
 const selectableSituations = Object.values(selectableSituationMap);
+const selectableAxis = Object.values(selectableAxisMap);
 function SummaryCard (props){
   const {data, oldData, additionalInfo,
     oldAdditionalInfo, day, nextDate, prevDate, dateList,
     selectedSituation,
     onSelectSituation,
+    selectedAxis,
+    onSelectAxis,
     play,
     pause,
     playing,
     onChangeDate} = props;
   const [situationMenuEl, toggleSituationMenuEl] = useState(null);
+  const [axisMenuEl, toggleAxisMenuEl] = useState(null);
   const totalConfirmed = createItem(data, oldData, situationMap.total_confirmed, selectableCountryMap.all_country);
   const totalDeathsInChina = createItem(data, oldData, situationMap.deaths, selectableCountryMap.china);
   const totalOutsideDeaths = createItem(data, oldData, situationMap.deaths, selectableCountryMap.outside_china);
@@ -36,49 +40,7 @@ function SummaryCard (props){
   >
     <List component="nav">
         <ListItem>
-          <ListItemText
-            onClick={ ev => {
-              toggleSituationMenuEl(ev.target);
-            }}
-            aria-controls="situation-menu"
-            primary={translate('aggregation')}
-            secondary={translate(selectedSituation)}/>
-        <Menu
-            id="situation-menu"
-            anchorEl={situationMenuEl}
-            open={!!situationMenuEl}
-            value={selectedSituation}
-            onClose={() => {
-              toggleSituationMenuEl(null);
-            }}
-          >
-            {
-              selectableSituations.map(s => {
-                return (
-                  <MenuItem
-                    key={s}
-                    onClick={() => {
-                      onSelectSituation(s);
-                      toggleSituationMenuEl(null);
-                    }}
-                    value={s}>
-                    {translate(s)}
-                  </MenuItem>
-                )
-              })
-            }
-          </Menu>
-          <ListItemSecondaryAction>
-            <ArrowDownIcon
-              onClick={ ev => {
-                toggleSituationMenuEl(ev.target);
-              }}
-            />
-          </ListItemSecondaryAction>
-        </ListItem>
-        <ListItem>
           <Grid container spacing={0} alignItems="center">
-          
             <Grid item xs={5}>
               <Typography style={{textAlign: 'center'}}>
                 {day}
@@ -123,10 +85,91 @@ function SummaryCard (props){
             </Grid>
           </Grid>
         </ListItem>
+        <ListItem>
+          <ListItemText
+            onClick={ ev => {
+              toggleAxisMenuEl(ev.target);
+            }}
+            aria-controls="axis-menu"
+            primary={translate('aggregation')}
+            secondary={translate(selectedAxis)}/>
+        <Menu
+            id="axis-menu"
+            anchorEl={axisMenuEl}
+            open={!!axisMenuEl}
+            value={selectedAxis}
+            onClose={() => {
+              toggleSituationMenuEl(null);
+            }}
+          >
+            {
+              selectableAxis.map(s => {
+                return (
+                  <MenuItem
+                    key={s}
+                    onClick={() => {
+                      onSelectAxis(s);
+                      toggleAxisMenuEl(null);
+                    }}
+                    value={s}>
+                    {translate(s)}
+                  </MenuItem>
+                )
+              })
+            }
+          </Menu>
+          <ListItemSecondaryAction>
+            <ArrowDownIcon
+              onClick={ ev => {
+                toggleSituationMenuEl(ev.target);
+              }}
+            />
+          </ListItemSecondaryAction>
+        </ListItem>
+        <ListItem>
+          <ListItemText
+            onClick={ ev => {
+              toggleSituationMenuEl(ev.target);
+            }}
+            aria-controls="situation-menu"
+            primary={translate('situation')}
+            secondary={translate(selectedSituation)}/>
+        <Menu
+            id="situation-menu"
+            anchorEl={situationMenuEl}
+            open={!!situationMenuEl}
+            value={selectedSituation}
+            onClose={() => {
+              toggleSituationMenuEl(null);
+            }}
+          >
+            {
+              selectableSituations.map(s => {
+                return (
+                  <MenuItem
+                    key={s}
+                    onClick={() => {
+                      onSelectSituation(s);
+                      toggleSituationMenuEl(null);
+                    }}
+                    value={s}>
+                    {translate(s)}
+                  </MenuItem>
+                )
+              })
+            }
+          </Menu>
+          <ListItemSecondaryAction>
+            <ArrowDownIcon
+              onClick={ ev => {
+                toggleSituationMenuEl(ev.target);
+              }}
+            />
+          </ListItemSecondaryAction>
+        </ListItem>
         <Divider />
-
       </List>
-      <List style={{ maxHeight: window.innerHeight/3, overflowY: 'scroll' }}>
+      <List style={{ maxHeight: window.innerHeight/5, overflowY: 'scroll' }}>
         {
           totalConfirmed
         }

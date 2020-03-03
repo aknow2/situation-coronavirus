@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import { LineChart, CartesianGrid, XAxis, YAxis, Line, Tooltip, Text } from 'recharts';
 import {  Typography, Container, Select, MenuItem, InputLabel } from '@material-ui/core';
-import { translate, reduce, filterAreas, selectableCountryMap, selectableSituationMap } from '../util';
+import { translate, reduce, filterAreas, selectableCountryMap, selectableSituationMap, selectableAxisMap } from '../util';
 
-const selectableAxisMap = {
-  total: 'total',
-  new: 'new',
-};
 
 const createValue = (s, situationKey, selectedCountry) => {
   if (orgSelectableSituation.includes(situationKey)) {

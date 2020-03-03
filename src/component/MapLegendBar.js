@@ -2,7 +2,37 @@ import React, { useState } from 'react';
 import { Typography, Paper, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, MenuItem } from '@material-ui/core';
 import { SituationContext } from '../Provider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { translate, reduce, selectableSituationMap } from '../util';
+import { translate, reduce, selectableSituationMap, selectableAxisMap } from '../util';
+export const newLutList = [
+  {
+    max: 0,
+    color: [220, 231, 117]
+  },
+  {
+    min: 1,
+    max: 10,
+    color: [255, 241, 118],
+  },
+  {
+    min: 11,
+    max: 100,
+    color: [255, 193, 7],
+  },
+  {
+    min: 101,
+    max: 500,
+    color: [245, 124, 0],
+  },
+  {
+    min: 501,
+    max: 1000,
+    color: [198, 40, 40],
+  },
+  {
+    min: 1001,
+    color: [136, 14, 79],
+  },
+];
 
 export const colorLutList = [
   {
@@ -35,12 +65,13 @@ export const colorLutList = [
   },
 ];
 
-function Legend({isMobile}) {
+function Legend({isMobile, selectedAxis}) {
   const sSize = isMobile ? 5: 25;
+  const lut = selectedAxis === selectableAxisMap.total ? colorLutList:newLutList
   return (
       <div style={{display: 'flex', alignItems: "center", flexWrap: 'wrap'}}>
       {
-        colorLutList.map(lut => {
+        lut.map(lut => {
           const colorStr = `rgb(${lut.color[0]},${lut.color[1]},${lut.color[2]})`
           return (
 
@@ -72,7 +103,7 @@ function Legend({isMobile}) {
   );
 }
 
-function DesktopLegend({isMobile, selectedSituation, data}) {
+function DesktopLegend({isMobile, selectedSituation, selectedAxis, data}) {
   const title = translate(selectedSituation);
   const value = reduce(data, selectedSituation)
   return (
@@ -81,16 +112,17 @@ function DesktopLegend({isMobile, selectedSituation, data}) {
       {title.length > 7 ?  title.substring(0, 8)+'...' : title}
     </Typography>
     <Typography variant={'h6'} color="inherit" style={{marginRight: 10,}}>
-      { value }
+      { translate('total') + ' ' + value }
     </Typography>
     <Legend 
       isMobile={isMobile}
+      selectedAxis={selectedAxis}
     />
   </div>);
 }
 const selectableSituationList = Object.values(selectableSituationMap);
 
-function MobileLegend({isMobile, selectedSituation, data, onSelectSituation}) {
+function MobileLegend({isMobile, selectedSituation, selectedAxis, data, onSelectSituation}) {
   const [open, toggleExpansion] = useState(false);
   const title = translate(selectedSituation);
   const value = reduce(data, selectedSituation)
@@ -115,6 +147,7 @@ function MobileLegend({isMobile, selectedSituation, data, onSelectSituation}) {
       <ExpansionPanelDetails>
         <div>
         <Legend 
+          selectedAxis={selectedAxis}
           isMobile={isMobile}
         />
         {
@@ -139,7 +172,7 @@ function MobileLegend({isMobile, selectedSituation, data, onSelectSituation}) {
   </div>);
 }
 
-function MapLegendBar ({ selectedSituation, data, onSelectSituation }){
+function MapLegendBar ({ selectedSituation, data, onSelectSituation, selectedAxis }){
   return (<SituationContext.Consumer>
     {
       ({displaySize}) => {
@@ -147,11 +180,12 @@ function MapLegendBar ({ selectedSituation, data, onSelectSituation }){
         const sTop = isMobile ? 90: 110;
       return <Paper color="" square style={{ position: 'absolute', top: sTop, width: '100%', boxSizing: "border-box",  zIndex: 999, paddingTop: 10, paddingLeft: 5}}>
             {!isMobile && 
-              <DesktopLegend isMbole={isMobile} selectedSituation={selectedSituation} data={data} />
+              <DesktopLegend selectedAxis={selectedAxis} isMbole={isMobile} selectedSituation={selectedSituation} data={data} />
             }
             {isMobile &&
               <MobileLegend
                 isMbole={isMobile}
+                selectedAxis={selectedAxis} 
                 selectedSituation={selectedSituation}
                 data={data}
                 onSelectSituation={onSelectSituation}

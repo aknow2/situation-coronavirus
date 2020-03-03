@@ -94,6 +94,12 @@ export const selectableSituationMap = {
  deaths: 'deaths',
 }
 
+
+export const selectableAxisMap = {
+  total: 'total',
+  new: 'new',
+};
+
 export const filterAreas = (areas, selectedCountry, notEqual = false) => {
   switch(selectedCountry) {
     case selectableCountryMap.china:

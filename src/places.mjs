@@ -115,7 +115,7 @@ const places = [
       },
       {
         id: 20,
-        name: 'United States of America',
+        name: 'the United States',
         country: 'usa',
         location: [38.936851, -101.878757]
       },
@@ -241,7 +241,7 @@ const places = [
       },
       {
         id: 41,
-        name: 'The United Kingdom',
+        name: 'the United Kingdom',
         country: 'uk',
         location: [54.731495, -2.675109]
       },
@@ -496,6 +496,115 @@ const places = [
         name: 'Pakistan',
         country: 'pakistan',
         location: [29.328910, 68.505539]
+      },
+      {
+        id: 84,
+        name: 'New Zealand',
+        country: 'new zealand',
+        location: [-42.374168, 172.346526]
+      },
+      {
+        id: 85,
+        name: 'Belarus',
+        country: 'Belarus',
+        location: [53.768236, 27.623950]
+      },
+      {
+        id: 86,
+        name: 'Lithuania',
+        country: 'Lithuania',
+        location: [55.707761, 23.738840]
+      },
+      {
+        id: 87,
+        name: 'Netherlands',
+        country: 'Netherlands',
+        location: [52.265745, 5.486267]
+      },
+      {
+        id: 88,
+        name: 'Nigeria',
+        country: 'Nigeria',
+        location: [9.851805, 7.779058]
+      },
+      {
+        id: 89,
+        name: 'San Marino',
+        country: 'san marino',
+        location: [43.939643, 12.456658]
+      },
+
+      {
+        id: 90,
+        name: 'Azerbaijan',
+        country: 'azerbaijan',
+        location: [40.564398, 47.806679]
+      },
+     {
+        id: 92,
+        name: 'Ireland',
+        country: 'ireland',
+        location: [53.417175, -8.266565]
+      },
+      {
+        id: 93,
+        name: 'Monaco',
+        country: 'monaco',
+        location: [43.735742, 7.423363]
+      },
+      {
+        id: 94,
+        name: 'Qatar',
+        country: 'qatar',
+        location: [25.453208, 51.145443]
+      },
+      {
+        id: 95,
+        name: 'Ecuador',
+        country: 'ecuador',
+        location: [-0.947025, -78.942585]
+      },
+      {
+        id: 96,
+        name: 'Czechia',
+        country: 'czechia',
+        location: [49.845910, 15.000461]
+      },
+      {
+        id: 97,
+        name: 'Iceland',
+        country: 'iceland',
+        location: [65.168374, -18.808424]
+      },
+      {
+        id: 98,
+        name: 'Luxembourg',
+        country: 'luxembourg',
+        location: [49.833440, 6.179865]
+      },
+      {
+        id: 99,
+        name: 'Armenia',
+        country: 'armenia',
+        location: [40.459809, 44.587512]
+      },
+      {
+        id: 100,
+        name: 'Indonesia',
+        country: 'indonesia',
+        location: [-2.143682, 121.091900]
+      },
+      {
+        id: 101,
+        name: 'Dominican Republic',
+        country: 'dominican',
+        location: [19.469087, -70.059120]
+      },
+      {
+        id: 102,
+        name: 'Mexico',
+        country: 'Mexico',
+        location: [24.697885, -102.785056]
       },
   ]
 
