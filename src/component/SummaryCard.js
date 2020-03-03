@@ -6,10 +6,20 @@ import PlayIcon from '@material-ui/icons/PlayCircleFilled'
 import PauseIcon from '@material-ui/icons/PauseCircleFilled'
 import {ListItemSecondaryAction, Card, List, ListItem, Typography, IconButton, Grid, Slider, ListItemText,  MenuItem, Menu, Divider } from '@material-ui/core';
 import { createAdditionalInfoList, createItem, situationMap } from './AdditionalInfoList';
-import { translate, selectableCountryMap, selectableSituationMap, selectableAxisMap } from '../util';
+import { translate, selectableCountryMap, selectableSituationMap, selectableAxisMap, reduce, calcDelta } from '../util';
 
 const selectableSituations = Object.values(selectableSituationMap);
 const selectableAxis = Object.values(selectableAxisMap);
+
+
+const getCurrentValue = (selectedAxis, data, old, key) => {
+  const sum = reduce(data, key)
+  if (selectedAxis === selectableAxisMap.total) {
+    return sum
+  }
+  return calcDelta(sum, old, key, selectableCountryMap.all_country)
+}
+
 function SummaryCard (props){
   const {data, oldData, additionalInfo,
     oldAdditionalInfo, day, nextDate, prevDate, dateList,
@@ -29,6 +39,7 @@ function SummaryCard (props){
   const addtionalInfoList = createAdditionalInfoList(additionalInfo, oldAdditionalInfo);
   const dayList = dateList.map((s, i) => ({ value: i, day: s.day }));
   const selectedIndex = dayList.find(d => d.day === day).value;
+  const currentValue = getCurrentValue(selectedAxis, data, oldData, selectedSituation)??0
   return <Card
     style={{
       width: 280,
@@ -92,7 +103,7 @@ function SummaryCard (props){
             }}
             aria-controls="axis-menu"
             primary={translate('aggregation')}
-            secondary={translate(selectedAxis)}/>
+            secondary={`${translate(selectedAxis)} ${currentValue}`}/>
         <Menu
             id="axis-menu"
             anchorEl={axisMenuEl}

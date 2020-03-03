@@ -79,6 +79,16 @@ export const reduce = (areas, key) => {
   }
   return areas.filter(f => !!f[key]).reduce((p, c) => p + c[key], 0)
 }
+export const calcDelta = (base, old, key, filter) => {
+  if (!base) {
+    return 0;
+  }
+  if (old) {
+    const filteredOldData = filterAreas(old, filter);
+    return base - reduce(filteredOldData, key);
+  }
+  return undefined;
+}
 
 export const selectableCountryMap = {
   all_country: 'all_country',

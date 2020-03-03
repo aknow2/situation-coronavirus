@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListItem, ListItemText, Typography, ListItemSecondaryAction, } from '@material-ui/core';
-import { translate, reduce, filterAreas, selectableSituationMap } from '../util';
+import { translate, reduce, filterAreas, selectableSituationMap, calcDelta } from '../util';
 
 export const createAdditionalInfoList = (additionalInfo, oldAdditionalInfo) => {
   return Object.keys(additionalInfo).map(key => { 
@@ -38,15 +38,8 @@ export const situationMap = {
 
 export const createItem = (data, oldData, key, filterKey) => {
   const filteredData = filterAreas(data, filterKey);
-  const calcDelta = (base) => {
-    if (oldData) {
-      const filteredOldData = filterAreas(oldData, filterKey);
-      return base - reduce(filteredOldData, key);
-    }
-    return undefined;
-  } 
   const result = reduce(filteredData, key);
-  const deltaResult = calcDelta(result);
+  const deltaResult = calcDelta(result, oldData, key, filterKey);
   return (<ListItem>
           <ListItemText primary={translate(key)} secondary={translate(filterKey)} />
           <ListItemSecondaryAction>

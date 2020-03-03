@@ -104,16 +104,8 @@ function Legend({isMobile, selectedAxis}) {
 }
 
 function DesktopLegend({isMobile, selectedSituation, selectedAxis, data}) {
-  const title = translate(selectedSituation);
-  const value = reduce(data, selectedSituation)
   return (
-  <div style={{display: 'flex', alignItems: "center"}}>
-    <Typography variant={'h6'} color="inherit" style={{marginRight: 10,}}>
-      {title.length > 7 ?  title.substring(0, 8)+'...' : title}
-    </Typography>
-    <Typography variant={'h6'} color="inherit" style={{marginRight: 10,}}>
-      { translate('total') + ' ' + value }
-    </Typography>
+  <div style={{display: 'flex', alignItems: "center", paddingBottom: 3}}>
     <Legend 
       isMobile={isMobile}
       selectedAxis={selectedAxis}
