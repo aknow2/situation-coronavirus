@@ -88,7 +88,7 @@ export default class Provider extends React.Component {
     const animation = () => {
       const current = Date.now();
       if (this.state.playing ) {
-        if (current - base > 500) {
+        if (current - base > 350) {
           base = current
           this.nextDate();
         }

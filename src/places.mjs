@@ -606,6 +606,54 @@ const places = [
         country: 'Mexico',
         location: [24.697885, -102.785056]
       },
+      {
+        id: 103,
+        name: 'Portugal',
+        country: 'portugal',
+        location: [39.657581, -8.180933]
+      },
+      {
+        id: 104,
+        name: 'Andorra',
+        country: 'andorra',
+        location: [42.539899, 1.564144]
+      },
+      {
+        id: 105,
+        name: 'Latvia',
+        country: 'latvia',
+        location: [56.977766, 24.725572]
+      },
+      {
+        id: 106,
+        name: 'Jordan',
+        country: 'jordan',
+        location: [31.047284, 36.223477]
+      },
+      {
+        id: 107,
+        name: 'Morocco',
+        country: 'morocco',
+        location: [32.543795, -6.833654]
+      },
+      {
+        id: 108,
+        name: 'Saudi Arabia',
+        country: 'saudi arabia',
+        location: [25.132382, 44.032730]
+      },
+      {
+        id: 109,
+        name: 'Tunisia',
+        country: 'tunisia',
+        location: [34.234868, 9.504354]
+      },
+      {
+        id: 110,
+        name: 'Senegal',
+        country: 'senegal',
+        location: [15.455374, -14.914537]
+      },
   ]
 
 export default places;

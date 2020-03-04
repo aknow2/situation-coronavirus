@@ -110,7 +110,7 @@ function SummaryCard (props){
             open={!!axisMenuEl}
             value={selectedAxis}
             onClose={() => {
-              toggleSituationMenuEl(null);
+              toggleAxisMenuEl(null);
             }}
           >
             {
@@ -132,7 +132,7 @@ function SummaryCard (props){
           <ListItemSecondaryAction>
             <ArrowDownIcon
               onClick={ ev => {
-                toggleSituationMenuEl(ev.target);
+                toggleAxisMenuEl(ev.target);
               }}
             />
           </ListItemSecondaryAction>

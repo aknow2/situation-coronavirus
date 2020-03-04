@@ -48,7 +48,7 @@ const ja = {
   global: '全ての国',
   numOfInfected: '感染者',
   confirmed: '感染者',
-  new: '前日から増加数',
+  new: '前日比',
   all_country: '全ての国',
   china: '中国',
   deaths: '死者',

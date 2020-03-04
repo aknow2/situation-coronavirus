@@ -6,7 +6,7 @@ import { translate, reduce, selectableSituationMap, selectableAxisMap } from '..
 export const newLutList = [
   {
     max: 0,
-    color: [220, 231, 117]
+    color: [200, 230, 201]
   },
   {
     min: 1,
@@ -37,7 +37,7 @@ export const newLutList = [
 export const colorLutList = [
   {
     max: 10,
-    color: [220, 231, 117]
+    color: [200, 230, 201]
   },
   {
     min: 11,
