@@ -654,6 +654,78 @@ const places = [
         country: 'senegal',
         location: [15.455374, -14.914537]
       },
+      {
+        id: 111,
+        name: 'Poland',
+        country: 'poland',
+        location: [52.394348, 18.843228]
+      },
+      {
+        id: 112,
+        name: 'Ukraine',
+        country: 'ukraine',
+        location: [49.861221, 31.250348]
+      },
+      {
+        id: 113,
+        name: 'Argentina',
+        country: 'argentina',
+        location: [-37.676494, -64.282748]
+      },
+      {
+        id: 114,
+        name: 'Chile',
+        country: 'chile',
+        location: [-32.945600, -71.577670]
+      },
+      {
+        id: 115,
+        name: 'Bosnia and Herzegovina',
+        country: 'Bosnia and Herzegovina',
+        location: [44.084301, 18.033080]
+      },
+      {
+        id: 116,
+        name: 'Hungary',
+        country: 'Hungary',
+        location: [47.154201, 19.381826]
+      },
+      {
+        id: 117,
+        name: 'Slovenia',
+        country: 'slovenia',
+        location: [46.086647, 14.695767]
+      },
+      {
+        id: 118,
+        name: 'Liechtenstein',
+        country: 'liechtenstein',
+        location: [47.149994, 9.554998]
+      },
+      {
+        id: 119,
+        name: 'Gibraltar',
+        country: 'gibraltar',
+        location: [36.119937, -5.347464]
+      },
+      {
+        id: 120,
+        name: 'occupied Palestinian territory',
+        country: 'occupied Palestinian territory',
+        location: [32.216522, 35.235739]
+      },
+      {
+        id: 121,
+        name: 'Saint Martin',
+        country: 'Saint Martin',
+        location: [18.074881, -63.062937]
+      },
+      {
+        id: 122,
+        name: 'Saint Barthélemy',
+        country: 'saint barthélemy ',
+        location: [17.904170, -62.832317]
+      },
   ]
 
 export default places;
