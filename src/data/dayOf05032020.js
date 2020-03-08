@@ -1112,7 +1112,7 @@ const dayOf05032020 = {
   },
   {
     placeId: 122,
-    placeName: 'Saint Barthélemy',
+    placeName: 'Saint Barthelemy',
     numOfInfected: 1,
     travelHistoryChina: null,
     outsideReporting: null,

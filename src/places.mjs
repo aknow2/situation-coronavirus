@@ -115,7 +115,7 @@ const places = [
       },
       {
         id: 20,
-        name: 'the United States',
+        name: 'United States of America',
         country: 'usa',
         location: [38.936851, -101.878757]
       },
@@ -241,7 +241,7 @@ const places = [
       },
       {
         id: 41,
-        name: 'the United Kingdom',
+        name: 'The United Kingdom',
         country: 'uk',
         location: [54.731495, -2.675109]
       },
@@ -254,7 +254,7 @@ const places = [
       {
         id: 43,
         name: 'Diamond Princess',
-        country: 'japan',
+        country: 'diamond princess',
         location: [35.407244, 139.717743]
       },
       {
@@ -710,7 +710,7 @@ const places = [
       },
       {
         id: 120,
-        name: 'occupied Palestinian territory',
+        name: 'Occupied Palestinian Territory',
         country: 'occupied Palestinian territory',
         location: [32.216522, 35.235739]
       },
@@ -722,10 +722,71 @@ const places = [
       },
       {
         id: 122,
-        name: 'Saint Barthélemy',
-        country: 'saint barthélemy ',
+        name: 'Saint Barthelemy',
+        country: 'saint barthelemy ',
         location: [17.904170, -62.832317]
       },
+      {
+        id: 123,
+        name: 'Serbia',
+        country: 'serbia',
+        location: []
+      },
+      {
+        id: 124,
+        name: 'Bhutan',
+        country: 'bhutan',
+        location: []
+      },
+      {
+        id: 125,
+        name: 'Cameroon',
+        country: 'cameroon',
+        location: []
+      },
+       {
+        id: 126,
+        name: 'South Africa',
+        country: 'south africa',
+        location: []
+      },
+       {
+        id: 127,
+        name: 'Holy See',
+        country: 'holy see',
+        location: []
+      },
+       {
+        id: 128,
+        name: 'Holy See',
+        country: 'holy see',
+        location: []
+      },
+      {
+        id: 129,
+        name: 'Slovakia',
+        country: 'slovakia',
+        location: []
+      },
+      {
+        id: 130,
+        name: 'Colombia',
+        country: 'colombia',
+        location: []
+      },
+      {
+        id: 131,
+        name: 'Peru',
+        country: 'peru',
+        location: []
+      },
+      {
+        id: 132,
+        name: 'Togo',
+        country: 'Togo',
+        location: []
+      },
+ 
   ]
 
 export default places;
