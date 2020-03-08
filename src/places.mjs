@@ -219,7 +219,7 @@ const places = [
         id: 37,
         name: 'Italy',
         country: 'italy',
-        location: [43.209820, 12.316652]
+        location: [40.506240, 15.621145]
       },
       {
         id: 38,
@@ -730,63 +730,56 @@ const places = [
         id: 123,
         name: 'Serbia',
         country: 'serbia',
-        location: []
+        location: [44.228180, 20.722182]
       },
       {
         id: 124,
         name: 'Bhutan',
         country: 'bhutan',
-        location: []
+        location: [27.504120, 90.429486]
       },
       {
         id: 125,
         name: 'Cameroon',
         country: 'cameroon',
-        location: []
+        location: [5.075538, 12.142497]
       },
        {
         id: 126,
         name: 'South Africa',
         country: 'south africa',
-        location: []
+        location: [-33.521616, 18.474155]
       },
        {
         id: 127,
         name: 'Holy See',
         country: 'holy see',
-        location: []
-      },
-       {
-        id: 128,
-        name: 'Holy See',
-        country: 'holy see',
-        location: []
+        location: [41.905177, 12.453123]
       },
       {
         id: 129,
         name: 'Slovakia',
         country: 'slovakia',
-        location: []
+        location: [48.846285, 19.422733]
       },
       {
         id: 130,
         name: 'Colombia',
         country: 'colombia',
-        location: []
+        location: [4.456163, -73.998677]
       },
       {
         id: 131,
         name: 'Peru',
         country: 'peru',
-        location: []
+        location: [-9.433730, -75.291611]
       },
       {
         id: 132,
         name: 'Togo',
         country: 'Togo',
-        location: []
+        location: [9.005604, 0.916991]
       },
- 
   ]
 
 export default places;
