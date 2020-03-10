@@ -710,7 +710,7 @@ const places = [
       },
       {
         id: 120,
-        name: 'Occupied Palestinian Territory',
+        name: 'occupied Palestinian territory',
         country: 'occupied Palestinian territory',
         location: [32.216522, 35.235739]
       },
@@ -722,8 +722,8 @@ const places = [
       },
       {
         id: 122,
-        name: 'Saint Barthelemy',
-        country: 'saint barthelemy ',
+        name: 'Saint Barthélemy',
+        country: 'saint barthélemy',
         location: [17.904170, -62.832317]
       },
       {
@@ -779,6 +779,72 @@ const places = [
         name: 'Togo',
         country: 'Togo',
         location: [9.005604, 0.916991]
+      },
+      {
+        id: 133,
+        name: 'Malta',
+        country: 'Malta',
+        location: [35.866887, 14.449356]
+      },
+      {
+        id: 134,
+        name: 'Bulgaria',
+        country: 'Bulgaria',
+        location: [42.799206, 25.210320]
+      },
+      {
+        id: 135,
+        name: 'Republic of Moldova',
+        country: 'Republic of Moldova',
+        location: [47.338907, 28.378183]
+      },
+      {
+        id: 136,
+        name: 'Faroe Islands',
+        country: 'Faroe Islands',
+        location: [62.175642, -6.959948]
+      },
+      {
+        id: 137,
+        name: 'Maldives',
+        country: 'Maldives',
+        location: [-0.681322, 73.137685]
+      },
+      {
+        id: 138,
+        name: 'Costa Rica',
+        country: 'Costa Rica',
+        location: [10.046055, -84.248559]
+      },
+      {
+        id: 139,
+        name: 'French Guiana',
+        country: 'french guiana',
+        location: [4.160462, -53.263520]
+      },
+      {
+        id: 140,
+        name: 'Martinique',
+        country: 'martinique',
+        location: [14.675109, -61.045388]
+      },
+      {
+        id: 141,
+        name: 'Albania',
+        country: 'albania',
+        location: [41.292131, 19.825493]
+      },
+      {
+        id: 142,
+        name: 'Bangladesh',
+        country: 'bangladesh',
+        location: [23.885028, 89.940071]
+      },
+      {
+        id: 143,
+        name: 'Paraguay',
+        country: 'paraguay',
+        location: [-22.905762, -58.479531]
       },
   ]
 
