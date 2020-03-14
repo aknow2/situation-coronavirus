@@ -846,6 +846,114 @@ const places = [
         country: 'paraguay',
         location: [-22.905762, -58.479531]
       },
+      {
+        id: 144,
+        name: 'Brunei Darussalam',
+        country: 'Brunei Darussalam',
+        location: [4.610146, 114.502351]
+      },
+      {
+        id: 145,
+        name: 'Mongolia',
+        country: 'mongolia',
+        location: [47.796906, 98.495246]
+      },
+      {
+        id: 146,
+        name: 'Cyprus',
+        country: 'cyprus',
+        location: [34.970303, 32.984965]
+      },
+      {
+        id: 147,
+        name: 'Guernsey',
+        country: 'guernsey',
+        location: [49.461933, -2.587279]
+      },
+      {
+        id: 148,
+        name: 'Panama',
+        country: 'panama',
+        location: [8.642994, -81.142408]
+      },
+      {
+        id: 149,
+        name: 'Bolivia State of)',
+        country: 'bolivia',
+        location: [-16.091406, -65.307905]
+      },
+      {
+        id: 150,
+        name: 'Jamaica',
+        country: 'Jamaica',
+        location: [18.194385, -77.469335]
+      },
+      {
+        id: 151,
+        name: 'Burkina Faso',
+        country: 'Burkina Faso',
+        location: [12.517140, -2.371670]
+      },
+      {
+        id: 152,
+        name: 'Democratic Republic of the Congo',
+        country: 'congo',
+        location: [-1.042130, 23.344514]
+      },
+      {
+        id: 153,
+        name: 'French Polynesia',
+        country: 'French Polynesia',
+        location: [-17.523946, -149.546419]
+      },
+      {
+        id: 154,
+        name: 'Turkey',
+        country: 'Turkey',
+        location: [39.592044, 34.872977]
+      },
+      {
+        id: 155,
+        name: 'Honduras',
+        country: 'Honduras',
+        location: [15.202561, -86.927555]
+      },
+      {
+        id: 156,
+        name: 'Cote d Ivoire',
+        country: 'Côte d’Ivoire',
+        location: [8.205605, -5.874824]
+      },
+      {
+        id: 157,
+        name: 'Jersey',
+        country: 'Jersey',
+        location: [49.216814, -2.147232]
+      },
+      {
+        id: 158,
+        name: 'Réunion',
+        country: 'Réunion',
+        location: [-21.096960, 55.397384]
+      },
+      {
+        id: 159,
+        name: 'Cuba',
+        country: 'Cuba',
+        location: [22.148606, -78.942868]
+      },
+      {
+        id: 160,
+        name: 'Guyana',
+        country: 'Guyana',
+        location: [5.300330, -58.928935]
+      },
+      {
+        id: 161,
+        name: 'Saint Vincent and the Grenadines',
+        country: 'Saint Vincent and the Grenadines',
+        location: [13.219772, -61.198496]
+      },
   ]
 
 export default places;
