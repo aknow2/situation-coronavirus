@@ -920,7 +920,7 @@ const places = [
       },
       {
         id: 156,
-        name: 'Cote d Ivoire',
+        name: 'Cote d’Ivoire',
         country: 'Côte d’Ivoire',
         location: [8.205605, -5.874824]
       },
@@ -953,6 +953,78 @@ const places = [
         name: 'Saint Vincent and the Grenadines',
         country: 'Saint Vincent and the Grenadines',
         location: [13.219772, -61.198496]
+      },
+      {
+        id: 162,
+        name: 'Sudan',
+        country: 'Sudan',
+        location: [17.375990, 31.014814]
+      },
+      {
+        id: 163,
+        name: 'Puerto Rico',
+        country: 'Puerto Rico',
+        location: [18.278265, -66.553878]
+      },
+      {
+        id: 164,
+        name: 'Venezuela Republic of)',
+        country: 'Venezuela',
+        location: [8.274171, -66.273338]
+      },
+      {
+        id: 165,
+        name: 'Antigua and Barbuda',
+        country: 'Antigua and Barbuda',
+        location: [17.610689, -61.785215]
+      },
+      {
+        id: 166,
+        name: 'Guadeloupe',
+        country: 'Guadeloupe',
+        location: [16.257034, -61.644479]
+      },
+      {
+        id: 167,
+        name: 'Trinidad and Tobago',
+        country: 'Trinidad and Tobago',
+        location: [10.488317, -61.280607]
+      },
+      {
+        id: 168,
+        name: 'Cayman Islands',
+        country: 'Cayman Islands',
+        location: [19.328152, -81.239154]
+      },
+      {
+        id: 169,
+        name: 'Ethiopia',
+        country: 'Ethiopia',
+        location: [8.752423, 39.029721]
+      },
+      {
+        id: 170,
+        name: 'Gabon',
+        country: 'Gabon',
+        location: [-0.239782, 11.541829]
+      },
+      {
+        id: 171,
+        name: 'Ghana',
+        country: 'Ghana',
+        location: [8.554538, -1.379615]
+      },
+      {
+        id: 172,
+        name: 'Guinea',
+        country: 'Guinea',
+        location: [10.995753, -12.758817]
+      },
+      {
+        id: 173,
+        name: 'Kenya',
+        country: 'Knenya',
+        location: [0.373808, 37.998218]
       },
   ]
 
