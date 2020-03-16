@@ -1026,6 +1026,60 @@ const places = [
         country: 'Knenya',
         location: [0.373808, 37.998218]
       },
+      {
+        id: 174,
+        name: 'Kazakhstan',
+        country: 'kazakhstan',
+        location: [48.371462, 67.389429]
+      },
+      {
+        id: 175,
+        name: 'Curaçao',
+        country: 'Curaçao',
+        location: [12.214450, -69.050532]
+      },
+      {
+        id: 176,
+        name: 'Namibia',
+        country: 'Namibia',
+        location: [-21.202766, 16.530152]
+      },
+      {
+        id: 177,
+        name: 'Central African Republic',
+        country: 'Central African Republic',
+        location: [7.014793, 20.301727]
+      },
+      {
+        id: 178,
+        name: 'Congo',
+        country: 'Congo',
+        location: [0.315993, 15.533414]
+      },
+      {
+        id: 179,
+        name: 'Equatorial Guinea',
+        country: 'Equatorial Guinea',
+        location: [1.582449, 10.498625]
+      },
+      {
+        id: 180,
+        name: 'Eswatini',
+        country: 'Eswatini',
+        location: [-26.439521, 31.346533]
+      },
+      {
+        id: 181,
+        name: 'Mauritania',
+        country: 'Mauritania',
+        location: [20.409376, -11.955122]
+      },
+      {
+        id: 182,
+        name: 'Mayotte',
+        country: 'Mayotte',
+        location: [-12.790332, 45.144737]
+      },
   ]
 
 export default places;

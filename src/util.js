@@ -42,7 +42,7 @@ const en = {
 const ja = {
   aggregation: '集計方法',
   area: '地域',
-  total: '総数',
+  total: '累計',
   situation: '対象',
   total_confirmed: '感染者の総数',
   global: '全ての国',
