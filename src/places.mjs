@@ -1034,7 +1034,7 @@ const places = [
       },
       {
         id: 175,
-        name: 'Curaçao',
+        name: 'Cura çao',
         country: 'Curaçao',
         location: [12.214450, -69.050532]
       },
@@ -1079,6 +1079,156 @@ const places = [
         name: 'Mayotte',
         country: 'Mayotte',
         location: [-12.790332, 45.144737]
+      },
+      {
+        id: 183,
+        name: 'Uzbekistan',
+        country: 'Uzbekistan',
+        location: [42.439425, 62.473040]
+      },
+      {
+        id: 184,
+        name: 'Uruguay',
+        country: 'Uruguay',
+        location: [-33.149565, -56.061861]
+      },
+      {
+        id: 185,
+        name: 'Guatemala',
+        country: 'Guatemala',
+        location: [15.510333, -90.370772]
+      },
+      {
+        id: 186,
+        name: 'Saint Lucia',
+        country: 'Saint Lucia',
+        location: [13.892697, -60.982935]
+      },
+      {
+        id: 187,
+        name: 'Suriname',
+        country: 'Suriname',
+        location: [4.013283, -56.066023]
+      },
+      {
+        id: 188,
+        name: 'Rwanda',
+        country: 'Rwanda',
+        location: [-1.915834, 29.912368]
+      },
+      {
+        id: 189,
+        name: 'Seychelles',
+        country: 'Seychelles',
+        location: [-4.610292, 55.437931]
+      },
+      {
+        id: 190,
+        name: 'Guam',
+        country: 'Guam',
+        location: [13.419936, 144.750307]
+      },
+      {
+        id: 192,
+        name: 'Albania',
+        country: 'Albania',
+        location: [41.180802, 19.932951]
+      },
+      {
+        id: 193,
+        name: 'Somalia',
+        country: 'Somalia',
+        location: [3.341423, 44.798975]
+      },
+      {
+        id: 194,
+        name: 'Bahamas',
+        country: 'Bahamas',
+        location: [24.827464, -78.048404]
+      },
+      {
+        id: 195,
+        name: 'Aruba',
+        country: 'Aruba',
+        location: [12.534970, -69.976914]
+      },
+      {
+        id: 196,
+        name: 'United States Virgin Islands',
+        country: 'United States Virgin Islands',
+        location: [17.762816, -64.777370]
+      },
+      {
+        id: 197,
+        name: 'Benin',
+        country: 'Benin',
+        location: [11.030971, 2.509644]
+      },
+      {
+        id: 198,
+        name: 'Liberia',
+        country: 'Liberia',
+        location: [6.515126, -9.896241]
+      },
+      {
+        id: 199,
+        name: 'United Republic of Tanzania',
+        country: 'United Republic of Tanzania',
+        location: [-5.938242, 34.838303]
+      },
+      {
+        id: 200,
+        name: 'Montenegro',
+        country: 'Montenegro',
+        location: [43.001969, 19.070342]
+      },
+      {
+        id: 201,
+        name: 'Kyrgyzstan',
+        country: 'Kyrgyzstan',
+        location: [41.597162, 73.938395]
+      },
+      {
+        id: 202,
+        name: 'Djibouti',
+        country: 'Djibouti',
+        location: [11.848761, 42.675813]
+      },
+      {
+        id: 203,
+        name: 'Barbados',
+        country: 'Barbados',
+        location: [13.160727, -59.531837]
+      },
+      {
+        id: 204,
+        name: 'Montserrat',
+        country: 'Montserrat',
+        location: [16.738005, -62.189516]
+      },
+      {
+        id: 206,
+        name: 'Mauritius',
+        country: 'Mauritius',
+        location: [-20.223322, 57.517728]
+      },
+      {
+        id: 207,
+        name: 'Zambia',
+        country: 'Zambia',
+        location: [-13.849086, 27.483726]
+      },
+      {
+        id: 208,
+        name: 'Gambia',
+        country: 'Gambia',
+        location: [13.404314, -16.007090]
+      },
+      {
+        id: 209,
+        name: 'Greenland',
+        country: 'Greenland',
+        location: [64.982387, -45.598762]
       },
   ]
 
