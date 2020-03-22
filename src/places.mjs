@@ -1034,7 +1034,7 @@ const places = [
       },
       {
         id: 175,
-        name: 'Cura çao',
+        name: 'Curaçao',
         country: 'Curaçao',
         location: [12.214450, -69.050532]
       },
@@ -1229,6 +1229,90 @@ const places = [
         name: 'Greenland',
         country: 'Greenland',
         location: [64.982387, -45.598762]
+      },
+      {
+        id: 210,
+        name: 'Fiji',
+        country: 'Fiji',
+        location: [-17.430616, 178.212946]
+      },
+      {
+        id: 211,
+        name: 'New Caledonia',
+        country: 'New Caledonia',
+        location: [-21.211740, 165.235948]
+      },
+      {
+        id: 212,
+        name: 'Papua New Guinea',
+        country: 'Papua New Guinea',
+        location: [-5.641687, 149.204520]
+      },
+      {
+        id: 213,
+        name: 'Isle of Man',
+        country: 'Isle of Man',
+        location: [54.218650, -4.550201]
+      },
+      {
+        id: 214,
+        name: 'Timor -Leste',
+        country: 'Timor-Leste',
+        location: [-8.803978, 125.903820]
+      },
+      {
+        id: 215,
+        name: 'Haiti',
+        country: 'Haiti',
+        location: [19.205682, -72.341193]
+      },
+      {
+        id: 216,
+        name: 'Nicaragua',
+        country: 'Nicaragua',
+        location: [12.773642, -85.032910]
+      },
+      {
+        id: 217,
+        name: 'El Salvador',
+        country: 'El Salvador',
+        location: [13.714427, -89.107019]
+      },
+      {
+        id: 218,
+        name: 'Bermuda',
+        country: 'Bermuda',
+        location: [32.307383, -64.764343]
+      },
+      {
+        id: 219,
+        name: 'Sint Maarten',
+        country: 'Sint Maarten',
+        location: [18.032387, -63.064940]
+      },
+      {
+        id: 221,
+        name: 'Cabo Verde',
+        country: 'Cabo Verde',
+        location: [16.600140, -24.286252]
+      },
+      {
+        id: 222,
+        name: 'Chad',
+        country: 'Chad',
+        location: [15.474525, 18.645288]
+      },
+      {
+        id: 223,
+        name: 'Zimbabwe',
+        country: 'Zimbabwe',
+        location: [-18.774058, 29.662442]
+      },
+      {
+        id: 224,
+        name: 'Niger',
+        country: 'Niger',
+        location: [17.601313, 9.064129]
       },
   ]
 
