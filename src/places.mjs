@@ -920,7 +920,7 @@ const places = [
       },
       {
         id: 156,
-        name: 'Cote d’Ivoire',
+        name: 'Côte d’Ivoire',
         country: 'Côte d’Ivoire',
         location: [8.205605, -5.874824]
       },
@@ -1314,6 +1314,90 @@ const places = [
         country: 'Niger',
         location: [17.601313, 9.064129]
       },
-  ]
+      {
+        id: 225,
+        name: 'Madagascar',
+        country: 'Madagascar',
+        location: [-19.314215, 46.475190]
+      },
+      {
+        id: 226,
+        name: 'Angola',
+        country: 'Angola',
+        location: [-12.496759, 17.420562]
+      },
+      {
+        id: 227,
+        name: 'Eritrea',
+        country: 'Eritrea',
+        location: [15.653044, 38.740474]
+      },
+      {
+        id: 228,
+        name: 'Uganda',
+        country: 'Uganda',
+        location: [1.246287, 32.320809]
+      },
+      {
+        id: 229,
+        name: 'Kosovo',
+        country: 'Kosovo',
+        location: [42.591817, 20.774913]
+      },
+      {
+        id: 230,
+        name: 'Syrian Arab Republic',
+        country: 'Syrian Arab Republic',
+        location: [35.182427, 38.418489]
+      },
+      {
+        id: 231,
+        name: 'Grenada',
+        country: 'Grenada',
+        location: [12.103946, -61.696103]
+      },
+      {
+        id: 232,
+        name: 'Mozambique',
+        country: 'Mozambique',
+        location: [-18.795622, 34.138856]
+      },
+      {
+        id: 233,
+        name: 'Myanmar',
+        country: 'Myanmar',
+        location: [20.641525, 96.058997]
+      },
+      {
+        id: 234,
+        name: 'Belize',
+        country: 'Belize',
+        location: [17.234906, -88.661686]
+      },
+      {
+        id: 235,
+        name: 'Dominica',
+        country: 'Dominica',
+        location: [15.448701, -61.358937]
+      },
+      {
+        id: 236,
+        name: 'Turks and Caicos Islands',
+        country: 'Turks and Caicos Islands',
+        location: [21.820416, -71.897444]
+      },
+      {
+        id: 237,
+        name: 'Lao People`s Democratic Republic',
+        country: 'Lao People`s Democratic Republic',
+        location: [19.839692, 102.303176]
+      },
+      {
+        id: 238,
+        name: 'Libya',
+        country: 'Libya',
+        location: [27.762293, 17.493371]
+      },
+  ];
 
 export default places;

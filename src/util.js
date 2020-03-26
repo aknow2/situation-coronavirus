@@ -98,9 +98,9 @@ export const selectableCountryMap = {
 
 export const selectableSituationMap = {
  total_confirmed: 'numOfInfected',
- travelHistoryChina: 'travelHistoryChina',
- transmissionOutsideOfChina: 'transmissionOutsideOfChina',
- underInvestigation: 'underInvestigation',
+ // travelHistoryChina: 'travelHistoryChina',
+ // transmissionOutsideOfChina: 'transmissionOutsideOfChina',
+ // underInvestigation: 'underInvestigation',
  deaths: 'deaths',
 }
 
