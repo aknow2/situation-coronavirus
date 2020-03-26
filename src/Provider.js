@@ -63,15 +63,21 @@ export default class Provider extends React.Component {
     this.setState({day});
   };
 
-  nextDate = () => {
+  getNext = () => {
    const { day, situations } = this.state
    const nextIndex = situations.findIndex((s) => s.day === day) + 1;
-   let next = situations[nextIndex]
+   return situations[nextIndex]
+  }
+
+  nextDate = () => {
+   const { situations } = this.state
+   let next = this.getNext()
    next = next !== undefined ? next : situations[0];
    this.setState({
      day: next.day
    })
   }
+
   prevDate = () => {
    const { day, situations } = this.state
    const prevIdex = situations.findIndex((s) => s.day === day) - 1;
@@ -83,14 +89,23 @@ export default class Provider extends React.Component {
   }
 
   play = () => {
-    this.setState({ playing: true})
+    const { situations } = this.state;
+    const curretIndex = situations.findIndex(s => s.day === this.state.day)
+    const start = curretIndex === (situations.length - 1) ? situations[0] : situations[curretIndex]
+    this.setState({ playing: true, day: start.day })
     let base = Date.now()
     const animation = () => {
       const current = Date.now();
       if (this.state.playing ) {
         if (current - base > 350) {
           base = current
-          this.nextDate();
+          const next = this.getNext();
+          if (next) {
+            this.nextDate();
+          } else {
+            this.setState({ playing: false})
+            return;
+          }
         }
         requestAnimationFrame(animation)
       }
