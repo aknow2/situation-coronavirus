@@ -13,11 +13,23 @@ const selectableAxis = Object.values(selectableAxisMap);
 
 
 const getCurrentValue = (selectedAxis, data, old, key) => {
+
+  if (selectedAxis === selectableAxisMap.mortality) {
+    return undefined;
+  }
+
   const sum = reduce(data, key)
   if (selectedAxis === selectableAxisMap.total) {
     return sum
   }
   return calcDelta(sum, old, key, selectableCountryMap.all_country)
+}
+
+const getCurrentValueLabel = (selectedAxis, currentValue) => {
+  if (selectedAxis === selectableAxisMap.mortality) {
+    return `${translate(selectedAxis)}`
+  }
+  return `${translate(selectedAxis)} ${currentValue}`
 }
 
 function SummaryCard (props){
@@ -103,7 +115,7 @@ function SummaryCard (props){
             }}
             aria-controls="axis-menu"
             primary={translate('aggregation')}
-            secondary={`${translate(selectedAxis)} ${currentValue}`}/>
+            secondary={getCurrentValueLabel(selectedAxis, currentValue)}/>
         <Menu
             id="axis-menu"
             anchorEl={axisMenuEl}
@@ -137,6 +149,7 @@ function SummaryCard (props){
             />
           </ListItemSecondaryAction>
         </ListItem>
+        { selectedAxis !== selectableAxisMap.mortality &&
         <ListItem>
           <ListItemText
             onClick={ ev => {
@@ -178,6 +191,7 @@ function SummaryCard (props){
             />
           </ListItemSecondaryAction>
         </ListItem>
+        }
         <Divider />
       </List>
       <List style={{ maxHeight: window.innerHeight/5, overflowY: 'scroll' }}>

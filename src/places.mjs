@@ -38,30 +38,35 @@ const places = [
         id:6,
         name: 'Republic of Korea',
         country: 'korea',
+        population: 51470000,
         location: [37.545423, 126.994158]
       },
       {
         id:7,
         name: 'Thailand',
         country: 'thailand',
+        population: 69040000,
         location: [13.769713, 100.534521]
       }, 
       {
         id: 8,
         name: 'Chongqing',
         country: 'china',
+        population: 31020000,
         location: [29.543867, 106.628166]
       },
       {
         id: 9,
         name: 'Zhejiang',
         country: 'china',
+        population: 57370000,
         location: [29.498214, 119.950164]
       },
       {
         id: 10,
         name: 'Jiangxi',
         country: 'china',
+        population: 46480000,
         location: [27.720665, 115.334603]
       },
       {
@@ -104,6 +109,7 @@ const places = [
         id: 17,
         name: 'Taiwan',
         country: 'china',
+        population: 46480000,
         location: [23.701278, 120.972302]
       },
       {
@@ -122,54 +128,63 @@ const places = [
         id: 20,
         name: 'United States of America',
         country: 'usa',
+        population: 327200000,
         location: [38.936851, -101.878757]
       },
       {
         id: 21,
         name: 'China',
         country: 'china',
+        population: 1400050000,
         location: [35.276518, 103.594722]
       },
       {
         id: 22,
         name: 'Viet Nam',
         country: 'vietnam',
+        population: 95540000,
         location: [21.143903, 105.790069]
       },
       {
         id: 23,
         name: 'Singapore',
         country: 'singapore',
+        population: 5612000,
         location: [1.316004, 103.922393]
       },
       {
         id: 24,
         name: 'Australia',
         country: 'australia',
+        population: 24600000,
         location: [-26.198094, 134.155892]
       },
       {
         id: 25,
         name: 'Nepal',
         country: 'nepal',
+        population: 29300000,
         location: [27.944116, 84.452023]
       },
       {
         id: 26,
         name: 'France',
         country: 'france',
+        population: 66990000,
         location: [48.941955, 2.527384]
       },
       {
         id: 27,
         name: 'Malaysia',
         country: 'malaysia',
+        population: 31620000,
         location: [3.250872, 101.982163]
       },
       {
         id: 28,
         name: 'Canada',
         country: 'canada',
+        population: 37590000,
         location: [58.657384, -110.102586]
       },
       {
@@ -182,84 +197,98 @@ const places = [
         id: 30,
         name: 'Sri Lanka',
         country: 'srilanka',
+        population: 21440000,
         location: [7.500214, 80.691841]
       },
       {
         id: 31,
         name: 'Germany',
         country: 'germany',
+        population: 82790000,
         location: [50.959573, 10.248274]
       },
       {
         id: 32,
         name: 'Cambodia',
         country: 'cambodia',
+        population: 16010000,
         location: [12.812605, 104.847286]
       },
       {
         id: 33,
         name: 'United Arab Emirates',
         country: 'uae',
+        population: 9858664,
         location: [23.898799, 54.289701]
       },
       {
         id: 34,
         name: 'Philippines',
         country: 'philippines',
+        population: 109192665,
         location: [11.944197, 123.000300]
       },
       {
         id: 35,
         name: 'India',
         country: 'india',
+        population: 1376418636 ,
         location: [22.395979, 79.371853]
       },
       {
         id: 36,
         name: 'Finland',
         country: 'finland',
+        population: 5540000,
         location: [62.821823, 25.641002]
       },
       {
         id: 37,
         name: 'Italy',
         country: 'italy',
+        population: 60484747,
         location: [40.506240, 15.621145]
       },
       {
         id: 38,
         name: 'Russian Federation',
         country: 'russian',
+        population: 145918262,
         location: [61.233686, 93.213563]
       },
       {
         id: 39,
         name: 'Spain',
         country: 'spain',
+        population: 46750090,
         location: [39.918867, -3.773742]
       },
       {
         id: 40,
         name: 'Sweden',
         country: 'sweden',
+        population: 10082753,
         location: [63.278536, 16.045594]
       },
       {
         id: 41,
         name: 'The United Kingdom',
         country: 'uk',
+        population: 67792706,
         location: [54.731495, -2.675109]
       },
       {
         id: 42,
         name: 'Belgium',
         country: 'belgium',
+        population: 11576452,
         location: [50.723128, 4.640964]
       },
       {
         id: 43,
         name: 'Diamond Princess',
         country: 'diamond princess',
+        population: 3700,
         location: [35.407244, 139.717743]
       },
       {
@@ -374,108 +403,126 @@ const places = [
         id: 62,
         name: 'Egypt',
         country: 'egypt',
+        population: 101814083,
         location: [26.756393, 28.598153]
       },
       {
         id: 63,
         name: 'Iran',
         country: 'iran',
+        population: 83992949,
         location: [32.234106, 54.781108]
       },
        {
         id: 64,
         name: 'Israel',
         country: 'israel',
+        population: 8655535,
         location: [32.087470, 34.815624]
       },
       {
         id: 65,
         name: 'Lebanon',
         country: 'lebanon',
+        population: 6833274,
         location: [34.164434, 35.824639]
       },
       {
         id: 66,
         name: 'Kuwait',
         country: 'kuwait',
+        population:  4253352,
         location: [29.567720, 47.573536]
       },
       {
         id: 67,
         name: 'Iraq',
         country: 'iraq',
+        population: 39977241,
         location: [32.641742, 42.872624]
       },
       {
         id: 68,
         name: 'Afghanistan',
         country: 'afghanistan',
+        population: 38690084,
         location: [34.343433, 65.587453]
       },
       {
         id: 69,
         name: 'Bahrain',
         country: 'bahrain',
+        population: 1685053,
         location: [25.945618, 50.539992]
       },
       {
         id: 70,
         name: 'Oman',
         country: 'oman',
+        population: 5071101,
         location: [20.905044, 56.589109]
       },
       {
         id: 71,
         name: 'Austria',
         country: 'austria',
+        population: 8992939,
         location: [47.778987, 14.428717]
       },
       {
         id: 72,
         name: 'Croatia',
         country: 'croatia',
+        population: 4111727,
         location: [44.449083, 17.664095]
       },
       {
         id: 73,
         name: 'Switzerland',
         country: 'switzerland',
+        population: 8637987,
         location: [46.987857, 8.119545]
       },
       {
         id: 74,
         name: 'Algeria',
         country: 'algeria',
+        population: 43637959,
         location: [29.619162, 2.778654]
       },
       {
         id: 75,
         name: 'Brazil',
         country: 'brazil',
+        population: 212162466,
         location: [-7.726328, -56.647254]
       },
       {
         id: 76,
         name: 'Denmark',
         country: 'denmark',
+        population: 5786955,
         location: [55.776706, 10.129287]
       },
       {
         id: 77,
         name: 'Estonia',
         country: 'estonia',
+        population: 1326306,
         location: [58.917434, 25.332932]
       },
       {
         id: 78,
         name: 'Georgia',
         country: 'georgia',
+        population: 3991124,
         location: [42.278731, 43.434231]
       },
       {
         id: 79,
         name: 'Greece',
         country: 'greece',
+        population: 10436024,
         location: [39.290321, 22.524309]
       },
       {
@@ -488,115 +535,133 @@ const places = [
         id: 81,
         name: 'Norway',
         country: 'norway',
+        population: 5410283,
         location: [62.656854, 9.002589]
       },
       {
         id: 82,
         name: 'Romania',
         country: 'romania',
+        population: 19270317,
         location: [46.421935, 25.436763]
       },
       {
         id: 83,
         name: 'Pakistan',
         country: 'pakistan',
+        population: 219768644,
         location: [29.328910, 68.505539]
       },
       {
         id: 84,
         name: 'New Zealand',
         country: 'new zealand',
+        population: 4812105,
         location: [-42.374168, 172.346526]
       },
       {
         id: 85,
         name: 'Belarus',
         country: 'Belarus',
+        population: 9450119,
         location: [53.768236, 27.623950]
       },
       {
         id: 86,
         name: 'Lithuania',
         country: 'Lithuania',
+        population: 2731866,
         location: [55.707761, 23.738840]
       },
       {
         id: 87,
         name: 'Netherlands',
         country: 'Netherlands',
+        population: 17125134,
         location: [52.265745, 5.486267]
       },
       {
         id: 88,
         name: 'Nigeria',
         country: 'Nigeria',
+        population: 204792651,
         location: [9.851805, 7.779058]
       },
       {
         id: 89,
         name: 'San Marino',
         country: 'san marino',
+        population: 33913,
         location: [43.939643, 12.456658]
       },
-
       {
         id: 90,
         name: 'Azerbaijan',
         country: 'azerbaijan',
+        population: 10115521,
         location: [40.564398, 47.806679]
       },
      {
         id: 92,
         name: 'Ireland',
         country: 'ireland',
+        population: 4923473,
         location: [53.417175, -8.266565]
       },
       {
         id: 93,
         name: 'Monaco',
         country: 'monaco',
+        population: 39170,
         location: [43.735742, 7.423363]
       },
       {
         id: 94,
         name: 'Qatar',
         country: 'qatar',
+        population: 2868345,
         location: [25.453208, 51.145443]
       },
       {
         id: 95,
         name: 'Ecuador',
         country: 'ecuador',
+        population: 17573212,
         location: [-0.947025, -78.942585]
       },
       {
         id: 96,
         name: 'Czechia',
         country: 'czechia',
+        population: 10703881,
         location: [49.845910, 15.000461]
       },
       {
         id: 97,
         name: 'Iceland',
         country: 'iceland',
+        population: 340671,
         location: [65.168374, -18.808424]
       },
       {
         id: 98,
         name: 'Luxembourg',
         country: 'luxembourg',
+        population: 623320,
         location: [49.833440, 6.179865]
       },
       {
         id: 99,
         name: 'Armenia',
         country: 'armenia',
+        population: 2961821,
         location: [40.459809, 44.587512]
       },
       {
         id: 100,
         name: 'Indonesia',
         country: 'indonesia',
+        population: 272773611,
         location: [-2.143682, 121.091900]
       },
       {
@@ -609,6 +674,7 @@ const places = [
         id: 102,
         name: 'Mexico',
         country: 'Mexico',
+        population: 128581519,
         location: [24.697885, -102.785056]
       },
       {

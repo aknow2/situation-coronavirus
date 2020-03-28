@@ -3,6 +3,13 @@ import { Typography, Paper, ExpansionPanel, ExpansionPanelSummary, ExpansionPane
 import { SituationContext } from '../Provider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { translate, reduce, selectableSituationMap, selectableAxisMap } from '../util';
+export const calcGradientColor = (value) => {
+  const r = 255 * value;
+  const g = 255 - r;
+  const b = 0;
+  return [r, g, b]
+};
+
 export const newLutList = [
   {
     max: 0,

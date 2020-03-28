@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import SummaryCard from "../component/SummaryCard";
 import ExpandController from "../component/ExpandController";
-import MapLegendBar, { colorLutList, newLutList } from "../component/MapLegendBar";
+import MapLegendBar, { colorLutList, newLutList, calcGradientColor } from "../component/MapLegendBar";
 import { ColumnLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
@@ -43,8 +43,44 @@ const deltaData = (current, old, selectedSituation) => {
 
 const expandSammaryHeight = 72;
 
-const filterValidValue = (areas, key) => {
+const filterValidValue = (areas, key, selectedAxis) => {
+  if (selectedAxis === selectableAxisMap.mortality) {
+    return areas.filter(area => !!area.population)
+  }
   return areas.filter(area => !!area[key]);
+}
+
+const calcPlotData = (selectedAxis, selectedSituation, filteredData, oldData) => {
+
+  if (selectedAxis === selectableAxisMap.mortality) {
+    return filteredData.map(data => {
+      return {
+        ...data,
+        [selectedSituation]: data.deaths / data.population * 100000
+      };
+    })
+  }
+  return selectedAxis === selectableAxisMap.total ? filteredData : deltaData(filteredData, oldData, selectedSituation);
+};
+const getFillColor = (d, selectedAxis, selectedSituation) => {
+  const count = d[selectedSituation]
+
+  if (selectedAxis === selectableAxisMap.mortality) {
+    return calcGradientColor(count);
+  }
+
+  const lutList = (selectedAxis === selectableAxisMap.total)?colorLutList:newLutList;
+  const lut = lutList.find(lut => {
+    if (lut.min && lut.max) {
+      return count >= lut.min && count <= lut.max;
+    } else if (lut.max !== undefined) {
+      return count <= lut.max
+    } else if (lut.min !== undefined)  {
+      return  count >= lut.min
+    } 
+    return false;
+  })
+  return lut.color;
 }
 
 function Map() {
@@ -96,8 +132,9 @@ function Map() {
             const result = d.location
             return [result[1], result[0], 0];
           } 
-          const filteredData = filterValidValue(data, selectedSituation)
-          const plotData = selectedAxis === selectableAxisMap.total ? filteredData : deltaData(filteredData, oldData, selectedSituation);
+          const filteredData = filterValidValue(data, selectedSituation, selectedAxis)
+          debugger;
+          const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldData);
           const layers = [
             new ColumnLayer({
               id: 'column-layer', 
@@ -112,19 +149,7 @@ function Map() {
                 return d[selectedSituation]
               },
               getFillColor: (d) => {
-                const count = d[selectedSituation]
-                const lutList = (selectedAxis === selectableAxisMap.total)?colorLutList:newLutList;
-                const lut = lutList.find(lut => {
-                  if (lut.min && lut.max) {
-                    return count >= lut.min && count <= lut.max;
-                  } else if (lut.max !== undefined) {
-                    return count <= lut.max
-                  } else if (lut.min !== undefined)  {
-                    return  count >= lut.min
-                  } 
-                  return false;
-                })
-                return lut.color;
+                return getFillColor(d, selectedAxis, selectedSituation);
               },
               getLineColor: d => [0, 0, 0],
               onHover,
