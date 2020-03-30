@@ -25,18 +25,18 @@ const deltaData = (current, old, selectedSituation) => {
   return current.map((c, index) => {
     const oldValue = (() => {
       if(!old) {
-        return 0;
+        return undefined;
       }
       const area = old.find(o => o.id === c.id);
       if (!area) {
-        return 0;
+        return undefined;
       }
       const oldSituation = area[selectedSituation];
       return oldSituation ? oldSituation : 0;
-    })()
+    })();
     return {
       ...c,
-      [selectedSituation]: c[selectedSituation] - oldValue
+      [selectedSituation]: oldValue !== undefined ? c[selectedSituation] - oldValue : undefined
     }
   })
 }
@@ -112,7 +112,7 @@ function Map() {
           const data = situation.areas;
           const additionalInfo = situation.additionalInfo;
           const oldSituation = situations[situationIndex - 1];
-          const oldData = !!oldSituation? oldSituation.areas : undefined;
+          const oldData = !!oldSituation? oldSituation.areas: undefined;
           const oldAdditionalInfo = !!oldSituation?oldSituation.additionalInfo : undefined;
           const getPosition =  d => {
             const result = d.location

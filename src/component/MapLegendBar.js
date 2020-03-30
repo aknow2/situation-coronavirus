@@ -5,6 +5,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { translate, reduce, selectableSituationMap, selectableAxisMap } from '../util';
 import { useEffect } from 'react';
 export const calcGradientColor = (value, max = 1, min=0) => {
+  if (value === undefined) {
+    return [0, 255, 0]
+  }
+
   const delta = (max - min) / 2;
   const ratio = value/delta;
   const r = 255 * (ratio > 2 ? 2:ratio);
@@ -71,6 +75,7 @@ function MobileLegend({isMobile, selectedSituation, selectedAxis, onSelectAxis, 
   return (
   <div style={{display: 'flex', alignItems: "center"}}>
     <ExpansionPanel
+      style={{ width: '100%' }}
       expanded={open}
       onChange={() => toggleExpansion(!open)}
     >
@@ -79,7 +84,7 @@ function MobileLegend({isMobile, selectedSituation, selectedAxis, onSelectAxis, 
       >
       <div style={{ display: 'flex', alignItems: 'center' }}>
       <Typography variant={'body2'} color="inherit" style={{marginRight: 10,}}>
-        {title.length > 10 ?  title.substring(0, 10)+'...' : title}
+        {title.length > 10 ?  title.substring(0, 10)+'...' : title} - {translate(selectedAxis)}
       </Typography>
       <Typography>
         {selectedAxis !== selectableAxisMap.perMillion? value: ''}
