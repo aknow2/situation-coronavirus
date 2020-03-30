@@ -14,7 +14,7 @@ const selectableAxis = Object.values(selectableAxisMap);
 
 const getCurrentValue = (selectedAxis, data, old, key) => {
 
-  if (selectedAxis === selectableAxisMap.mortality) {
+  if (selectedAxis === selectableAxisMap.perMillion) {
     return undefined;
   }
 
@@ -26,7 +26,7 @@ const getCurrentValue = (selectedAxis, data, old, key) => {
 }
 
 const getCurrentValueLabel = (selectedAxis, currentValue) => {
-  if (selectedAxis === selectableAxisMap.mortality) {
+  if (selectedAxis === selectableAxisMap.perMillion) {
     return `${translate(selectedAxis)}`
   }
   return `${translate(selectedAxis)} ${currentValue}`
@@ -149,7 +149,6 @@ function SummaryCard (props){
             />
           </ListItemSecondaryAction>
         </ListItem>
-        { selectedAxis !== selectableAxisMap.mortality &&
         <ListItem>
           <ListItemText
             onClick={ ev => {
@@ -191,7 +190,6 @@ function SummaryCard (props){
             />
           </ListItemSecondaryAction>
         </ListItem>
-        }
         <Divider />
       </List>
       <List style={{ maxHeight: window.innerHeight/5, overflowY: 'scroll' }}>

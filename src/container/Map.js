@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import SummaryCard from "../component/SummaryCard";
 import ExpandController from "../component/ExpandController";
-import MapLegendBar, { colorLutList, newLutList, calcGradientColor } from "../component/MapLegendBar";
+import MapLegendBar, { calcGradientColor, getLegendMaxVal } from "../component/MapLegendBar";
 import { ColumnLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
@@ -44,19 +44,20 @@ const deltaData = (current, old, selectedSituation) => {
 const expandSammaryHeight = 72;
 
 const filterValidValue = (areas, key, selectedAxis) => {
-  if (selectedAxis === selectableAxisMap.mortality) {
+  if (selectedAxis === selectableAxisMap.perMillion) {
     return areas.filter(area => !!area.population)
   }
   return areas.filter(area => !!area[key]);
 }
 
+const million = 10000000;
 const calcPlotData = (selectedAxis, selectedSituation, filteredData, oldData) => {
 
-  if (selectedAxis === selectableAxisMap.mortality) {
+  if (selectedAxis === selectableAxisMap.perMillion) {
     return filteredData.map(data => {
       return {
         ...data,
-        [selectedSituation]: data.deaths / data.population * 100000
+        [selectedSituation]: data[selectedSituation] / data.population * million
       };
     })
   }
@@ -64,23 +65,8 @@ const calcPlotData = (selectedAxis, selectedSituation, filteredData, oldData) =>
 };
 const getFillColor = (d, selectedAxis, selectedSituation) => {
   const count = d[selectedSituation]
-
-  if (selectedAxis === selectableAxisMap.mortality) {
-    return calcGradientColor(count);
-  }
-
-  const lutList = (selectedAxis === selectableAxisMap.total)?colorLutList:newLutList;
-  const lut = lutList.find(lut => {
-    if (lut.min && lut.max) {
-      return count >= lut.min && count <= lut.max;
-    } else if (lut.max !== undefined) {
-      return count <= lut.max
-    } else if (lut.min !== undefined)  {
-      return  count >= lut.min
-    } 
-    return false;
-  })
-  return lut.color;
+  const max = getLegendMaxVal(selectedAxis);
+  return calcGradientColor(count, max);
 }
 
 function Map() {
@@ -133,7 +119,6 @@ function Map() {
             return [result[1], result[0], 0];
           } 
           const filteredData = filterValidValue(data, selectedSituation, selectedAxis)
-          debugger;
           const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldData);
           const layers = [
             new ColumnLayer({
@@ -159,6 +144,7 @@ function Map() {
           <MapLegendBar 
             selectedSituation={selectedSituation}
             onSelectSituation={onSelectSituation}
+            onSelectAxis={onSelectAxis}
             selectedAxis={selectedAxis}
             data={data}
           />

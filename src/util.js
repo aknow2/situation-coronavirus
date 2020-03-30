@@ -17,7 +17,7 @@ const en = {
   total_confirmed: 'Total confirmed',
   suspected_china: 'Suspected (China)',
   deaths: 'Deaths',
-  mortality: 'Deaths per 100K population',
+  perMillion: 'Per 1million population',
   area: 'area',
   total: 'total',
   situation: 'Situation',
@@ -53,7 +53,7 @@ const ja = {
   all_country: '全ての国',
   china: '中国',
   deaths: '死者',
-  mortality: '死者(１０万人あたり)',
+  perMillion: '100万人あたり',
   deaths_china: '死者 (中国)',
   severe_china: '治癒 (中国)',
   deaths_outside: '死者 (中国外)',
@@ -109,7 +109,7 @@ export const selectableSituationMap = {
 
 export const selectableAxisMap = {
   total: 'total',
-  mortality: 'mortality',
+  perMillion: 'perMillion',
   new: 'new',
 };
 

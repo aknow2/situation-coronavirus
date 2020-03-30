@@ -1,111 +1,50 @@
 import React, { useState } from 'react';
-import { Typography, Paper, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, MenuItem } from '@material-ui/core';
+import { Typography, Paper, ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, MenuItem, Divider } from '@material-ui/core';
 import { SituationContext } from '../Provider';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { translate, reduce, selectableSituationMap, selectableAxisMap } from '../util';
-export const calcGradientColor = (value) => {
-  const r = 255 * value;
-  const g = 255 - r;
+import { useEffect } from 'react';
+export const calcGradientColor = (value, max = 1, min=0) => {
+  const delta = (max - min) / 2;
+  const ratio = value/delta;
+  const r = 255 * (ratio > 2 ? 2:ratio);
+  const g = 520 - r;
   const b = 0;
   return [r, g, b]
 };
 
-export const newLutList = [
-  {
-    max: 0,
-    color: [200, 230, 201]
-  },
-  {
-    min: 1,
-    max: 10,
-    color: [255, 241, 118],
-  },
-  {
-    min: 11,
-    max: 100,
-    color: [255, 193, 7],
-  },
-  {
-    min: 101,
-    max: 500,
-    color: [245, 124, 0],
-  },
-  {
-    min: 501,
-    max: 1000,
-    color: [198, 40, 40],
-  },
-  {
-    min: 1001,
-    color: [136, 14, 79],
-  },
-];
-
-export const colorLutList = [
-  {
-    max: 10,
-    color: [200, 230, 201]
-  },
-  {
-    min: 11,
-    max: 100,
-    color: [255, 241, 118],
-  },
-  {
-    min: 101,
-    max: 299,
-    color: [255, 193, 7],
-  },
-  {
-    min: 300,
-    max: 500,
-    color: [245, 124, 0],
-  },
-  {
-    min: 501,
-    max: 5000,
-    color: [198, 40, 40],
-  },
-  {
-    min: 5000,
-    color: [136, 14, 79],
-  },
-];
+export function getLegendMaxVal(selectedAxis) {
+  switch(selectedAxis) {
+    case selectableAxisMap.new:
+        return 1000;
+    case selectableAxisMap.total:
+        return 5000;
+    default:
+    case selectableAxisMap.perMillion:
+        return 3000;
+  }
+}
 
 function Legend({isMobile, selectedAxis}) {
-  const sSize = isMobile ? 5: 25;
-  const lut = selectedAxis === selectableAxisMap.total ? colorLutList:newLutList
+  const ref = React.createRef();
+  const ySize = 25;
+  const xSize = isMobile ? 210: 400;
+  const max = getLegendMaxVal(selectedAxis);
+  useEffect(() => {
+    const node = ref.current;
+    const ctx = node.getContext('2d');
+    const grd = ctx.createLinearGradient(0,0, xSize, 0);
+    grd.addColorStop(0,"green");
+    grd.addColorStop(0.5,"yellow");
+    grd.addColorStop(1,"red");
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, xSize, ySize);
+  },
+  [isMobile, ref, xSize, ySize, selectedAxis]);
+
   return (
       <div style={{display: 'flex', alignItems: "center", flexWrap: 'wrap'}}>
-      {
-        lut.map(lut => {
-          const colorStr = `rgb(${lut.color[0]},${lut.color[1]},${lut.color[2]})`
-          return (
-
-            <div key={lut.color} style={{display: 'flex', alignItems: "center" , marginLeft: 5, marginRight: 5}}>
-            <div style={{ width: sSize, height:sSize, borderRadius: '50%', backgroundColor: colorStr}} /> 
-            {
-              lut.max && !lut.min &&
-              <div>
-                  &lt; {lut.max}
-              </div>
-            }
-            {
-              lut.max && lut.min &&
-              <div>
-                {lut.min} - {lut.max}
-              </div>
-            }
-            {
-              !lut.max && lut.min &&
-              <div>
-                  {lut.min} +
-              </div>
-            }
-            </div>
-          );
-        })
-      }
+        0 <canvas ref={ref} width={xSize} height={ySize} /> {max}
       </div>
   );
 }
@@ -120,8 +59,9 @@ function DesktopLegend({isMobile, selectedSituation, selectedAxis, data}) {
   </div>);
 }
 const selectableSituationList = Object.values(selectableSituationMap);
+const selectableAxisList = Object.values(selectableAxisMap);
 
-function MobileLegend({isMobile, selectedSituation, selectedAxis, data, onSelectSituation}) {
+function MobileLegend({isMobile, selectedSituation, selectedAxis, onSelectAxis, data, onSelectSituation}) {
   const [open, toggleExpansion] = useState(false);
   const title = translate(selectedSituation);
   const value = reduce(data, selectedSituation)
@@ -139,7 +79,7 @@ function MobileLegend({isMobile, selectedSituation, selectedAxis, data, onSelect
         {title.length > 10 ?  title.substring(0, 10)+'...' : title}
       </Typography>
       <Typography>
-        {value}
+        {selectedAxis !== selectableAxisMap.perMillion? value: ''}
       </Typography>
       </div>
       </ExpansionPanelSummary>
@@ -149,6 +89,7 @@ function MobileLegend({isMobile, selectedSituation, selectedAxis, data, onSelect
           selectedAxis={selectedAxis}
           isMobile={isMobile}
         />
+        <Divider style={{ margin: 5, boxSizing: 'border-box' }}/>
         {
           selectableSituationList.map((situation) => {
             return (
@@ -165,13 +106,30 @@ function MobileLegend({isMobile, selectedSituation, selectedAxis, data, onSelect
             );
           })
         }
+        <Divider style={{ margin: 5, boxSizing: 'border-box' }}/>
+        {
+          selectableAxisList.map((axis) => {
+            return (
+              <MenuItem
+                key={axis}
+                selected={selectedAxis === axis}
+                onClick={() => {
+                  onSelectAxis(axis)
+                  toggleExpansion(!open);
+                }}
+              >
+                {translate(axis)}
+              </MenuItem>
+            );
+          })
+          }
         </div>
       </ExpansionPanelDetails>
     </ExpansionPanel>
   </div>);
 }
 
-function MapLegendBar ({ selectedSituation, data, onSelectSituation, selectedAxis }){
+function MapLegendBar ({ selectedSituation, data, onSelectSituation, selectedAxis, onSelectAxis }){
   return (<SituationContext.Consumer>
     {
       ({displaySize}) => {
@@ -183,11 +141,12 @@ function MapLegendBar ({ selectedSituation, data, onSelectSituation, selectedAxi
             }
             {isMobile &&
               <MobileLegend
-                isMbole={isMobile}
+                isMobile={isMobile}
                 selectedAxis={selectedAxis} 
                 selectedSituation={selectedSituation}
                 data={data}
                 onSelectSituation={onSelectSituation}
+                onSelectAxis={onSelectAxis}
               />
             }
           </Paper>

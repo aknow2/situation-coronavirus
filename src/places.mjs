@@ -288,7 +288,7 @@ const places = [
         id: 43,
         name: 'Diamond Princess',
         country: 'diamond princess',
-        population: 3700,
+        population: 3800,
         location: [35.407244, 139.717743]
       },
       {
@@ -668,85 +668,98 @@ const places = [
         id: 101,
         name: 'Dominican Republic',
         country: 'dominican',
+        population: 10820316,
         location: [19.469087, -70.059120]
       },
       {
         id: 102,
         name: 'Mexico',
         country: 'Mexico',
-        population: 128581519,
+        population: 128588953,
         location: [24.697885, -102.785056]
       },
       {
         id: 103,
         name: 'Portugal',
         country: 'portugal',
+        population: 10204139,
         location: [39.657581, -8.180933]
       },
       {
         id: 104,
         name: 'Andorra',
         country: 'andorra',
+        population: 77234,
         location: [42.539899, 1.564144]
       },
       {
         id: 105,
         name: 'Latvia',
         country: 'latvia',
+        population: 1891361,
         location: [56.977766, 24.725572]
       },
       {
         id: 106,
         name: 'Jordan',
         country: 'jordan',
+        population: 10177444,
         location: [31.047284, 36.223477]
       },
       {
         id: 107,
         name: 'Morocco',
         country: 'morocco',
+        population: 36799355,
         location: [32.543795, -6.833654]
       },
       {
         id: 108,
         name: 'Saudi Arabia',
         country: 'saudi arabia',
+        population: 34675465,
         location: [25.132382, 44.032730]
       },
       {
         id: 109,
         name: 'Tunisia',
         country: 'tunisia',
+        population: 11787235,
         location: [34.234868, 9.504354]
       },
       {
         id: 110,
         name: 'Senegal',
         country: 'senegal',
+        population: 16629859,
         location: [15.455374, -14.914537]
       },
       {
         id: 111,
         name: 'Poland',
         country: 'poland',
+        population: 37856991,
         location: [52.394348, 18.843228]
       },
       {
         id: 112,
         name: 'Ukraine',
         country: 'ukraine',
+        population: 43799184,
         location: [49.861221, 31.250348]
       },
       {
         id: 113,
         name: 'Argentina',
         country: 'argentina',
+        population: 45090683,
         location: [-37.676494, -64.282748]
       },
       {
         id: 114,
         name: 'Chile',
         country: 'chile',
+        population: 19074649,
         location: [-32.945600, -71.577670]
       },
       {
@@ -759,24 +772,28 @@ const places = [
         id: 116,
         name: 'Hungary',
         country: 'Hungary',
+        population: 9666483,
         location: [47.154201, 19.381826]
       },
       {
         id: 117,
         name: 'Slovenia',
         country: 'slovenia',
+        population: 2078866,
         location: [46.086647, 14.695767]
       },
       {
         id: 118,
         name: 'Liechtenstein',
         country: 'liechtenstein',
+        population: 38100,
         location: [47.149994, 9.554998]
       },
       {
         id: 119,
         name: 'Gibraltar',
         country: 'gibraltar',
+        population: 33694,
         location: [36.119937, -5.347464]
       },
       {
@@ -801,6 +818,7 @@ const places = [
         id: 123,
         name: 'Serbia',
         country: 'serbia',
+        population: 8746154,
         location: [44.228180, 20.722182]
       },
       {
@@ -837,6 +855,7 @@ const places = [
         id: 130,
         name: 'Colombia',
         country: 'colombia',
+        population: 50745234,
         location: [4.456163, -73.998677]
       },
       {
@@ -1437,12 +1456,14 @@ const places = [
         id: 233,
         name: 'Myanmar',
         country: 'Myanmar',
+        population: 54317641,
         location: [20.641525, 96.058997]
       },
       {
         id: 234,
         name: 'Belize',
         country: 'Belize',
+        population: 395780,
         location: [17.234906, -88.661686]
       },
       {
@@ -1461,12 +1482,14 @@ const places = [
         id: 237,
         name: 'Lao People`s Democratic Republic',
         country: 'Lao People`s Democratic Republic',
+        population: 7248643,
         location: [19.839692, 102.303176]
       },
       {
         id: 238,
         name: 'Libya',
         country: 'Libya',
+        population: 6847494,
         location: [27.762293, 17.493371]
       },
   ];
