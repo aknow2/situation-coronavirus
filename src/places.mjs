@@ -1102,390 +1102,455 @@ const places = [
         id: 165,
         name: 'Antigua and Barbuda',
         country: 'Antigua and Barbuda',
+        population: 97000,
         location: [17.610689, -61.785215]
       },
       {
         id: 166,
         name: 'Guadeloupe',
         country: 'Guadeloupe',
+        population: 448869,
         location: [16.257034, -61.644479]
       },
       {
         id: 167,
         name: 'Trinidad and Tobago',
         country: 'Trinidad and Tobago',
+        population: 1394973,
         location: [10.488317, -61.280607]
       },
       {
         id: 168,
         name: 'Cayman Islands',
         country: 'Cayman Islands',
+        population: 63000,
         location: [19.328152, -81.239154]
       },
       {
         id: 169,
         name: 'Ethiopia',
         country: 'Ethiopia',
+        population: 114963588,
         location: [8.752423, 39.029721]
       },
       {
         id: 170,
         name: 'Gabon',
         country: 'Gabon',
+        population: 1906738,
         location: [-0.239782, 11.541829]
       },
       {
         id: 171,
         name: 'Ghana',
         country: 'Ghana',
+        population: 30417856,
         location: [8.554538, -1.379615]
       },
       {
         id: 172,
         name: 'Guinea',
         country: 'Guinea',
+        population: 12770000,
         location: [10.995753, -12.758817]
       },
       {
         id: 173,
         name: 'Kenya',
         country: 'Knenya',
+        population: 47564296,
         location: [0.373808, 37.998218]
       },
       {
         id: 174,
         name: 'Kazakhstan',
         country: 'kazakhstan',
+        population: 18589667,
         location: [48.371462, 67.389429]
       },
       {
         id: 175,
         name: 'Curaçao',
         country: 'Curaçao',
+        population: 160000,
         location: [12.214450, -69.050532]
       },
       {
         id: 176,
         name: 'Namibia',
         country: 'Namibia',
+        population: 2660131,
         location: [-21.202766, 16.530152]
       },
       {
         id: 177,
         name: 'Central African Republic',
         country: 'Central African Republic',
+        population: 4745185,
         location: [7.014793, 20.301727]
       },
       {
         id: 178,
         name: 'Congo',
         country: 'Congo',
+        population: 5483151,
         location: [0.315993, 15.533414]
       },
       {
         id: 179,
         name: 'Equatorial Guinea',
         country: 'Equatorial Guinea',
+        population: 963629,
         location: [1.582449, 10.498625]
       },
       {
         id: 180,
         name: 'Eswatini',
         country: 'Eswatini',
+        population: 1148130,
         location: [-26.439521, 31.346533]
       },
       {
         id: 181,
         name: 'Mauritania',
         country: 'Mauritania',
+        population: 110213,
         location: [20.409376, -11.955122]
       },
       {
         id: 182,
         name: 'Mayotte',
         country: 'Mayotte',
+        population: 270400,
         location: [-12.790332, 45.144737]
       },
       {
         id: 183,
         name: 'Uzbekistan',
         country: 'Uzbekistan',
+        population: 30023709,
         location: [42.439425, 62.473040]
       },
       {
         id: 184,
         name: 'Uruguay',
         country: 'Uruguay',
+        population: 3480000,
         location: [-33.149565, -56.061861]
       },
       {
         id: 185,
         name: 'Guatemala',
         country: 'Guatemala',
+        population: 17572053,
         location: [15.510333, -90.370772]
       },
       {
         id: 186,
         name: 'Saint Lucia',
         country: 'Saint Lucia',
+        population: 192185,
         location: [13.892697, -60.982935]
       },
       {
         id: 187,
         name: 'Suriname',
         country: 'Suriname',
+        population: 566390,
         location: [4.013283, -56.066023]
       },
       {
         id: 188,
         name: 'Rwanda',
         country: 'Rwanda',
+        population: 12626950,
         location: [-1.915834, 29.912368]
       },
       {
         id: 189,
         name: 'Seychelles',
         country: 'Seychelles',
+        population: 99657,
         location: [-4.610292, 55.437931]
       },
       {
         id: 190,
         name: 'Guam',
         country: 'Guam',
+        population: 167294,
         location: [13.419936, 144.750307]
       },
       {
         id: 192,
         name: 'Albania',
         country: 'Albania',
+        population: 2880917,
         location: [41.180802, 19.932951]
       },
       {
         id: 193,
         name: 'Somalia',
         country: 'Somalia',
+        population: 15440000,
         location: [3.341423, 44.798975]
       },
       {
         id: 194,
         name: 'Bahamas',
         country: 'Bahamas',
+        population: 389482,
         location: [24.827464, -78.048404]
       },
       {
         id: 195,
         name: 'Aruba',
         country: 'Aruba',
+        population: 116576,
         location: [12.534970, -69.976914]
       },
       {
         id: 196,
         name: 'United States Virgin Islands',
         country: 'United States Virgin Islands',
+        population: 104578,
         location: [17.762816, -64.777370]
       },
       {
         id: 197,
         name: 'Benin',
         country: 'Benin',
+        population: 11940762,
         location: [11.030971, 2.509644]
       },
       {
         id: 198,
         name: 'Liberia',
         country: 'Liberia',
+        population: 4940000,
         location: [6.515126, -9.896241]
       },
       {
         id: 199,
         name: 'United Republic of Tanzania',
         country: 'United Republic of Tanzania',
+        population: 59730000,
         location: [-5.938242, 34.838303]
       },
       {
         id: 200,
         name: 'Montenegro',
         country: 'Montenegro',
+        population: 629392,
         location: [43.001969, 19.070342]
       },
       {
         id: 201,
         name: 'Kyrgyzstan',
         country: 'Kyrgyzstan',
+        population: 6389500,
         location: [41.597162, 73.938395]
       },
       {
         id: 202,
         name: 'Djibouti',
         country: 'Djibouti',
+        population: 942208,
         location: [11.848761, 42.675813]
       },
       {
         id: 203,
         name: 'Barbados',
         country: 'Barbados',
+        population: 288513,
         location: [13.160727, -59.531837]
       },
       {
         id: 204,
         name: 'Montserrat',
         country: 'Montserrat',
+        population: 5215,
         location: [16.738005, -62.189516]
       },
       {
         id: 206,
         name: 'Mauritius',
         country: 'Mauritius',
+        population: 43371,
         location: [-20.223322, 57.517728]
       },
       {
         id: 207,
         name: 'Zambia',
         country: 'Zambia',
+        population: 17351708,
         location: [-13.849086, 27.483726]
       },
       {
         id: 208,
         name: 'Gambia',
         country: 'Gambia',
+        population: 2297704,
         location: [13.404314, -16.007090]
       },
       {
         id: 209,
         name: 'Greenland',
         country: 'Greenland',
+        population: 56992,
         location: [64.982387, -45.598762]
       },
       {
         id: 210,
         name: 'Fiji',
         country: 'Fiji',
+        population: 915696,
         location: [-17.430616, 178.212946]
       },
       {
         id: 211,
         name: 'New Caledonia',
         country: 'New Caledonia',
+        population: 282750,
         location: [-21.211740, 165.235948]
       },
       {
         id: 212,
         name: 'Papua New Guinea',
         country: 'Papua New Guinea',
+        population: 8776109,
         location: [-5.641687, 149.204520]
       },
       {
         id: 213,
         name: 'Isle of Man',
         country: 'Isle of Man',
+        population: 91556,
         location: [54.218650, -4.550201]
       },
       {
         id: 214,
         name: 'Timor -Leste',
         country: 'Timor-Leste',
+        population: 1310599,
         location: [-8.803978, 125.903820]
       },
       {
         id: 215,
         name: 'Haiti',
         country: 'Haiti',
+        population: 11300000,
         location: [19.205682, -72.341193]
       },
       {
         id: 216,
         name: 'Nicaragua',
         country: 'Nicaragua',
+        population: 6545502,
         location: [12.773642, -85.032910]
       },
       {
         id: 217,
         name: 'El Salvador',
         country: 'El Salvador',
+        population: 6453553,
         location: [13.714427, -89.107019]
       },
       {
         id: 218,
         name: 'Bermuda',
         country: 'Bermuda',
+        population: 65440,
         location: [32.307383, -64.764343]
       },
       {
         id: 219,
         name: 'Sint Maarten',
         country: 'Sint Maarten',
+        population: 41110,
         location: [18.032387, -63.064940]
       },
       {
         id: 221,
         name: 'Cabo Verde',
         country: 'Cabo Verde',
+        population: 546400,
         location: [16.600140, -24.286252]
       },
       {
         id: 222,
         name: 'Chad',
         country: 'Chad',
+        population: 15946876,
         location: [15.474525, 18.645288]
       },
       {
         id: 223,
         name: 'Zimbabwe',
         country: 'Zimbabwe',
+        population: 17351708,
         location: [-18.774058, 29.662442]
       },
       {
         id: 224,
         name: 'Niger',
         country: 'Niger',
+        population: 23300000,
         location: [17.601313, 9.064129]
       },
       {
         id: 225,
         name: 'Madagascar',
         country: 'Madagascar',
+        population: 26262313,
         location: [-19.314215, 46.475190]
       },
       {
         id: 226,
         name: 'Angola',
         country: 'Angola',
+        population: 31800000,
         location: [-12.496759, 17.420562]
       },
       {
         id: 227,
         name: 'Eritrea',
         country: 'Eritrea',
+        population: 5320000,
         location: [15.653044, 38.740474]
       },
       {
         id: 228,
         name: 'Uganda',
         country: 'Uganda',
+        population: 44269594,
         location: [1.246287, 32.320809]
       },
       {
         id: 229,
         name: 'Kosovo',
         country: 'Kosovo',
+        population: 1810366,
         location: [42.591817, 20.774913]
       },
       {
         id: 230,
         name: 'Syrian Arab Republic',
         country: 'Syrian Arab Republic',
+        population: 17071327,
         location: [35.182427, 38.418489]
       },
       {
         id: 231,
         name: 'Grenada',
         country: 'Grenada',
+        population: 112003,
         location: [12.103946, -61.696103]
       },
       {
         id: 232,
         name: 'Mozambique',
         country: 'Mozambique',
+        population: 30366036,
         location: [-18.795622, 34.138856]
       },
       {
@@ -1506,12 +1571,14 @@ const places = [
         id: 235,
         name: 'Dominica',
         country: 'Dominica',
+        population: 73286,
         location: [15.448701, -61.358937]
       },
       {
         id: 236,
         name: 'Turks and Caicos Islands',
         country: 'Turks and Caicos Islands',
+        population: 39037,
         location: [21.820416, -71.897444]
       },
       {

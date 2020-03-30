@@ -48,7 +48,7 @@ const createChartData = (situations, key, selectedCountry, axis) => {
 }
 
 const baseSelectableCountries = Object.values(selectableCountryMap);
-const selectableAxis = Object.values(selectableAxisMap);
+const selectableAxis = Object.values(selectableAxisMap).filter(a => a !== 'perMillion');
 const orgSelectableSituation = Object.values(selectableSituationMap);
 
 export const isOutsideChinaReport = selectedSituation => {
