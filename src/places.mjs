@@ -800,6 +800,7 @@ const places = [
         id: 120,
         name: 'occupied Palestinian territory',
         country: 'occupied Palestinian territory',
+        population: 4685000,
         location: [32.216522, 35.235739]
       },
       {
@@ -818,37 +819,42 @@ const places = [
         id: 123,
         name: 'Serbia',
         country: 'serbia',
-        population: 8746154,
+        population: 7022000,
         location: [44.228180, 20.722182]
       },
       {
         id: 124,
         name: 'Bhutan',
         country: 'bhutan',
+        population: 763092,
         location: [27.504120, 90.429486]
       },
       {
         id: 125,
         name: 'Cameroon',
         country: 'cameroon',
+        population: 25900000,
         location: [5.075538, 12.142497]
       },
        {
         id: 126,
         name: 'South Africa',
         country: 'south africa',
+        population: 58780000,
         location: [-33.521616, 18.474155]
       },
        {
         id: 127,
         name: 'Holy See',
         country: 'holy see',
+        population: 799,
         location: [41.905177, 12.453123]
       },
       {
         id: 129,
         name: 'Slovakia',
         country: 'slovakia',
+        population: 5457013,
         location: [48.846285, 19.422733]
       },
       {
@@ -862,120 +868,140 @@ const places = [
         id: 131,
         name: 'Peru',
         country: 'peru',
+        population: 32854888,
         location: [-9.433730, -75.291611]
       },
       {
         id: 132,
         name: 'Togo',
         country: 'Togo',
+        population: 8228763,
         location: [9.005604, 0.916991]
       },
       {
         id: 133,
         name: 'Malta',
         country: 'Malta',
+        population: 441247,
         location: [35.866887, 14.449356]
       },
       {
         id: 134,
         name: 'Bulgaria',
         country: 'Bulgaria',
+        population: 6961439,
         location: [42.799206, 25.210320]
       },
       {
         id: 135,
         name: 'Republic of Moldova',
         country: 'Republic of Moldova',
+        population: 3550000,
         location: [47.338907, 28.378183]
       },
       {
         id: 136,
         name: 'Faroe Islands',
         country: 'Faroe Islands',
+        population: 49290,
         location: [62.175642, -6.959948]
       },
       {
         id: 137,
         name: 'Maldives',
         country: 'Maldives',
+        population: 530953,
         location: [-0.681322, 73.137685]
       },
       {
         id: 138,
         name: 'Costa Rica',
         country: 'Costa Rica',
+        population: 5047561,
         location: [10.046055, -84.248559]
       },
       {
         id: 139,
         name: 'French Guiana',
         country: 'french guiana',
+        population: 303864,
         location: [4.160462, -53.263520]
       },
       {
         id: 140,
         name: 'Martinique',
         country: 'martinique',
+        population: 375338,
         location: [14.675109, -61.045388]
       },
       {
         id: 141,
         name: 'Albania',
         country: 'albania',
+        population: 2880917,
         location: [41.292131, 19.825493]
       },
       {
         id: 142,
         name: 'Bangladesh',
         country: 'bangladesh',
+        population: 165600000,
         location: [23.885028, 89.940071]
       },
       {
         id: 143,
         name: 'Paraguay',
         country: 'paraguay',
+        population: 7044636,
         location: [-22.905762, -58.479531]
       },
       {
         id: 144,
         name: 'Brunei Darussalam',
         country: 'Brunei Darussalam',
+        population: 451970,
         location: [4.610146, 114.502351]
       },
       {
         id: 145,
         name: 'Mongolia',
         country: 'mongolia',
+        population: 3225167,
         location: [47.796906, 98.495246]
       },
       {
         id: 146,
         name: 'Cyprus',
         country: 'cyprus',
+        population: 1223822,
         location: [34.970303, 32.984965]
       },
       {
         id: 147,
         name: 'Guernsey',
         country: 'guernsey',
+        population: 62792,
         location: [49.461933, -2.587279]
       },
       {
         id: 148,
         name: 'Panama',
         country: 'panama',
+        population: 4227828,
         location: [8.642994, -81.142408]
       },
       {
         id: 149,
         name: 'Bolivia State of)',
         country: 'bolivia',
+        population: 11513100,
         location: [-16.091406, -65.307905]
       },
       {
         id: 150,
         name: 'Jamaica',
         country: 'Jamaica',
+        population: 2841134,
         location: [18.194385, -77.469335]
       },
       {
@@ -987,31 +1013,36 @@ const places = [
       {
         id: 152,
         name: 'Democratic Republic of the Congo',
-        country: 'congo',
+        country: 'Democratic Republic of the Congo',
+        population: 86800000,
         location: [-1.042130, 23.344514]
       },
       {
         id: 153,
         name: 'French Polynesia',
         country: 'French Polynesia',
+        population: 296617,
         location: [-17.523946, -149.546419]
       },
       {
         id: 154,
         name: 'Turkey',
         country: 'Turkey',
+        population: 83200000,
         location: [39.592044, 34.872977]
       },
       {
         id: 155,
         name: 'Honduras',
         country: 'Honduras',
+        population: 8624028,
         location: [15.202561, -86.927555]
       },
       {
         id: 156,
-        name: 'Côte d’Ivoire',
+        name: 'Cote d’Ivoire',
         country: 'Côte d’Ivoire',
+        population: 26209992,
         location: [8.205605, -5.874824]
       },
       {
@@ -1024,18 +1055,21 @@ const places = [
         id: 158,
         name: 'Réunion',
         country: 'Réunion',
+        population: 893699,
         location: [-21.096960, 55.397384]
       },
       {
         id: 159,
         name: 'Cuba',
         country: 'Cuba',
+        population: 11466540,
         location: [22.148606, -78.942868]
       },
       {
         id: 160,
         name: 'Guyana',
         country: 'Guyana',
+        population: 779405,
         location: [5.300330, -58.928935]
       },
       {
@@ -1048,6 +1082,7 @@ const places = [
         id: 162,
         name: 'Sudan',
         country: 'Sudan',
+        population: 42813238,
         location: [17.375990, 31.014814]
       },
       {
@@ -1060,6 +1095,7 @@ const places = [
         id: 164,
         name: 'Venezuela Republic of)',
         country: 'Venezuela',
+        population: 28515829,
         location: [8.274171, -66.273338]
       },
       {
@@ -1480,8 +1516,8 @@ const places = [
       },
       {
         id: 237,
-        name: 'Lao People`s Democratic Republic',
-        country: 'Lao People`s Democratic Republic',
+        name: "Lao People's Democratic Republic",
+        country: "Lao People's Democratic Republic",
         population: 7248643,
         location: [19.839692, 102.303176]
       },
@@ -1492,6 +1528,49 @@ const places = [
         population: 6847494,
         location: [27.762293, 17.493371]
       },
+      {
+        id: 239,
+        name: 'Saint Kitts and Nevis',
+        country: 'Saint Kitts and Nevis',
+        population: 53104,
+        location: [17.328881, -62.747422]
+      },
+       {
+        id: 240,
+        name: 'Guinea-Bissau',
+        country: 'Guinea-Bissau',
+        population: 1955584,
+        location: [12.132782, -14.424565]
+      },
+       {
+        id: 241,
+        name: 'Mali',
+        country: 'Mali',
+        population: 20099656,
+        location: [18.289899, -3.969556]
+      },
+       {
+        id: 242,
+        name: 'Anguilla',
+        country: 'Anguilla',
+        population: 15090,
+        location: [18.209734, -63.068371]
+      },
+       {
+        id: 243,
+        name: 'British Virgin Islands',
+        country: 'British Virgin Islands',
+        population: 31200,
+        location: [18.420195, -64.638684]
+      },
+       {
+        id: 244,
+        name: 'Northern Mariana Islands of the)',
+        country: 'Northern Mariana Islands',
+        population: 55140,
+        location: [16.693079, 145.779959]
+      },
+ 
   ];
 
 export default places;

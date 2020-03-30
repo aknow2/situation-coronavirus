@@ -16,7 +16,7 @@ export const calcGradientColor = (value, max = 1, min=0) => {
 export function getLegendMaxVal(selectedAxis) {
   switch(selectedAxis) {
     case selectableAxisMap.new:
-        return 1000;
+        return 500;
     case selectableAxisMap.total:
         return 5000;
     default:
@@ -52,6 +52,9 @@ function Legend({isMobile, selectedAxis}) {
 function DesktopLegend({isMobile, selectedSituation, selectedAxis, data}) {
   return (
   <div style={{display: 'flex', alignItems: "center", paddingBottom: 3}}>
+    <div style={{marginLeft:32, marginRight: 32 }}>
+      {translate(selectedAxis)} - {translate(selectedSituation)}
+    </div> 
     <Legend 
       isMobile={isMobile}
       selectedAxis={selectedAxis}
