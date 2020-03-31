@@ -17,23 +17,35 @@ export const calcGradientColor = (value, max = 1, min=0) => {
   return [r, g, b]
 };
 
-export function getLegendMaxVal(selectedAxis) {
+export function getLegendMaxVal(selectedAxis, selectedSituation) {
   switch(selectedAxis) {
     case selectableAxisMap.new:
-        return 500;
+        if (selectedSituation === selectableSituationMap.total_confirmed) {
+          return 1000;
+        } else {
+          return 500;
+        }
     case selectableAxisMap.total:
-        return 5000;
+        if (selectedSituation === selectableSituationMap.total_confirmed) {
+          return 50000;
+        } else {
+          return 5000;
+        }
     default:
     case selectableAxisMap.perMillion:
-        return 3000;
+        if (selectedSituation === selectableSituationMap.total_confirmed) {
+          return 20000;
+        } else {
+          return 2000;
+        }
   }
 }
 
-function Legend({isMobile, selectedAxis}) {
+function Legend({isMobile, selectedAxis, selectedSituation}) {
   const ref = React.createRef();
   const ySize = 25;
   const xSize = isMobile ? 210: 400;
-  const max = getLegendMaxVal(selectedAxis);
+  const max = getLegendMaxVal(selectedAxis, selectedSituation);
   useEffect(() => {
     const node = ref.current;
     const ctx = node.getContext('2d');
@@ -62,6 +74,7 @@ function DesktopLegend({isMobile, selectedSituation, selectedAxis, data}) {
     <Legend 
       isMobile={isMobile}
       selectedAxis={selectedAxis}
+      selectedSituation={selectedSituation}
     />
   </div>);
 }

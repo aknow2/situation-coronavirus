@@ -65,7 +65,7 @@ const calcPlotData = (selectedAxis, selectedSituation, filteredData, oldData) =>
 };
 const getFillColor = (d, selectedAxis, selectedSituation) => {
   const count = d[selectedSituation]
-  const max = getLegendMaxVal(selectedAxis);
+  const max = getLegendMaxVal(selectedAxis, selectedSituation);
   return calcGradientColor(count, max);
 }
 
