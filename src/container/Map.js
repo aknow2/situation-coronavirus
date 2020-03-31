@@ -45,7 +45,7 @@ const expandSammaryHeight = 72;
 
 const filterValidValue = (areas, key, selectedAxis) => {
   if (selectedAxis === selectableAxisMap.perMillion) {
-    return areas.filter(area => !!area.population)
+    return areas.filter(area => area.population !== undefined)
   }
   return areas.filter(area => !!area[key]);
 }
@@ -119,6 +119,7 @@ function Map() {
             return [result[1], result[0], 0];
           } 
           const filteredData = filterValidValue(data, selectedSituation, selectedAxis)
+          console.log(filteredData);
           const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldData);
           const layers = [
             new ColumnLayer({

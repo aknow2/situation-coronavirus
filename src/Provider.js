@@ -30,6 +30,13 @@ export default class Provider extends React.Component {
     const situations = _situations.map(data => {
       const areas = data.areas.map(area => {
         const place = _places.find(p => p.id === area.placeId)
+        if (area.population) {
+          return {
+            ...area,
+            ...place,
+            population: area.population * 10000
+          }
+        }
         return {
           ...area,
           ...place
