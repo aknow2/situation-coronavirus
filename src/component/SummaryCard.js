@@ -28,9 +28,9 @@ const getCurrentValue = (selectedAxis, data, old, key) => {
 
 const getCurrentValueLabel = (selectedAxis, currentValue) => {
   if (selectedAxis === selectableAxisMap.perMillion) {
-    return `${translate(selectedAxis)}`
+    return '';
   }
-  return `${translate(selectedAxis)} ${currentValue}${translate('case')}`
+  return `${currentValue}${translate('case')}`
 }
 
 function SummaryCard (props){
@@ -114,7 +114,7 @@ function SummaryCard (props){
             }}
             aria-controls="axis-menu"
             primary={translate('aggregation')}
-            secondary={getCurrentValueLabel(selectedAxis, currentValue)}/>
+            secondary={`${translate(selectedAxis)}`}/>
         <Menu
             id="axis-menu"
             anchorEl={axisMenuEl}
@@ -155,7 +155,7 @@ function SummaryCard (props){
             }}
             aria-controls="situation-menu"
             primary={translate('situation')}
-            secondary={translate(selectedSituation)}/>
+            secondary={`${translate(selectedSituation)}  ${getCurrentValueLabel(selectedAxis, currentValue)}`}/>
         <Menu
             id="situation-menu"
             anchorEl={situationMenuEl}

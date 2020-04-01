@@ -10,7 +10,6 @@ import { StaticMap } from 'react-map-gl';
 import { Typography } from '@material-ui/core';
 import { selectableSituationMap, selectableAxisMap } from '../util';
 
-
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
 
 const initialViewState = {
@@ -42,6 +41,19 @@ const deltaData = (current, old, selectedSituation) => {
 }
 
 const expandSammaryHeight = 72;
+
+const getElevationScale = (selectedAxis) => {
+  switch (selectedAxis) {
+    case selectableAxisMap.total:
+      return 30;
+    case selectableAxisMap.perMillion:
+      return 50;
+    case selectableAxisMap.new:
+      return 300;
+    default:
+      return 1;
+  }
+}
 
 const filterValidValue = (areas, key, selectedAxis) => {
   if (selectedAxis === selectableAxisMap.perMillion) {
@@ -130,7 +142,7 @@ function Map() {
               filled: true,
               radius: 100000,
               extruded: true,
-              elevationScale: (selectedAxis === selectableAxisMap.total) ? 80 : 200,
+              elevationScale: getElevationScale(selectedAxis),
               getElevation: d => {
                 return d[selectedSituation]
               },
