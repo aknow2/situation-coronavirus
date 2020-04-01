@@ -13,6 +13,7 @@ const createTranslator = () =>  {
   }
 }
 const en = {
+  case: 'cases',
   aggregation: 'Aggregation',
   total_confirmed: 'Total confirmed',
   suspected_china: 'Suspected (China)',
@@ -41,6 +42,7 @@ const en = {
 }
 
 const ja = {
+  case: '人',
   aggregation: '集計方法',
   area: '地域',
   total: '累計',

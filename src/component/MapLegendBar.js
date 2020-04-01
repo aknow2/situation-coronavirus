@@ -97,10 +97,10 @@ function MobileLegend({isMobile, selectedSituation, selectedAxis, onSelectAxis, 
       >
       <div style={{ display: 'flex', alignItems: 'center' }}>
       <Typography variant={'body2'} color="inherit" style={{marginRight: 10,}}>
-        {title.length > 10 ?  title.substring(0, 10)+'...' : title} - {translate(selectedAxis)}
+        {title.length > 10 ?  title.substring(0, 10)+'...' : title} - {translate(selectedAxis)} 
       </Typography>
       <Typography>
-        {selectedAxis !== selectableAxisMap.perMillion? value: ''}
+        {selectedAxis !== selectableAxisMap.perMillion? value+translate('case'): ''}
       </Typography>
       </div>
       </ExpansionPanelSummary>
@@ -146,6 +146,7 @@ function MobileLegend({isMobile, selectedSituation, selectedAxis, onSelectAxis, 
           })
           }
         </div>
+
       </ExpansionPanelDetails>
     </ExpansionPanel>
   </div>);

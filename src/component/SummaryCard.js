@@ -5,8 +5,9 @@ import ArrowDownIcon from '@material-ui/icons/ArrowDropDown'
 import PlayIcon from '@material-ui/icons/PlayCircleFilled'
 import PauseIcon from '@material-ui/icons/PauseCircleFilled'
 import {ListItemSecondaryAction, Card, List, ListItem, Typography, IconButton, Grid, Slider, ListItemText,  MenuItem, Menu, Divider } from '@material-ui/core';
-import { createAdditionalInfoList, createItem, situationMap } from './AdditionalInfoList';
+import { createItem, situationMap } from './AdditionalInfoList';
 import { translate, selectableCountryMap, selectableSituationMap, selectableAxisMap, reduce, calcDelta } from '../util';
+import Ranking from './Ranking';
 
 const selectableSituations = Object.values(selectableSituationMap);
 const selectableAxis = Object.values(selectableAxisMap);
@@ -29,12 +30,12 @@ const getCurrentValueLabel = (selectedAxis, currentValue) => {
   if (selectedAxis === selectableAxisMap.perMillion) {
     return `${translate(selectedAxis)}`
   }
-  return `${translate(selectedAxis)} ${currentValue}`
+  return `${translate(selectedAxis)} ${currentValue}${translate('case')}`
 }
 
 function SummaryCard (props){
-  const {data, oldData, additionalInfo,
-    oldAdditionalInfo, day, nextDate, prevDate, dateList,
+  const {data, oldData, day, nextDate, prevDate, dateList,
+    plotData,
     selectedSituation,
     onSelectSituation,
     selectedAxis,
@@ -46,13 +47,11 @@ function SummaryCard (props){
   const [situationMenuEl, toggleSituationMenuEl] = useState(null);
   const [axisMenuEl, toggleAxisMenuEl] = useState(null);
   const totalConfirmed = createItem(data, oldData, situationMap.total_confirmed, selectableCountryMap.all_country);
-  const totalDeathsInChina = createItem(data, oldData, situationMap.deaths, selectableCountryMap.china);
-  const totalOutsideDeaths = createItem(data, oldData, situationMap.deaths, selectableCountryMap.outside_china);
-  const addtionalInfoList = createAdditionalInfoList(additionalInfo, oldAdditionalInfo);
+  const totalDeaths = createItem(data, oldData, situationMap.deaths, selectableCountryMap.all_country);
   const dayList = dateList.map((s, i) => ({ value: i, day: s.day }));
   const selectedIndex = dayList.find(d => d.day === day).value;
   const currentValue = getCurrentValue(selectedAxis, data, oldData, selectedSituation)??0
-  return <Card
+ return <Card
     style={{
       width: 280,
       position: "absolute",
@@ -190,21 +189,22 @@ function SummaryCard (props){
             />
           </ListItemSecondaryAction>
         </ListItem>
-        <Divider />
+       <Divider />
       </List>
       <List style={{ maxHeight: window.innerHeight/5, overflowY: 'scroll' }}>
         {
           totalConfirmed
         }
         {
-          totalDeathsInChina
+          totalDeaths
         }
-        {
-          totalOutsideDeaths
-        }
-        {
-          addtionalInfoList
-        }
+       <Divider />
+       {
+         <Ranking
+          data={plotData}
+          selectedSituation={selectedSituation} 
+         />
+       }
       </List>
   </Card>
 }

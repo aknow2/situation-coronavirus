@@ -55,9 +55,10 @@ const calcPlotData = (selectedAxis, selectedSituation, filteredData, oldData) =>
 
   if (selectedAxis === selectableAxisMap.perMillion) {
     return filteredData.map(data => {
+      const v = data[selectedSituation] / data.population * million;
       return {
         ...data,
-        [selectedSituation]: data[selectedSituation] / data.population * million
+        [selectedSituation]: Math.floor(v*100)/100
       };
     })
   }
@@ -119,8 +120,8 @@ function Map() {
             return [result[1], result[0], 0];
           } 
           const filteredData = filterValidValue(data, selectedSituation, selectedAxis)
-          console.log(filteredData);
-          const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldData);
+          const oldfilteredData = filterValidValue(oldData, selectedSituation, selectedAxis)
+          const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldfilteredData);
           const layers = [
             new ColumnLayer({
               id: 'column-layer', 
@@ -153,6 +154,7 @@ function Map() {
             displaySize === 'desktop' &&
             <SummaryCard
               data={data}
+              plotData={plotData}
               oldData={oldData}
               day={day}
               nextDate={nextDate}
@@ -174,12 +176,14 @@ function Map() {
             displaySize === 'mobile' &&
             <ExpandController
               data={data}
+              plotData={plotData}
               day={day}
               oldData={oldData}
               nextDate={nextDate}
               prevDate={prevDate}
               onChangeDate={onChangeDate}
               dateList={dateList}
+              selectedSituation={selectedSituation}
               additionalInfo={additionalInfo}
               oldAdditionalInfo={oldAdditionalInfo}
             />
