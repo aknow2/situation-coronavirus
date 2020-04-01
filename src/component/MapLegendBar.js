@@ -108,6 +108,7 @@ function MobileLegend({isMobile, selectedSituation, selectedAxis, onSelectAxis, 
         <div>
         <Legend 
           selectedAxis={selectedAxis}
+          selectedSituation={selectedSituation}
           isMobile={isMobile}
         />
         <Divider style={{ margin: 5, boxSizing: 'border-box' }}/>

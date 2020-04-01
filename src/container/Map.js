@@ -147,7 +147,7 @@ function Map() {
             onSelectSituation={onSelectSituation}
             onSelectAxis={onSelectAxis}
             selectedAxis={selectedAxis}
-            data={data}
+            data={plotData}
           />
           {
             displaySize === 'desktop' &&
