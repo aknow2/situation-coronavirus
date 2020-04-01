@@ -120,8 +120,7 @@ function Map() {
             return [result[1], result[0], 0];
           } 
           const filteredData = filterValidValue(data, selectedSituation, selectedAxis)
-          const oldfilteredData = filterValidValue(oldData, selectedSituation, selectedAxis)
-          const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldfilteredData);
+          const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldData);
           const layers = [
             new ColumnLayer({
               id: 'column-layer', 
