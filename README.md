@@ -2,7 +2,10 @@
   
 https://aknow2.com/situation-coronavirus/  
   
-Source is [Novel Coronavirus (2019-nCoV) situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports)
+Source 
+ [Novel Coronavirus (2019-nCoV) situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports)  
+[worldometers (population of each country)](https://www.worldometers.info/)
+
 
 # Setup
 1. create `.env` file
