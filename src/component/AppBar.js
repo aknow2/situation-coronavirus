@@ -20,7 +20,7 @@ function AppToolbar (props){
           <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
             <div style={{ display: 'flex', justifyContent: "space-between" }}>
               <Typography variant={titleSize}>
-                SITUATION of Coronavirus (COVID-19)
+                COVID-19 Situation Timelapse
               </Typography>
             </div>
             <div style={{ width: '100%', display: 'flex', alignItems: "center", justifyContent: 'space-between' }}>
