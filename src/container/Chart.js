@@ -131,7 +131,7 @@ function Chart() {
                       return<Line key={key} dataKey={key}  type="monotone" stroke={colors[index%colors.length]}/>
                     })
                   }
-                  <Legend wrapperStyle={{ color: '#CCCCCC' }}/>
+                  <Legend wrapperStyle={{ color: '#CCCCCC' }} formatter={(v) => translate(v)} />
                 </LineChart>
                 <div>
                   <div style={{marginBottom: 32}}>

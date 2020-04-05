@@ -127,7 +127,7 @@ const places = [
       {
         id: 20,
         name: 'United States of America',
-        country: 'USA',
+        country: 'U.S.A.',
         population: 327200000,
         location: [38.936851, -101.878757]
       },
@@ -217,7 +217,7 @@ const places = [
       {
         id: 33,
         name: 'United Arab Emirates',
-        country: 'UAE',
+        country: 'U.A.E.',
         population: 9858664,
         location: [23.898799, 54.289701]
       },

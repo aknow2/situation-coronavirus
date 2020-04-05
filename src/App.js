@@ -13,8 +13,7 @@ function App() {
   const [state, setState] = useState(initState)
   const onChangeTabIndex = tabIndex => {
     setState({ tabIndex })
-  }
-
+  };
   return (
     <div>
     <AppToolbar 

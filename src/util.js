@@ -38,7 +38,9 @@ const en = {
   travelHistoryChina: 'Confirmed cases with travel history to China ',
   transmissionOutsideOfChina: 'Confirmed possible or confirmed transmission outside of China',
   underInvestigation: 'Confirmed cases with site of transmission under investigation',
-  outsideReporting: 'Outside reporting country and outside China'
+  outsideReporting: 'Outside reporting country and outside China',
+  map: 'Map',
+  chart: 'Chart'
 }
 
 const ja = {
@@ -68,6 +70,8 @@ const ja = {
   travelHistoryChina: '感染者(中国への渡航歴がある者)',
   transmissionOutsideOfChina: '感染者(中国への渡航歴が無い者)',
   underInvestigation: '感染者(監視下にいた者)',
+  map: '地図',
+  chart: 'グラフ'
 }
 
 const translateMap = {

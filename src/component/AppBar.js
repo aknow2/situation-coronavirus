@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, Tab, Tabs,  Link } from '@material-ui/core
 import MapIcon from '@material-ui/icons/Explore';
 import ChartIcon from '@material-ui/icons/BarChart';
 import { SituationContext } from '../Provider';
+import { translate } from '../util';
 
 const whoLink =  "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports";
 
@@ -25,15 +26,15 @@ function AppToolbar (props){
             </div>
             <div style={{ width: '100%', display: 'flex', alignItems: "center", justifyContent: 'space-between' }}>
               <Tabs value={tabIndex} onChange={handleChange} >
-                <Tab icon={<MapIcon fontSize="small" />} label="Map" />
-                <Tab icon={<ChartIcon fontSize="small" />} label="Chart" />
+                <Tab icon={<MapIcon fontSize="small" />} label={translate('map')} />
+                <Tab icon={<ChartIcon fontSize="small" />} label={translate('chart')} />
               </Tabs>
               <div>
                 <Link color="inherit" href={whoLink} variant="body2" underline="always">
                   	Source is WHO situation report 
                 </Link>
                 <Typography variant="body2">
-                  last updated: 2020/04/03
+                  last updated: 2020/04/05
                 </Typography>
               </div>
             </div>
