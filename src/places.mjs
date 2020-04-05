@@ -1040,7 +1040,7 @@ const places = [
       },
       {
         id: 156,
-        name: 'Cote d’Ivoire',
+        name: 'Côte d’Ivoire',
         country: 'Côte d’Ivoire',
         population: 26209992,
         location: [8.205605, -5.874824]
@@ -1170,7 +1170,7 @@ const places = [
       },
       {
         id: 175,
-        name: 'Curaçao',
+        name: 'Cura çao',
         country: 'Curaçao',
         population: 160000,
         location: [12.214450, -69.050532]
@@ -1429,7 +1429,7 @@ const places = [
       },
       {
         id: 214,
-        name: 'Timor -Leste',
+        name: 'Timor-Leste',
         country: 'Timor-Leste',
         population: 1310599,
         location: [-8.803978, 125.903820]
@@ -1583,7 +1583,7 @@ const places = [
       },
       {
         id: 237,
-        name: "Lao People's Democratic Republic",
+        name: "Lao People’s Democratic Republic",
         country: "Lao People's Democratic Republic",
         population: 7248643,
         location: [19.839692, 102.303176]
@@ -1637,7 +1637,41 @@ const places = [
         population: 55140,
         location: [16.693079, 145.779959]
       },
- 
+      {
+        id: 245,
+        name: 'Botswana',
+        country: 'Botswana',
+        population: 2303697,
+        location: [-21.710280, 23.549645]
+      },
+      {
+        id: 246,
+        name: 'Burundi',
+        country: 'Burundi',
+        population: 11570000,
+        location: [-3.319406, 29.737461]
+      },
+      {
+        id: 247,
+        name: 'Sierra Leone',
+        country: 'Sierra Leone',
+        population: 7813215,
+        location: [8.568040, -11.917731]
+      },
+      {
+        id: 248,
+        name: 'Malawi',
+        country: 'Malawi',
+        population: 18143217,
+        location: [-13.783363, 33.863843]
+      },
+      {
+        id: 249,
+        name: 'Bonaire, Sint Eustatius and Saba',
+        country: 'Bonaire, Sint Eustatius and Saba',
+        population: 25157,
+        location: [12.205910, -68.226929]
+      },
   ];
 
 export default places;

@@ -20,24 +20,24 @@ export const calcGradientColor = (value, max = 1, min=0) => {
 export function getLegendMaxVal(selectedAxis, selectedSituation) {
   switch(selectedAxis) {
     case selectableAxisMap.new:
-        if (selectedSituation === selectableSituationMap.total_confirmed) {
-          return 1000;
-        } else {
-          return 500;
-        }
+      if (selectedSituation === selectableSituationMap.total_confirmed) {
+        return 500;
+      } else {
+        return 200;
+      }
     case selectableAxisMap.total:
-        if (selectedSituation === selectableSituationMap.total_confirmed) {
-          return 50000;
-        } else {
-          return 5000;
-        }
+      if (selectedSituation === selectableSituationMap.total_confirmed) {
+        return 10000;
+      } else {
+        return 5000;
+      }
     default:
     case selectableAxisMap.perMillion:
-        if (selectedSituation === selectableSituationMap.total_confirmed) {
-          return 20000;
-        } else {
-          return 2000;
-        }
+      if (selectedSituation === selectableSituationMap.total_confirmed) {
+        return 10000;
+      } else {
+        return 2000;
+      }
   }
 }
 

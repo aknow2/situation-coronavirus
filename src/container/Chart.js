@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
-import { LineChart, CartesianGrid, XAxis, YAxis, Line, Tooltip, Text } from 'recharts';
-import {  Typography, Container, Select, MenuItem, InputLabel } from '@material-ui/core';
+import { LineChart, CartesianGrid, XAxis, YAxis, Line, Tooltip, Text, Legend } from 'recharts';
+import {  Typography, Container, Select, MenuItem, InputLabel, Chip, Input } from '@material-ui/core';
 import { translate, reduce, filterAreas, selectableCountryMap, selectableSituationMap, selectableAxisMap } from '../util';
-
 
 const createValue = (s, situationKey, selectedCountry) => {
   if (orgSelectableSituation.includes(situationKey)) {
@@ -28,18 +27,31 @@ const createDeltaValue = (situation, oldSituation, situationKey, selectedCountry
 const containerDesktopStyle = {display: 'flex', margintTop: 16 }
 const containerMobileStyle = {margintTop: 16, marginBottom: 16 }
 
-const createChartData = (situations, key, selectedCountry, axis) => {
-  const valueKeys = ['value']
-  const data = situations.map((s, index) => ({
-    xAxis: s.day,
-    yAxis: '',
-    [valueKeys[0]]: axis === selectableAxisMap.total
-      ? createValue(s, key, selectedCountry)
-      : createDeltaValue(s, situations[index-1], key, selectedCountry)
-  }))
+const createChartData = (situations, key, selectedCountries, axis) => {
+  const valueKeys = selectedCountries;
+
+  const data = situations.map((s, index) => {
+    const base = {
+      xAxis: s.day,
+      yAxis: 'cases',
+    };
+    const dataList = selectedCountries.map((selectedCountry) => {
+      return {
+        [selectedCountry]: axis === selectableAxisMap.total
+        ? createValue(s, key, selectedCountry)
+        : createDeltaValue(s, situations[index-1], key, selectedCountry)
+      }
+    }) 
+    return dataList.reduce((acc, data) => {
+      return {
+        ...acc,
+        ...data
+      };
+    }, base)
+  })
   const title = axis === selectableAxisMap.total ?
-    `${translate(key)} - ${translate(selectedCountry)} - ${translate('total')}`
-    :`${translate(key)} - ${translate(selectedCountry)}- ${translate('new')} `
+    `${translate(key)} - ${translate('total')}`
+    :`${translate(key)} - ${translate('new')} `
   return {
     title,
     data,
@@ -60,23 +72,24 @@ export const isOutsideChinaReport = selectedSituation => {
 function Chart() {
   const [ state, setState ] = useState({
     selectedSituation: selectableSituationMap.total_confirmed,
-    selectedCountry: baseSelectableCountries[0],
+    selectedCountries: [baseSelectableCountries[0]],
     selectedAxis: selectableAxis[0],
   });
   return (<SituationContext.Consumer>
       {({situations, displaySize}) => {
         const latestSituation = situations[situations.length - 1];
+        const areas = latestSituation.areas
+            .filter(a => a.country !== 'china')
+            .map(areas => areas.country)
+            .filter((x, i, me) => me.indexOf(x) === i)
+        areas.sort((a, b) => a.localeCompare(b) );
         const selectableSituations = orgSelectableSituation.concat(Object.keys(latestSituation.additionalInfo))
-        const result = createChartData(situations, state.selectedSituation, state.selectedCountry, state.selectedAxis);
+        const result = createChartData(situations, state.selectedSituation, state.selectedCountries, state.selectedAxis);
         const titleSize = displaySize === 'mobile' ? 'h6' : 'h4';
         const chartWidth = window.innerWidth * (displaySize === 'desktop' ? 0.55 : 0.95);
         const chartHeight = window.innerHeight * (displaySize === 'desktop' ? 0.6 : 0.4);
-
         const containerStyle = displaySize === 'desktop' ? containerDesktopStyle : containerMobileStyle;
-        const selectableCountries = baseSelectableCountries.concat(latestSituation.areas
-            .filter(a => a.country !== 'china')
-            .map(areas => areas.country))
-            .filter((x, i, me) => me.indexOf(x) === i); 
+        const selectableCountries = baseSelectableCountries.concat(areas); 
         return <div style={{width: '100%', position: 'absolute', top: 130, }}>
             <Container>
               <Typography variant={titleSize} color="textSecondary">
@@ -99,12 +112,26 @@ function Chart() {
                         Cases
                       </Text>
                     } />
-                  <Tooltip formatter={value => ([value, result.title])} />
+                  <Tooltip formatter={(value, name) => {
+                    return [value, translate(name)]
+                  }} />
                   {
-                    result.valueKeys.map((key) => {
-                      return<Line key type="monotone" dataKey={key} stroke="#8884d8" />
+                    result.valueKeys.map((key, index)  => {
+                      const colors = [
+                        '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#000000', 
+                        '#800000', '#008000', '#000080', '#808000', '#800080', '#008080', '#808080', 
+                        '#C00000', '#00C000', '#0000C0', '#C0C000', '#C000C0', '#00C0C0', '#C0C0C0', 
+                        '#400000', '#004000', '#000040', '#404000', '#400040', '#004040', '#404040', 
+                        '#200000', '#002000', '#000020', '#202000', '#200020', '#002020', '#202020', 
+                        '#600000', '006000', '#000060', '#606000', '#600060', '#006060', '#606060', 
+                        '#A00000', '#00A000', '#0000A0', '#A0A000', '#A000A0', '#00A0A0', '#A0A0A0', 
+                        '#E00000', '#00E000', '#0000E0', '#E0E000', '#E000E0', '#00E0E0', '#E0E0E0', 
+                      ]
+                      
+                      return<Line key={key} dataKey={key}  type="monotone" stroke={colors[index%colors.length]}/>
                     })
                   }
+                  <Legend wrapperStyle={{ color: '#CCCCCC' }}/>
                 </LineChart>
                 <div>
                   <div style={{marginBottom: 32}}>
@@ -155,20 +182,31 @@ function Chart() {
                   </div>
                   <div style={{ marginBottom: 32 }}>
                       <InputLabel id="country-label">{translate('area')}</InputLabel>
-                      <Select
-                          labelId="country-label"
-                          value={state.selectedCountry}
-                          onChange={(ev) => {
-                            let value = ev.target.value;
-                            if(!baseSelectableCountries.includes(value)) {
-                              value = latestSituation.areas.find(a => a.country === value).country;
-                            }
-                            setState({
-                              ...state,
-                              selectedCountry: value
-                            })
-                          }}
-                        >
+                              <Select
+                                labelId="country-label"
+                                multiple
+                                value={state.selectedCountries}
+                                onChange={(ev) => {
+                                  setState(
+                                    {
+                                      ...state,
+                                      selectedCountries: ev.target.value
+                                    }
+                                  )
+                                }}
+                                input={<Input id="select-multiple-chip" />}
+                                renderValue={(v) => (
+                                  <div key={v}>
+                                    {state.selectedCountries.map((value) => (
+                                      <div key={value}>
+                                      <Chip
+                                        label={translate(value)}
+                                      />
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              >
                           {
                             selectableCountries.map(c => {
                               return (

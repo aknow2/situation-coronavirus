@@ -96,8 +96,6 @@ export const calcDelta = (base, old, key, filter) => {
 
 export const selectableCountryMap = {
   all_country: 'all_country',
-  china: 'china',
-  outside_china: 'outside_china',
 };
 
 export const selectableSituationMap = {

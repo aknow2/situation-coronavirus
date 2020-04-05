@@ -21,7 +21,7 @@ const initialViewState = {
 };
 
 const deltaData = (current, old, selectedSituation) => {
-  return current.map((c, index) => {
+  return current.map(c => {
     const oldValue = (() => {
       if(!old) {
         return undefined;
