@@ -6,6 +6,7 @@ import { SituationContext } from '../Provider';
 import { translate } from '../util';
 
 const whoLink =  "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports";
+const authorLink =  "https://twitter.com/aknow21";
 
 function AppToolbar (props){
   const { tabIndex, onChangeTabIndex } = props;
@@ -30,10 +31,17 @@ function AppToolbar (props){
                 <Tab icon={<ChartIcon fontSize="small" />} label={translate('chart')} />
               </Tabs>
               <div>
-                <Link color="inherit" href={whoLink} variant="body2" underline="always">
-                  	Source is WHO situation report 
+                <Typography>
+                  <Link color="inherit" href={whoLink} variant="caption" underline="always">
+                      Source is WHO situation report 
+                  </Link>
+                </Typography>
+                <Typography>
+                <Link color="inherit" href={authorLink} variant="caption" underline="always">
+                  	Author: tmknym
                 </Link>
-                <Typography variant="body2">
+                </Typography>
+                <Typography variant="caption">
                   last updated: 2020/04/05
                 </Typography>
               </div>
