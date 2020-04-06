@@ -38,11 +38,11 @@ function AppToolbar (props){
                 </Typography>
                 <Typography>
                 <Link color="inherit" href={authorLink} variant="caption" underline="always">
-                  	Author: tmknym
+                  	Author: aknow2
                 </Link>
                 </Typography>
                 <Typography variant="caption">
-                  last updated: 2020/04/05
+                  last updated: 2020/04/06
                 </Typography>
               </div>
             </div>

@@ -1170,7 +1170,7 @@ const places = [
       },
       {
         id: 175,
-        name: 'Cura çao',
+        name: 'Curaçao',
         country: 'Curaçao',
         population: 160000,
         location: [12.214450, -69.050532]
@@ -1583,7 +1583,7 @@ const places = [
       },
       {
         id: 237,
-        name: "Lao People’s Democratic Republic",
+        name: "Lao People's Democratic Republic",
         country: "Lao People's Democratic Republic",
         population: 7248643,
         location: [19.839692, 102.303176]
@@ -1671,6 +1671,13 @@ const places = [
         country: 'Bonaire, Sint Eustatius and Saba',
         population: 25157,
         location: [12.205910, -68.226929]
+      },
+      {
+        id: 250,
+        name: 'Falkland Islands',
+        country: 'Falkland Islands',
+        population: 2840,
+        location: [-51.638184, -59.617200]
       },
   ];
 
