@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import SummaryCard from "../component/SummaryCard";
 import ExpandController from "../component/ExpandController";
-import MapLegendBar, { calcGradientColor, getLegendMinMaxVal } from "../component/MapLegendBar";
+import MapLegendBar, { calcGradientColorGtoR, getLegendMinMaxVal, calcGradientColorYtoR } from "../component/MapLegendBar";
 import { ColumnLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
@@ -109,7 +109,14 @@ const getFillColor = (d, selectedAxis, selectedSituation) => {
     return d[selectedSituation]
   })();
   const range = getLegendMinMaxVal(selectedAxis, selectedSituation);
-  return calcGradientColor(count, range.max, range.min);
+
+  if (selectedAxis === selectableAxisMap.new) {
+    if (count < 0) {
+      return [0, 255, 0]
+    }
+    return calcGradientColorYtoR(count, range.max, 0);
+  }
+  return calcGradientColorGtoR(count, range.max, range.min);
 }
 
 function Map() {
