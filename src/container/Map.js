@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { SituationContext } from "../Provider";
 import SummaryCard from "../component/SummaryCard";
 import ExpandController from "../component/ExpandController";
-import MapLegendBar, { calcGradientColor, getLegendMaxVal } from "../component/MapLegendBar";
+import MapLegendBar, { calcGradientColor, getLegendMinMaxVal } from "../component/MapLegendBar";
 import { ColumnLayer } from '@deck.gl/layers';
 import { DeckGL } from '@deck.gl/react';
 import { MapView } from '@deck.gl/core';
 import { StaticMap } from 'react-map-gl';
 import { Typography } from '@material-ui/core';
-import { selectableSituationMap, selectableAxisMap } from '../util';
+import { selectableSituationMap, selectableAxisMap, translate } from '../util';
+import lsq from 'least-squares';
 
 const MAPBOX_ACCESS_TOKEN = process.env.REACT_APP_MAP_BOX_TOKEN;
 
@@ -19,23 +20,47 @@ const initialViewState = {
   pitch: 45,
   bearing: 0
 };
+const getOldValue = (c, old, selectedSituation) => {
+  if(!old) {
+    return undefined;
+  }
+  const area = old.find(o => o.id === c.id);
+  if (!area) {
+    return undefined;
+  }
+  const oldSituation = area[selectedSituation];
+  return oldSituation ? oldSituation : 0;
+};
 
-const deltaData = (current, old, selectedSituation) => {
+const calcRate = (c, latestData, selectedSituation) => {
+  const acc = latestData.reduce((acc, old, index) => {
+    const y = getOldValue(c, old, selectedSituation);
+    const nextData = latestData[index+1];
+    if (!nextData) {
+      return acc;
+    }
+    const nextY = getOldValue(c, nextData, selectedSituation)
+    const prev = y === undefined? 0 : y;
+    const next = nextY === undefined? 0 : nextY;
+    acc.x.push(index);
+    acc.y.push(next-prev);
+    return acc
+  }, {x: [], y: []})
+  const ret = {};
+  console.log(acc)
+  lsq(acc.x, acc.y, ret)
+  return ret.m;
+}
+
+const deltaData = (current, old, selectedSituation, data, situationIndex) => {
+  const latestData = data.slice(situationIndex > 7 ? situationIndex-8 : 0, situationIndex+1).map(s => s.areas)
   return current.map(c => {
-    const oldValue = (() => {
-      if(!old) {
-        return undefined;
-      }
-      const area = old.find(o => o.id === c.id);
-      if (!area) {
-        return undefined;
-      }
-      const oldSituation = area[selectedSituation];
-      return oldSituation ? oldSituation : 0;
-    })();
+    const oldValue = getOldValue(c, old, selectedSituation);
+    const delta = oldValue !== undefined ? c[selectedSituation] - oldValue : undefined
     return {
       ...c,
-      [selectedSituation]: oldValue !== undefined ? c[selectedSituation] - oldValue : undefined
+      [selectedSituation]: delta,
+      slope: calcRate(c, latestData, selectedSituation)
     }
   })
 }
@@ -63,7 +88,7 @@ const filterValidValue = (areas, key, selectedAxis) => {
 }
 
 const million = 10000000;
-const calcPlotData = (selectedAxis, selectedSituation, filteredData, oldData) => {
+const calcPlotData = (selectedAxis, selectedSituation, filteredData, oldData, data, situationIndex) => {
 
   if (selectedAxis === selectableAxisMap.perMillion) {
     return filteredData.map(data => {
@@ -74,12 +99,17 @@ const calcPlotData = (selectedAxis, selectedSituation, filteredData, oldData) =>
       };
     })
   }
-  return selectedAxis === selectableAxisMap.total ? filteredData : deltaData(filteredData, oldData, selectedSituation);
+  return selectedAxis === selectableAxisMap.total ? filteredData : deltaData(filteredData, oldData, selectedSituation, data, situationIndex);
 };
 const getFillColor = (d, selectedAxis, selectedSituation) => {
-  const count = d[selectedSituation]
-  const max = getLegendMaxVal(selectedAxis, selectedSituation);
-  return calcGradientColor(count, max);
+  const count = (() => {
+    if (selectedAxis === selectableAxisMap.new) {
+      return d.slope
+    }
+    return d[selectedSituation]
+  })();
+  const range = getLegendMinMaxVal(selectedAxis, selectedSituation);
+  return calcGradientColor(count, range.max, range.min);
 }
 
 function Map() {
@@ -90,8 +120,12 @@ function Map() {
     const { hoveredObject, pointerX, pointerY } = hoveredState;
     return hoveredObject && (
       <div style={{color: 'white', position: 'absolute', zIndex: 1, pointerEvents: 'none', left: pointerX, top: pointerY}}>
-        <p>{ hoveredObject.name } </p> 
-        <p>{hoveredObject.value}  </p>
+        <p>{ hoveredObject.name} - {translate(selectedAxis)} </p>
+        <p>{translate(selectedSituation)} {hoveredObject.value}  </p>
+        {
+          hoveredObject.slope &&
+          <p>{translate('slope')} {hoveredObject.slope}  </p>
+        }
       </div>
     );
   }
@@ -102,7 +136,8 @@ function Map() {
       setHoveredState({
         hoveredObject: {
           name,
-          value: data[selectedSituation]
+          value: data[selectedSituation],
+          slope: data.slope
         },
         pointerX: info.x,
         pointerY: info.y
@@ -132,7 +167,7 @@ function Map() {
             return [result[1], result[0], 0];
           } 
           const filteredData = filterValidValue(data, selectedSituation, selectedAxis)
-          const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldData);
+          const plotData = calcPlotData(selectedAxis, selectedSituation, filteredData, oldData, situations, situationIndex);
           const layers = [
             new ColumnLayer({
               id: 'column-layer', 
@@ -199,7 +234,6 @@ function Map() {
               oldAdditionalInfo={oldAdditionalInfo}
             />
           }
-       
             <DeckGL
               height={mapHeight}
               initialViewState={initialViewState}

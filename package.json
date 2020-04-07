@@ -14,6 +14,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "deck.gl": "^8.0.11",
+    "least-squares": "^0.0.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-map-gl": "^5.2.1",

@@ -14,6 +14,7 @@ const createTranslator = () =>  {
 }
 const en = {
   case: 'cases',
+  slope: 'slope',
   aggregation: 'Aggregation',
   total_confirmed: 'Total confirmed',
   suspected_china: 'Suspected (China)',
@@ -40,7 +41,9 @@ const en = {
   underInvestigation: 'Confirmed cases with site of transmission under investigation',
   outsideReporting: 'Outside reporting country and outside China',
   map: 'Map',
-  chart: 'Chart'
+  chart: 'Chart',
+  unchanged: 'unchanged',
+  new_description: '※The color indicates the trend from a week before selected date.'
 }
 
 const ja = {
@@ -71,7 +74,12 @@ const ja = {
   transmissionOutsideOfChina: '感染者(中国への渡航歴が無い者)',
   underInvestigation: '感染者(監視下にいた者)',
   map: '地図',
-  chart: 'グラフ'
+  chart: 'グラフ',
+  slope: '傾き',
+  increase: '増加',
+  unchanged: '変化なし',
+  decrease: '減少',
+  new_description: '※色は指定日の１週間前からの増減の傾向を表す'
 }
 
 const translateMap = {

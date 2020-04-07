@@ -42,7 +42,7 @@ function AppToolbar (props){
                 </Link>
                 </Typography>
                 <Typography variant="caption">
-                  last updated: 2020/04/06
+                  last updated: 2020/04/07
                 </Typography>
               </div>
             </div>

@@ -1170,7 +1170,7 @@ const places = [
       },
       {
         id: 175,
-        name: 'Curaçao',
+        name: 'Cura çao',
         country: 'Curaçao',
         population: 160000,
         location: [12.214450, -69.050532]
@@ -1678,6 +1678,13 @@ const places = [
         country: 'Falkland Islands',
         population: 2840,
         location: [-51.638184, -59.617200]
+      },
+      {
+        id: 251,
+        name: 'South Sudan',
+        country: 'South Sudan',
+        population: 11062113,
+        location: [4.752303, 31.679467]
       },
   ];
 
