@@ -109,8 +109,11 @@ const getFillColor = (d, selectedAxis, selectedSituation) => {
   })();
   const range = getLegendMinMaxVal(selectedAxis, selectedSituation);
   if (selectedAxis === selectableAxisMap.new) {
+    if (count === 0) {
+      return [0, 255, 255];
+    }
     if (count < 1) {
-      return [0, 255, 0]
+      return [0, 255, 0];
     }
     return calcGradientColorYtoR(count, range.max, 1);
   }
