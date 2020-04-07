@@ -28,7 +28,6 @@ export const calcGradientColorGtoY = (value, max = 1, min=0) => {
   if (value === undefined || value === 0) {
     return [0, 255, 0]
   }
-
   const delta = (max - min);
   const ratio = (value - min)/delta;
   const r = 255 * (ratio > 1 ? 1:ratio);
@@ -36,6 +35,7 @@ export const calcGradientColorGtoY = (value, max = 1, min=0) => {
   const b = 0;
   return [r, g, b]
 };
+
 export const calcGradientColorYtoR = (value, max = 1, min=0) => {
   if (value === 0) {
     return [0, 255, 255]
@@ -84,7 +84,7 @@ function Legend({isMobile, selectedAxis, selectedSituation}) {
     const range = getLegendMinMaxVal(selectedAxis, selectedSituation);
     if (selectedAxis === selectableAxisMap.new) {
       return {
-        min: `${translate('decrease')}(${range.min})`,
+        min: `${translate('decrease')}(<1)`,
         max: `${translate('increase')}(${range.max})`
       }
     }

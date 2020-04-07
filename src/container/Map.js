@@ -47,7 +47,6 @@ const calcRate = (c, latestData, selectedSituation) => {
     return acc
   }, {x: [], y: []})
   const ret = {};
-  console.log(acc)
   lsq(acc.x, acc.y, ret)
   return ret.m;
 }
@@ -109,12 +108,11 @@ const getFillColor = (d, selectedAxis, selectedSituation) => {
     return d[selectedSituation]
   })();
   const range = getLegendMinMaxVal(selectedAxis, selectedSituation);
-
   if (selectedAxis === selectableAxisMap.new) {
-    if (count < 0) {
+    if (count < 1) {
       return [0, 255, 0]
     }
-    return calcGradientColorYtoR(count, range.max, 0);
+    return calcGradientColorYtoR(count, range.max, 1);
   }
   return calcGradientColorGtoR(count, range.max, range.min);
 }
