@@ -1686,6 +1686,13 @@ const places = [
         population: 11062113,
         location: [4.752303, 31.679467]
       },
+      {
+        id: 252,
+        name: 'São Tomé and Príncipe',
+        country: 'São Tomé and Príncipe',
+        population: 218223,
+        location: [0.275165, 6.592298]
+      },
   ];
 
 export default places;
