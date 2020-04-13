@@ -77,6 +77,11 @@ import dayOf04042020 from "./data/dayOf04042020";
 import dayOf05042020 from "./data/dayOf05042020";
 import dayOf06042020 from "./data/dayOf06042020";
 import dayOf07042020 from "./data/dayOf07042020";
+import dayOf08042020 from "./data/dayOf08042020";
+import dayOf09042020 from "./data/dayOf09042020";
+import dayOf10042020 from "./data/dayOf10042020";
+import dayOf11042020 from "./data/dayOf11042020";
+import dayOf12042020 from "./data/dayOf12042020";
 
 const situationData  = {
   places,
@@ -159,6 +164,11 @@ const situationData  = {
     dayOf05042020,
     dayOf06042020,
     dayOf07042020,
+    dayOf08042020,
+    dayOf09042020,
+    dayOf10042020,
+    dayOf11042020,
+    dayOf12042020,
   ]
 };
 
