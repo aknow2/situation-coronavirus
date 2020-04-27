@@ -1604,7 +1604,7 @@ const places = [
   },
     {
     id: 240,
-    name: 'Guinea -Bissau',
+    name: 'Guinea-Bissau',
     country: 'Guinea-Bissau',
     population: 1955584,
     location: [12.132782, -14.424565]

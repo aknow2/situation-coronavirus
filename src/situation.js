@@ -82,7 +82,20 @@ import dayOf09042020 from "./data/dayOf09042020";
 import dayOf10042020 from "./data/dayOf10042020";
 import dayOf11042020 from "./data/dayOf11042020";
 import dayOf12042020 from "./data/dayOf12042020";
-import dayOf13042020 from "./data/dayOf12042020";
+import dayOf13042020 from "./data/dayOf13042020";
+import dayOf14042020 from "./data/dayOf14042020";
+import dayOf15042020 from "./data/dayOf15042020";
+import dayOf16042020 from "./data/dayOf16042020";
+import dayOf17042020 from "./data/dayOf17042020";
+import dayOf18042020 from "./data/dayOf18042020";
+import dayOf19042020 from "./data/dayOf19042020";
+import dayOf20042020 from "./data/dayOf20042020";
+import dayOf21042020 from "./data/dayOf21042020";
+import dayOf22042020 from "./data/dayOf22042020";
+import dayOf23042020 from "./data/dayOf23042020";
+import dayOf24042020 from "./data/dayOf24042020";
+import dayOf25042020 from "./data/dayOf25042020";
+import dayOf26042020 from "./data/dayOf26042020";
 
 const situationData  = {
   places,
@@ -171,6 +184,19 @@ const situationData  = {
     dayOf11042020,
     dayOf12042020,
     dayOf13042020,
+    dayOf14042020,
+    dayOf15042020,
+    dayOf16042020,
+    dayOf17042020,
+    dayOf18042020,
+    dayOf19042020,
+    dayOf20042020,
+    dayOf21042020,
+    dayOf22042020,
+    dayOf23042020,
+    dayOf24042020,
+    dayOf25042020,
+    dayOf26042020,
   ]
 };
 

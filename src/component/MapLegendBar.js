@@ -58,7 +58,7 @@ export function getLegendMinMaxVal(selectedAxis, selectedSituation) {
       if (selectedSituation === selectableSituationMap.total_confirmed) {
       return {min: -10, max: 100};
       } else {
-        return { min: -10, max: 50 };
+        return { min: -10, max: 20 };
       }
     case selectableAxisMap.total:
       if (selectedSituation === selectableSituationMap.total_confirmed) {
